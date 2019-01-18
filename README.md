@@ -3,6 +3,7 @@
 Intructions
 
 1) How to Clone the repository:
+
     git clone https://github.com/jport/SDGroup7.git
     This will create a folder in the active directory called SDGroup7
 2) How to pull updates from repository
