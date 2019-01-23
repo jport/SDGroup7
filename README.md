@@ -1,6 +1,6 @@
 # SDGroup7
 
-Intructions
+## Intructions
 
 1) How to Clone the repository:
     
