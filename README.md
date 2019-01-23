@@ -3,8 +3,11 @@
 ## Requirments
 
 MySQL 8.0
+
 Python 3.5 to 3.7
+
 Django
+
 mysqlclient
 
 ## Database Set Up
