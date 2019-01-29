@@ -10,9 +10,43 @@ Django
 
 mysqlclient
 
+## Environment Set Up
+
+Check python version: python3 --version
+
+Make sure you have pip3: sudo apt-get python3-pip
+
+sudo apt-get install mysql-server
+
+sudo apt-get install libmysqlclient-dev
+
+pip3 install django
+
+pip3 install mysqlclient
+
 ## Database Set Up
 
+sudo mysql -u root -p
+
+Press enter for an empty password
+> CREATE DATABASE appdata;
+
+> GRANT ALL PRIVILEGES ON *.* TO 'group7'@'localhost' IDENTIFIED BY 'seniordesign2';
+
+## Create admin account
+
+python3 manage.py createsuperuser
+>User: admin
+
+>Email: admin@recipetop.com
+
+>Password: seniordesign2
+
 ## Running the app
+
+python3 manage.py migrate
+
+python3 manage.py runserver
 
 ## Github Intructions
 
