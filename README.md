@@ -14,15 +14,17 @@ mysqlclient
 
 Check python version: python3 --version
 
-Make sure you have pip3: sudo apt-get python3-pip
+sudo -s
 
-sudo apt-get install mysql-server
+apt-get install mysql-server
 
-sudo apt-get install libmysqlclient-dev
+apt-get install libmysqlclient-dev
 
-pip3 install django
+apt-get install python3-django
 
-pip3 install mysqlclient
+apt-get install python3-mysqldb
+
+[press control+d]
 
 ## Database Set Up
 
@@ -31,7 +33,7 @@ sudo mysql -u root -p
 Press enter for an empty password
 > CREATE DATABASE appdata;
 
-> GRANT ALL PRIVILEGES ON *.* TO 'group7'@'localhost' IDENTIFIED BY 'seniordesign2';
+> GRANT ALL PRIVILEGES ON \*.* TO 'group7'@'localhost' IDENTIFIED BY 'seniordesign2';
 
 ## Create admin account
 
