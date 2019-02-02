@@ -10,3 +10,7 @@ def index(request):
 def home(request):
     #return HttpResponse("Hello, world. You're at main's index.")
     return render(request, 'main/home.html')
+
+def search(request):
+    #return HttpResponse("Hello, world. You're at main's index.")
+    return render(request, 'main/search.html')
