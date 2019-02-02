@@ -12,7 +12,7 @@ class Recipe(models.Model):
 
     ingredients = models.ManyToManyField('Ingredient', through='RecipeToIngredient', through_fields=('recipe', 'ingredient'))
     utensils = models.ManyToManyField('Utensil')
-    
+
     def __str__(self):
         return self.title + " " + str(self.ingredients)
 

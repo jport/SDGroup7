@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Recipe
 
 # Create your views here.
 
@@ -12,5 +13,8 @@ def home(request):
     return render(request, 'main/home.html')
 
 def search(request):
+    context = {
+        'recipes': Recipe.objects.all()
+    }
     #return HttpResponse("Hello, world. You're at main's index.")
-    return render(request, 'main/search.html')
+    return render(request, 'main/search.html', context)
