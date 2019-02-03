@@ -1,28 +1,23 @@
 * {
-    margin: 0;
-    padding: 0px;
-  }
-  
-  /*# sourceMappingURL=search.css.map */
-  /* body {
-    background-color: bisque;
-  } */
-  
-  .container {
-    width: 80%;
-    height: 100;
-  }
-  .container .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 5px;
-  }
+  margin: 0;
+  padding: 0px;
+}
 
-  .container .grid .card .card-image .card-title {
-    font-size: 30px;
-    font-weight: 400;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
-  
-  /*# sourceMappingURL=search.css.map */
-  
+/*# sourceMappingURL=search.css.map */
+.container {
+  width: 80%;
+  height: 100;
+}
+.container .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+}
+.container .grid h3 {
+  color: red;
+}
+.container h3 {
+  color: blue;
+}
+
+/*# sourceMappingURL=search.css.map */
