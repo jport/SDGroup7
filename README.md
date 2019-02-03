@@ -27,6 +27,7 @@ apt-get install python3-mysqldb
 [press control+d]
 
 **for mac**
+
 export PATH=$PATH:/usr/local/mysql/bin
 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
