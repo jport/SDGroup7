@@ -26,6 +26,11 @@ apt-get install python3-mysqldb
 
 [press control+d]
 
+**for mac**
+export PATH=$PATH:/usr/local/mysql/bin
+
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+
 ## Database Set Up
 
 sudo mysql -u root -p
@@ -46,7 +51,10 @@ python3 manage.py createsuperuser
 
 ## Running the app
 
+
 python3 manage.py migrate
+
+python3 manage.py loaddata data.json
 
 python3 manage.py runserver
 
