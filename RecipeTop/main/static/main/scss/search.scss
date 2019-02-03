@@ -1,0 +1,32 @@
+
+*{
+    margin:0;
+    padding:0px;
+
+}
+/*# sourceMappingURL=search.css.map */
+
+body{
+    background-color: bisque;
+}
+.container{
+    width:80%;
+    height:100;
+    
+    .grid{
+
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        grid-column-gap: 5px;
+        
+
+        h3{
+            color:red;
+        }
+    }
+    h3{
+        color:blue;
+    }
+
+}
