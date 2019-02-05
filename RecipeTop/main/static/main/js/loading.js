@@ -1,1 +1,1 @@
-window.setInterval(function(){window.location.href="home"},3000);
+window.setInterval(function(){window.location.href="users"},3000);

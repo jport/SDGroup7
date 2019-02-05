@@ -12,6 +12,10 @@ def home(request):
     #return HttpResponse("Hello, world. You're at main's index.")
     return render(request, 'main/home.html')
 
+def users(request):
+    #return HttpResponse("Hello, world. You're at main's index.")
+    return render(request, 'main/users.html')
+
 def search(request):
     context = {
         'recipes': Recipe.objects.all()
