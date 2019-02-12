@@ -6,25 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- import icons -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- matereliaze css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="static/main/css/search.css">
+    <link rel="stylesheet" href="static/main/css/menu.css">
     
 
 
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
-    <header class="container center-align">
-        <h1>Recipe Top</h1>
-    </header>
+    <div class="Mnavbar">
+        <div class="Mnav_container">
+            <div class="logo">
+                <h1>logo</h1>
+            </div>
+            <div class="time">
+                <h4 id="time"></h4>
+            </div>
+        </div>
+    </div> 
+    <div id="MenuIcon">
+        <div id="MenuLine"></div>
+    </div>
+    <div id="MainMenu">
+        <div id="logo">
+            <img>
+        </div>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header blue">
+                    <i class="material-icons">assignment</i>Recipes
+                </div>
+                <div class="collapsible-body blue">
+                        <a href="" class="waves-effect active red">create<i class="material-icons red">create</i></a>
+                        <a href="search" class="waves-effect active red">search<i class="material-icons red">search</i></a>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header blue"><i class="material-icons">place</i>Place holder</div>
+                <div class="collapsible-body blue"><span></div>
+            </li>
+            <li>
+                <div class="collapsible-header blue"><i class="material-icons">account_circle</i>Account</div>
+                <div class="collapsible-body blue">
+                        <a href="" class="waves-effect active red">account<i class="material-icons">create</i></a>
+                        <a href="" class="waves-effect active red">settings<i class="material-icons">search</i></a>
+                </div>
+            </li>
+        </ul>
+        <div id="close">
+            <img>
+        </div>
+    </div>
 
-    <main>
+    
         {% block content %}
+
+
         {% endblock %}
-    </main>
+    
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="static/main/js/menu.js"></script>
     
     {% block javascript %}{% endblock %}
 </body>
