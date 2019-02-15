@@ -1,0 +1,59 @@
+.Home_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.Home_container .photo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.Home_container .photo .min {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  border-radius: 50%;
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255, 253, 112, 0.8);
+}
+.Home_container .photo .min > h3 {
+  font-size: 24px;
+  margin-top: 7px;
+  margin-bottom: -10px;
+}
+.Home_container .photo .min > span {
+  font-size: 8px;
+  font-weight: 700;
+}
+.Home_container .photo .Title > h3 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  font-size: 20px;
+  color: black;
+}
+.Home_container .photo .heart_icon {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.Home_container .photo .heart_icon > i {
+  color: white;
+  font-size: 40px;
+}
+.Home_container .photo1 {
+  background-image: url("https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1506120378/MR_0917170472.jpg?itok=aWyDp3CA");
+}
+
+.example {
+  margin: 0 auto;
+  height: 300px;
+  width: 60vw;
+}
+
+/*# sourceMappingURL=home.css.map */

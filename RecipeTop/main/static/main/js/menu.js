@@ -31,9 +31,8 @@ function set_time(){
     if(hour>12){
         hour-=12;
     }
-    
-
     document.getElementById("time").innerHTML=hour+":"+minutes;
+
 }
 
 //call time function every 1 second

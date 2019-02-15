@@ -3,8 +3,29 @@
 {% block content %}
 <br>
 <br>
-<br>
-<br>
-<br>
-<h1>Home</h1>
+<div class="container">
+        <div class="carousel">
+        {% for recipe in recipes %}
+            <a href="#one!" class="carousel-item">
+                <div class="Home_container">
+                    <div class="photo photo1">
+                            <div class="min">
+                                <h3>50</h3>
+                                <span>mins</span>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="Title">
+                                <h3>{{recipe.title}}</h3>
+                            </div>
+                    </div>
+                </div>
+         {% endfor %}
+        </div>
+ </div>
+
+
+
+
 {% endblock %}
