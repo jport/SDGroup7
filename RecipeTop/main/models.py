@@ -12,6 +12,7 @@ class Recipe(models.Model):
 
     ingredients = models.ManyToManyField('Ingredient', through='RecipeToIngredient', through_fields=('recipe', 'ingredient'))
     utensils = models.ManyToManyField('Utensil')
+    keywords = models.ManyToManyField('Keyword')
 
     def __str__(self):
         return self.title + " " + str(self.ingredients)
@@ -32,6 +33,12 @@ class RecipeToIngredient(models.Model):
         return str(self.recipe) + " " + str(self.ingredient) + " " + str(self.quantity) + " " + str(self.unit)
 
 class Utensil(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class Keyword(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
