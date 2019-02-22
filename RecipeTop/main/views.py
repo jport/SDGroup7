@@ -22,16 +22,10 @@ def users(request):
     return render(request, 'main/users.html', context)
     
 def create(request):
-<<<<<<< HEAD
     context = {
         'ingredients':Recipe.objects.all
     }
-    #return HttpResponse("Hello, world. You're at main's index.")
     return render(request, 'main/create.html',context)
-=======
-
-    return render(request, 'main/create.html')
->>>>>>> 82c2f10ab954902050b5ec2bcd02df902ca731f2
 
 def search(request):
     context = {
