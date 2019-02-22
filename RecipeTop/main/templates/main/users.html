@@ -17,22 +17,12 @@
             <h1>Who's cooking?</h1>
         </div>
         <div class="forms">
-            <div class="person1 person">
-                <div class="picture girl"></div>
-                <h1 >Gera</h1>
-            </div>
-            <div class="person2 person">
-                <div class="picture boy"></div>
-                <h1>Jason</h1>
-            </div>
-            <div class="person3 person">
-                <div class="picture boy"></div>
-                <h1>Miguel</h1> 
-            </div>
-            <div class="person4 person">
-                <div class="picture boy"></div>
-                <h1>Edwin</h1>
-            </div>
+            {% for user in users %}
+                <div class="person1 person">
+                    <div class="picture girl"></div>
+                    <h1 >{{user.userName}}</h1>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
