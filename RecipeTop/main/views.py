@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Recipe, User
+from .models import Recipe, User, Ingredient
 
 # Create your views here.
 
@@ -23,7 +23,7 @@ def users(request):
     
 def create(request):
     context = {
-        'ingredients':Recipe.objects.all
+        'ingredients':Ingredient.objects.all()
     }
     return render(request, 'main/create.html',context)
 
