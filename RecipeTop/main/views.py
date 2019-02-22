@@ -20,8 +20,11 @@ def users(request):
     return render(request, 'main/users.html')
     
 def create(request):
+    context = {
+        'ingredients':Recipe.objects.all
+    }
     #return HttpResponse("Hello, world. You're at main's index.")
-    return render(request, 'main/create.html')
+    return render(request, 'main/create.html',context)
 
 def search(request):
     context = {
