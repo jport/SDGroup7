@@ -24,6 +24,14 @@ apt-get install python3-django
 
 apt-get install python3-mysqldb
 
+apt-get install docker.io
+
+pip3 install -U channels
+
+pip3 install channels_redis
+
+docker run --name rt_redis -p 6379:6379 -d redis:2.8
+
 [press control+d]
 
 **for mac**

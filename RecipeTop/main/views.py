@@ -33,3 +33,10 @@ def search(request):
     }
     
     return render(request, 'main/search.html', context)
+
+def sensor(request):
+    context = {
+        'reading': 99
+    }
+
+    return render(request, 'main/sensor.html', context)

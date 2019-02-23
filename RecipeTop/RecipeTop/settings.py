@@ -124,5 +124,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Channels
+# Channels settings
 ASGI_APPLICATION = 'RecipeTop.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts" : [('127.0.0.1', 6379)],
+        }
+    }
+}
