@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="static/main/css/users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
     <title>loading screen</title>
 </head>
@@ -24,8 +25,20 @@
                 </div>
             {% endfor %}
         </div>
+
+        <div class="create">
+            <form action="{% url 'users' %}" method="POST">
+                <input type="text" placeholder="name" name="name" required>
+                <input type="submit" value="Register" class="btn btn-secondary btn-block">
+            </form>
+        </div>
+
+    
+ </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="static/main/js/users.js"></script>
+
 </body>
 </html>

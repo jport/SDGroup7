@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instance = M.Chips.getInstance(elems);
 
+    
+
   });
 
 

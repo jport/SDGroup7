@@ -62,5 +62,14 @@
   color: #f9f9f9;
   position: absolute;
 }
+.Micontainer .create {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background-color: rosybrown;
+  height: 20vh;
+  width: 100vh;
+}
 
 /*# sourceMappingURL=users.css.map */
