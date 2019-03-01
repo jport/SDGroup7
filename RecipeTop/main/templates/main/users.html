@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +27,7 @@
 
         <div class="create">
             <form action="{% url 'users' %}" method="POST">
+                {% csrf_token %}
                 <input type="text" placeholder="name" name="name" required>
                 <input type="submit" value="Register" class="btn btn-secondary btn-block">
             </form>

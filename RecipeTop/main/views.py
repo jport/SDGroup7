@@ -15,10 +15,10 @@ def home(request):
     return render(request, 'main/home.html',context)
 
 def users(request):
-
-    # if request.method=='POST':
-    #     #get form 
-    #     name=request.POST['name']
+    if request.method == 'POST':
+        name = request.POST['name']
+        newUser = User(userName=name, age=20)
+        newUser.save()
 
     context = {
         'users': User.objects.all()
