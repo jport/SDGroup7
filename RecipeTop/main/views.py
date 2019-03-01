@@ -15,13 +15,19 @@ def home(request):
     return render(request, 'main/home.html',context)
 
 def users(request):
+    err = ""
     if request.method == 'POST':
         name = request.POST['name']
-        newUser = User(userName=name, age=20)
-        newUser.save()
+
+        if User.objects.all().filter(userName=name).count() != 0:
+            err = "User taken"
+        else:
+            newUser = User(userName=name, age=20)
+            newUser.save()
 
     context = {
-        'users': User.objects.all()
+        'users': User.objects.all(),
+        'error': err
     }
 
     return render(request, 'main/users.html', context)
