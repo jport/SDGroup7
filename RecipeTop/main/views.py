@@ -15,14 +15,15 @@ def home(request):
     return render(request, 'main/home.html',context)
 
 def users(request):
-    err = ""
+    err = ''
     if request.method == 'POST':
         name = request.POST['name']
+        age= request.POST['age']
 
         if User.objects.all().filter(userName=name).count() != 0:
-            err = "User taken"
+            err = "Sorry User is taken"
         else:
-            newUser = User(userName=name, age=20)
+            newUser = User(userName=name, age=age)
             newUser.save()
 
     context = {

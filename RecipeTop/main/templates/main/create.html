@@ -13,22 +13,25 @@
 <br>
 
 <div class="create_container blue">
-        <label for="title">you</label>
+        <label for="title"></label>
         <input type="text" name="title" placeholder="Enter your title">
 
-        <!-- ingredients -->
-        <h1>Ingredients</h1>
-        <input type="text" placeholder="enter ingredients">
-
-        {% for recipe in ingredients%}
-        <label>
-                <input type="checkbox"  value="{{recipe.name}}" />
-                <span>{{recipe.name}}</span>
-        </label>
-        {% endfor %}
+        <table id="table">
+        <tr>
+				<td>Ingredient</td>
+				<td>Quantity</td>
+				<td>Unit</td>
+        </tr>       
+		<tr id="example">
+			<td><input type="text" name="ingredient" placeholder="Enter your ingredient"></td>   
+			<td><input type="text" name="quantity" placeholder="Enter your quantity"></td>
+			<td><input type="text" name="unit" placeholder="Enter the unit"></td>	 
+		</tr>
+		</table>
+		<button onclick="table()" class='waves-effect waves-light btn'>Add another Ingredient</button>
+       
 
         <!-- utensils -->
-
         <h3>utensils</h3>
 
         {% for utensil in utensils%}
@@ -43,9 +46,6 @@
         <div class="chips chips-autocomplete" id="chip"></div>
 
         <!-- steps -->
-
-
-
 </div>
 
 
