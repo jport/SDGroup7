@@ -44,7 +44,6 @@ def search(request):
     context = {
         'recipes': Recipe.objects.all()
     }
-    
     return render(request, 'main/search.html', context)
 
 def sensor(request):
@@ -53,3 +52,9 @@ def sensor(request):
     }
 
     return render(request, 'main/sensor.html', context)
+
+def hearted(request):
+    context ={
+        'recipes': Recipe.objects.all()
+    }
+    return render(request, 'main/hearted.html',context)
