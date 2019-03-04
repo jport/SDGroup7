@@ -63,12 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let steps = document.getElementById('steps');
 let trial = document.getElementById('in');
-var btnClick=1;
 
 const addSteps=()=>{
     let input = document.createElement('input');
     input.type="text";
-    input.name='step'+btnClick;
+    input.name='step';
     btnClick++;
     steps.append(input);
 }
