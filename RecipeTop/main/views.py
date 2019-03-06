@@ -31,7 +31,7 @@ def users(request):
     }
 
     return render(request, 'main/users.html', context)
-    
+
 def create(request):
     context = {
         'ingredients':Ingredient.objects.all(),

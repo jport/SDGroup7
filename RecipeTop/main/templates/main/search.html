@@ -16,7 +16,7 @@
         {% for recipe in recipes %}
         <div class="card">
             <div class="card-image">
-                <img src="https://www.thechunkychef.com/wp-content/uploads/2017/08/One-Pot-Chicken-Parmesan-Pasta-feat.jpg">
+                <img src="{{recipe.image.url}}">
                 <span class="card-title">{{recipe.title}}</span>
             </div>
             <div class="card-content">

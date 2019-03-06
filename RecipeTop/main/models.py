@@ -12,7 +12,9 @@ class Recipe(models.Model):
 
     ingredients = models.ManyToManyField('Ingredient', through='RecipeToIngredient', through_fields=('recipe', 'ingredient'))
     utensils = models.ManyToManyField('Utensil')
-    keywords = models.ManyToManyField('Keyword')
+    keywords = models.ManyToManyField('Keyword', blank=True)
+
+    image = models.ImageField(upload_to='recipe_image', blank=True)
 
     def __str__(self):
         return self.title + " " + str(self.ingredients)
