@@ -4,7 +4,7 @@ import socket
 from django.core.management.base import BaseCommand, CommandError
 from asgiref.sync import async_to_sync
 
-TCP_IP = '192.168.43.177'
+TCP_IP = '192.168.43.248'
 TCP_PORT = 2050
 BUFFER_SIZE = 1024
 
