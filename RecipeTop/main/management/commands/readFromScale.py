@@ -28,6 +28,9 @@ class Command(BaseCommand):
         # Listen for one connection
         s.listen(1)
 
+        conn, addr = s.accept()
+        print ('Connection address:', addr)
+
         while True:
             data = con.recv(BUFFER_SIZE)
             if not data: break
