@@ -28,7 +28,7 @@ class Command(BaseCommand):
         # Listen for one connection
         s.listen(1)
 
-        conn, addr = s.accept()
+        con, addr = s.accept()
         print ('Connection address:', addr)
 
         while True:
