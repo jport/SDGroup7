@@ -22,7 +22,7 @@ class Command(BaseCommand):
         )
 
         # Start server
-        s = socket.socket(socket.AF_NET, socket.SOCK_STREAM)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.bind((TCP_IP, TCP_PORT))
 
         # Listen for one connection
