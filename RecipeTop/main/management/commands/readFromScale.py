@@ -32,7 +32,9 @@ class Command(BaseCommand):
         print ('Connection address:', addr)
 
         while True:
+            print ("before")
             data = con.recv(BUFFER_SIZE)
+            print("hi")
             if not data: break
 
             self.stdout.write("Value: " + str(data).encode('utf-8'))
