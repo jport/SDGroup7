@@ -1,7 +1,12 @@
 import time
 import channels.layers
+import socket
 from django.core.management.base import BaseCommand, CommandError
 from asgiref.sync import async_to_sync
+
+TCP_IP = '192.168.43.248'
+TCP_PORT = 2050
+BUFFER_SIZE = 1024
 
 class Command(BaseCommand):
     help = "Reads scale over wifi and sends on Django Channel"
@@ -16,16 +21,22 @@ class Command(BaseCommand):
             'worker_channel'
         )
 
+        # Start server
+        s = socket.socket(socket.AF_NET, socket.SOCK_STREAM)
+        s.bind((TCP_IP, TCP_PORT))
+
+        # Listen for one connection
+        s.listen(1)
+
         while True:
-            self.stdout.write("Value: " + str(value))
+            data = con.recv(BUFFER_SIZE)
+            if not data: break
+
+            self.stdout.write("Value: " + str(data).encode('utf-8'))
             async_to_sync(channel_layer.group_send)(
                 group_name,
                 {
                     'type': 'scale_message',
-                    'message': str(value)
+                    'message': str(data)
                 }
             )
-
-            value += 1
-
-            time.sleep(.5);
