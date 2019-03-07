@@ -4,7 +4,7 @@ import socket
 from django.core.management.base import BaseCommand, CommandError
 from asgiref.sync import async_to_sync
 
-TCP_IP = '192.168.43.248'
+TCP_IP = '192.168.43.177'
 TCP_PORT = 2050
 BUFFER_SIZE = 1024
 
@@ -32,16 +32,16 @@ class Command(BaseCommand):
         print ('Connection address:', addr)
 
         while True:
-            print ("before")
+            #print ("before")
             data = con.recv(BUFFER_SIZE)
-            print("hi")
+            #print("hi")
             if not data: break
 
-            self.stdout.write("Value: " + str(data))
+            self.stdout.write("Value: " + data.decode('utf-8'))
             async_to_sync(channel_layer.group_send)(
                 group_name,
                 {
                     'type': 'scale_message',
-                    'message': str(data)
+                    'message': data.decode('utf-8')
                 }
             )
