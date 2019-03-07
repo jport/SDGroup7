@@ -37,7 +37,7 @@ class Command(BaseCommand):
             print("hi")
             if not data: break
 
-            self.stdout.write("Value: " + str(data).encode('utf-8'))
+            self.stdout.write("Value: " + str(data))
             async_to_sync(channel_layer.group_send)(
                 group_name,
                 {
