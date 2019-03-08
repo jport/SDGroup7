@@ -41,8 +41,23 @@ def create(request):
     return render(request, 'main/create.html',context)
 
 def search(request):
+    query_list = Recipe.objects.all()
+
+    #difficulty
+    if 'difficulty' in request.GET:
+        difficulty = request.GET['difficulty']
+        if difficulty:
+            query_list = query_list.filter(difficulty = difficulty)
+    #rating
+    if 'rating' in request.GET:
+        rating = request.GET['rating']
+        if rating:
+            query_list = query_list.filter(rating = rating)
+    
     context = {
-        'recipes': Recipe.objects.all()
+        'recipes': Recipe.objects.all(),
+        'filter':query_list,
+
     }
     return render(request, 'main/search.html', context)
 
