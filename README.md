@@ -30,6 +30,8 @@ pip3 install -U channels
 
 pip3 install channels_redis
 
+pip3 install Pillow
+
 docker run --name rt_redis -p 6379:6379 -d redis:2.8
 
 [press control+d]
