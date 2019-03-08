@@ -37,11 +37,11 @@
                     <i class="material-icons">assignment</i>Recipes
                 </div>
                 <div class="collapsible-body blue">
-                        <a href="create" class="waves-effect active red">create<i class="material-icons red">create</i></a>
-                        <a href="search" class="waves-effect active red">search<i class="material-icons red">search</i></a>
+                        <a href={% url 'create' %} class="waves-effect active red">create<i class="material-icons red">create</i></a>
+                        <a href={% url 'search' %} class="waves-effect active red">search<i class="material-icons red">search</i></a>
                         <br>
                         <br>
-                        <a href="hearted" class="waves-effect active pink">favorite<i class="material-icons red">favorite</i></a>
+                        <a href={% url 'hearted' %} class="waves-effect active pink">favorite<i class="material-icons red">favorite</i></a>
                 </div>
             </li>
             <li>

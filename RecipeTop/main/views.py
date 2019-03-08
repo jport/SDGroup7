@@ -8,9 +8,9 @@ def index(request):
     return render(request, 'main/index.html')
 
 def home(request, userId=-1):
-
     # Set session user id
-    print(userId)
+    if userId != -1:
+        request.session["userId"] = userId
 
     context = {
         'recipes': Recipe.objects.all()

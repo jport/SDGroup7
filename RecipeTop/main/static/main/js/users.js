@@ -2,8 +2,7 @@ let user_selection = document.getElementsByClassName("person");
 
 for (let i = 0; i < user_selection.length; i++) {
     user_selection[i].addEventListener("click", function() {
-      alert(user_selection[i].id)
-      window.location.href="home?userId=" + user_selection[i].id;
+      window.location.href="home/" + user_selection[i].id;
     });
   };
 
