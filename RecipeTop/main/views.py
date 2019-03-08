@@ -7,7 +7,11 @@ from .models import Recipe, User, Ingredient, Utensil
 def index(request):
     return render(request, 'main/index.html')
 
-def home(request):
+def home(request, userId=-1):
+
+    # Set session user id
+    print(userId)
+
     context = {
         'recipes': Recipe.objects.all()
     }

@@ -1,8 +1,7 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 {% block stylesheet %}
-
-
-<link rel="stylesheet" href="static/main/css/create.css">
+<link rel="stylesheet" href={% static "main/css/create.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -70,11 +69,8 @@
 	</form>
 		
 </div>
-
-
-
 {% endblock %}
 
 {%block javascript %}
-<script src="static/main/js/create.js"></script>
+<script src={% static "main/js/create.js" %}></script>
 {% endblock%}

@@ -1,7 +1,8 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="static/main/css/home.css">
+<link rel="stylesheet" href={% static "main/css/home.css" %}>
 {% endblock %}
 
 {% block content %}

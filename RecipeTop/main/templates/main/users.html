@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="static/main/css/users.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href={% static "main/css/materialize.css" %}>
+    <link rel="stylesheet" href={% static "main/css/users.css" %}>
     
     <title>loading screen</title>
 </head>
@@ -18,9 +18,9 @@
         </div>
         <div class="forms">
             {% for user in users %}
-                <div class="person1 person">
+                <div class="person1 person" id={{user.id}}>
                     <div class="picture girl"></div>
-                    <h1 >{{user.userName}}</h1>
+                    <h1>{{user.userName}}</h1>
                 </div>
             {% endfor %}
         </div>
@@ -32,19 +32,18 @@
                 <input type="text" placeholder="age" name="age" required>
                 <input type="submit" value="Register" class="btn btn-secondary btn-block">
             </form>
-    </div>
- {% if error %}
- <h1 id="error">{{error}}</h1>
-{% endif %}
+        </div>
+        {% if error %}
+        <h1 id="error">{{error}}</h1>
+        {% endif %}
 
-<h4>{{example}}</h4>
+        <h4>{{example}}</h4>
 
-    
- </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="static/main/js/users.js"></script>
+<script src={% static "main/js/users.js" %}></script>
 
 </body>
 </html>
