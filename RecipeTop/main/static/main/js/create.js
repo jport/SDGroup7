@@ -68,11 +68,18 @@ const addSteps=()=>{
     let input = document.createElement('input');
     input.type="text";
     input.name='step';
-    btnClick++;
+
     steps.append(input);
 }
 
 let checker = document.querySelectorAll('#example > td');
+
+
+let salt = document.getElementById('chip')
+
+
+
+
 
 
 

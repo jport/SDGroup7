@@ -57,6 +57,7 @@ def search(request):
     context = {
         'recipes': Recipe.objects.all(),
         'filter':query_list,
+        'values':request.GET
 
     }
     return render(request, 'main/search.html', context)

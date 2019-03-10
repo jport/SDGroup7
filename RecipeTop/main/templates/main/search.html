@@ -44,15 +44,16 @@
         <form action="{% url 'search' %}" method="GET">
             <h3>search</h3>
             <label for="difficulty">difficulty</label>
-            <input type="text" name='difficulty'>
+            <input type="text" name='difficulty' value="{{ values.difficulty}}">
             <hr>
             <label for="rating">rating</label>
-            <input type="text" name='rating'>
+            <input type="text" name='rating' value="{{values.rating}}">
             <hr>
             <button type="submit">Submit</button>
         </form>
     </div>
 </div>
+
 
 
 {% for i in filter%}
