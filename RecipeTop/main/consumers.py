@@ -27,7 +27,7 @@ class ScaleConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.group_name,
             {
-                'type': 'scale_message',
+                'type': 'toggle',
                 'message': message
             }
         )

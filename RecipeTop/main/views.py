@@ -7,7 +7,11 @@ from .models import Recipe, User, Ingredient, Utensil
 def index(request):
     return render(request, 'main/index.html')
 
-def home(request):
+def home(request, userId=-1):
+    # Set session user id
+    if userId != -1:
+        request.session["userId"] = userId
+
     context = {
         'recipes': Recipe.objects.all()
     }
@@ -71,6 +75,6 @@ def sensor(request):
 
 def hearted(request):
     context ={
-        'recipes': Recipe.objects.all()
+        'recipes': Recipe.objects.filter(user__id=request.session["userId"])
     }
-    return render(request, 'main/hearted.html',context)
+    return render(request, 'main/search.html',context)

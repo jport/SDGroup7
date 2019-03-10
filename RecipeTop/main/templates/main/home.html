@@ -1,35 +1,41 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="static/main/css/home.css">
+<link rel="stylesheet" href={% static "main/css/home.css" %}>
 {% endblock %}
 
 {% block content %}
 <br>
 <br>
 <div class="container">
-        <div class="carousel">
-        {% for recipe in recipes %}
-            <a href="#one!" class="carousel-item">
-                <div class="Home_container">
-                    <div class="photo photo1">
-                            <div class="min">
-                                <h3>50</h3>
-                                <span>mins</span>
-                            </div>
-                            <div class="heart_icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="Title">
-                                <h3>{{recipe.title}}</h3>
-                            </div>
-                    </div>
+    <div class="carousel">
+    {% for recipe in recipes %}
+        <a href="#one!" class="carousel-item">
+            <div class="Home_container">
+                <div class="photo photo{{forloop.counter}}">
+                        <div class="min">
+                            <h3>50</h3>
+                            <span>mins</span>
+                        </div>
+                        <div class="heart_icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="Title">
+                            <h3>{{recipe.title}}</h3>
+                        </div>
                 </div>
-         {% endfor %}
-        </div>
- </div>
+            </div>
+    {% endfor %}
+    </div>
+</div>
 
-
-
+<style>
+{% for recipe in recipes %}
+    .Home_container .photo{{forloop.counter}} {
+        background-image: url({{recipe.image.url}});
+    }
+{% endfor %}
+</style>
 
 {% endblock %}

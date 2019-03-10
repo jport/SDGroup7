@@ -1,9 +1,9 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="static/main/css/hearted.css">
+<link rel="stylesheet" href={% static "main/css/hearted.css" %}>
 {% endblock %}
-
 
 {% block content %}
 <br>
@@ -38,5 +38,5 @@
 
 {% endblock %}
 {%block javascript %}
- <script src="static/main/js/hearted.js"></script>
- {% endblock%}
+<script src="static/main/js/hearted.js"></script>
+{% endblock%}
