@@ -59,7 +59,8 @@ def search(request):
             query_list = query_list.filter(rating = rating)
     
     context = {
-        'recipes': Recipe.objects.all(),
+        'hearted': Recipe.objects.filter(user__id=request.session["userId"]),
+        'recipes': Recipe.objects.exclude(user__id=request.session["userId"]),
         'filter':query_list,
         'values':request.GET
 
@@ -75,6 +76,6 @@ def sensor(request):
 
 def hearted(request):
     context ={
-        'recipes': Recipe.objects.filter(user__id=request.session["userId"])
+        'hearted': Recipe.objects.filter(user__id=request.session["userId"])
     }
     return render(request, 'main/search.html',context)

@@ -13,6 +13,31 @@
 <br>
 <div class="container">
     <div class="grid">
+        {% for recipe in hearted %}
+        <div class="card">
+            <div class="card-image">
+                <img src="{{recipe.image.url}}">
+                <span class="card-title">{{recipe.title}}</span>
+            </div>
+            <div class="card-content">
+                <div class="heart_icon">
+                    <i class="material-icons hearted">favorite</i>
+                </div>
+                <p>{{recipe.description}}</p>
+                <p>Number of steps: {{recipe.steps.all.count}}</p>
+                <p>Ingredients:</p>
+                {% for ing in recipe.recipetoingredient_set.all %}
+                    <p>name: {{ing.ingredient.name}}</p>
+                    <p>unit: {{ing.unit}}</p>
+                    <p>quantity: {{ing.quantity}}</p>
+                {% endfor %}
+            </div>
+            <div class="card-action">
+                <h3>card action section</h3>
+            </div>
+        </div>
+        {% endfor %}
+
         {% for recipe in recipes %}
         <div class="card">
             <div class="card-image">
@@ -20,6 +45,9 @@
                 <span class="card-title">{{recipe.title}}</span>
             </div>
             <div class="card-content">
+                <div class="heart_icon">
+                    <i class="material-icons hearted">favorite_border</i>
+                </div>
                 <p>{{recipe.description}}</p>
                 <p>Number of steps: {{recipe.steps.all.count}}</p>
                 <p>Ingredients:</p>
@@ -64,5 +92,5 @@
 {% endblock %}
 
 {% block javascript %}
-
+<script src={% static "main/js/hearted.js" %}></script>
 {% endblock %}
