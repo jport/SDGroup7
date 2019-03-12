@@ -70,11 +70,11 @@
 <div class="container">
     <div class="search">
         <form action="{% url 'search' %}" method="GET">
-            <h3>search</h3>
-            <label for="difficulty">difficulty</label>
+            <h3>Search</h3>
+            <label for="difficulty">Difficulty</label>
             <input type="text" name='difficulty' value="{{ values.difficulty}}">
             <hr>
-            <label for="rating">rating</label>
+            <label for="rating">Rating</label>
             <input type="text" name='rating' value="{{values.rating}}">
             <hr>
             <button type="submit">Submit</button>
