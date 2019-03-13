@@ -17,7 +17,7 @@ class Recipe(models.Model):
     image = models.ImageField(upload_to='recipe_image', blank=True)
 
     def __str__(self):
-        return self.title + " " + str(self.ingredients)
+        return self.title 
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)

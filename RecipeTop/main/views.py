@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Recipe, User, Ingredient, Utensil
 
@@ -79,3 +79,11 @@ def hearted(request):
         'hearted': Recipe.objects.filter(user__id=request.session["userId"])
     }
     return render(request, 'main/search.html',context)
+
+def follow(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+
+    context = {
+        'recipe':recipe
+    }
+    return render(request, 'main/follow.html',context)
