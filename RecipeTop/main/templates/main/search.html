@@ -16,7 +16,9 @@
         {% for recipe in hearted %}
         <div class="card">
             <div class="card-image">
+                {% if recipe.image %}
                 <img src="{{recipe.image.url}}">
+                {% endif %}
                 <span class="card-title">{{recipe.title}}</span>
             </div>
             <div class="card-content">
@@ -41,7 +43,9 @@
         {% for recipe in recipes %}
         <div class="card">
             <div class="card-image">
+                {% if recipe.image %}
                 <img src="{{recipe.image.url}}">
+                {% endif %}
                 <span class="card-title">{{recipe.title}}</span>
             </div>
             <div class="card-content">
