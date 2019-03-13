@@ -1,18 +1,18 @@
 let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
-
+let instances = null
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
-    let instances = M.Chips.init(chips, "");
+    instances = M.Chips.init(chips, "");
     // var instance = M.Chips.getInstance(elems);
 
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
   });
   
-  let tables = document.getElementById('table');
+let tables = document.getElementById('table');
 
-  const table =()=>{
+const table =()=>{
     let tr= document.createElement('tr');
     for(let i=0;i<2;i++){
         let td = document.createElement('td');
@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if(i==0){
             input.name="ingredient";
             input.placeholder="Enter your ingredient";
+            input.id = "autocomplete-input";
+            input.className = "autocomplete"
+
+            div = document.createElement('div');
+            div.className = "input-field"
+            div.appendChild(input);
+            input = div;
         }
         else if(i==1){
             input.name="quantity";
@@ -53,7 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
     td.appendChild(select);
     tr.appendChild(td);
     tables.appendChild(tr);
+
     let instance = M.FormSelect.init(select);
+    loadAutoComplete()
   }
 
 let steps = document.getElementById('steps');
@@ -67,18 +76,21 @@ const addSteps=()=>{
     steps.append(input);
 }
 
-let checker = document.querySelectorAll('#example > td');
 
+let chip = document.getElementById('chip');
 
-let salt = document.getElementById('chip');
+function addChips()
+{
+    let tags = M.Chips.getInstance(chip).chipsData;
+    let createForm = $('form')
 
+    for(let i = 0; i < tags.length; i++)
+    {
+        let input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'tags';
+        input.value = tags[i].tag;
 
-
-
-
-
-
-
-
-
-
+        createForm.append(input);
+    }
+}

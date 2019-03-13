@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Recipe, User, Ingredient, Utensil
+from .models import *
 
 # Create your views here.
 
@@ -22,7 +22,7 @@ def users(request):
     err = ''
     if request.method == 'POST':
         name = request.POST['name']
-        age= request.POST['age']
+        age = request.POST['age']
 
         if User.objects.all().filter(userName=name).count() != 0:
             err = "Sorry User is taken"
@@ -39,7 +39,59 @@ def users(request):
 
 def create(request):
     if request.method == 'POST':
-        print(request.POST)
+        # Create the recipe
+        r = Recipe(
+            title=request.POST['title'],
+            description=request.POST['description'],
+            # TODO: Add other fields
+        )
+
+        # Save the recipe to create the id
+        r.save()
+
+        # Create new ingredients only
+        ingredients = request.POST.getlist('ingredient')
+        quanties = request.POST.getlist('quantity')
+        units = request.POST.getlist('unit')
+
+        for i in range(0, len(ingredients)):
+            ing = Ingredient.objects.get_or_create(name__iexact=ingredients[i])[0]
+            repToIng = RecipeToIngredient(
+                recipe = r,
+                ingredient = ing,
+                quantity = quanties[i],
+                unit = units[i]
+            )
+
+            repToIng.save()
+
+
+        # Create new utensils
+        utensils = request.POST.getlist('utensil')
+
+        for i in range(0, len(utensils)):
+            uten = Utensil.objects.get_or_create(name__iexact = utensils[i])[0]
+            r.utensils.add(uten)
+
+        # Create new keywords
+        tags = request.POST.getlist('tags')
+
+        for i in range(0, len(tags)):
+            tag = Keyword.objects.get_or_create(name__iexact = tags[i])[0]
+            r.keywords.add(tag)
+
+        # Create steps
+        steps = request.POST.getlist('step')
+
+        for i in range(0, len(steps)):
+            step = RecipeStep(
+                recipe = r,
+                stepNumber = i+1,
+                text = steps[i]
+            )
+
+            step.save()
+
         return redirect('/create')
     else:
         context = {

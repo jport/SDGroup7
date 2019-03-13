@@ -65,8 +65,8 @@
 
         {% for utensil in utensils%}
         <label>
-                <input type="checkbox" value="{{utensil}}" name="utensil"/>
-                <span>{{utensil}}</span>
+			<input type="checkbox" value="{{utensil}}" name="utensil"/>
+			<span>{{utensil}}</span>
         </label>
         {% endfor %}
 
@@ -84,7 +84,7 @@
 			<!-- <input type="text"  name=step id="in"> -->
 		</div>
 		<button onclick="addSteps()" class='waves-effect waves-light btn' type="button">Add a step</button>
-		<button type="submit">Submit Changes</button>
+		<button type="submit" onclick="addChips()">Submit Changes</button>
 	</form>
 		
 </div>
@@ -94,14 +94,19 @@
 <script src={% static "main/js/create.js" %}></script>
 
 <script>
-	$(document).ready(function(){
+	function loadAutoComplete()
+	{
 		$('input.autocomplete').autocomplete({
 			data: {
 				{% for ing in ingredients%}
-					"{{ing.name}}": null,
+				"{{ing.name}}": null,
 				{% endfor %}
 			},
 		});
+	}
+
+	$(document).ready(function(){
+		loadAutoComplete();
 	});
 </script>
 {% endblock%}
