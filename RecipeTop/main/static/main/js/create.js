@@ -1,4 +1,5 @@
 let key_word_input= document.getElementById("key_word_input");
+let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -36,22 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let td = document.createElement('td');
     td.classList.add('input-field');
 
-    for(let i=0;i<4;i++){
-        let option =document.createElement('option');
-        if(i==0){
+    for(let i = 0;i <= unitOptions.length; i++){
+        let option = document.createElement('option');
+        if(i==0)
+        {
             option.innerHTML='Choose the unit';
             option.setAttribute('selected',true)
             option.setAttribute('disabled',true) 
         }
-        if(i==1){
-            option.innerHTML='option 1';
+        else
+        {
+            option.innerHTML = unitOptions[i-1];
         }
-        if(i==2){
-            option.innerHTML='option 2';
-        }
-        if(i==3){
-            option.innerHTML='option 3';
-        }
+
         select.appendChild(option);
     }
     
