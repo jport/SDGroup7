@@ -1,16 +1,49 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block content %}
-	<p>{{recipe.title}}</p>
+{% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/follow.css" %}>
+{% endblock %}
 
-	<p>{{recipe.description}}</p>
-	<p>Number of steps: {{recipe.steps.all.count}}</p>
-	<p>Gather your ingredients...</p>
-	{% for ing in recipe.recipetoingredient_set.all %}
-    	<p>name: {{ing.ingredient.name}}</p>
-    	<p>unit: {{ing.unit}}</p>
-    	<p>quantity: {{ing.quantity}}</p>
-	{% endfor %}
+
+{% block content %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class = "follow_info white">
+		<h3>Gather your ingredients...</h3>
+
+		<div class="follow_container white">
+			<h5>{{recipe.title}}</h5>
+		    <ul>
+		    	{% for ing in recipe.recipetoingredient_set.all %}
+		    		<li>
+		    			<label>
+		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient"/>
+		       				 <span>{{ing.quantity}} {{ing.unit}} {{ing.ingredient.name}}  </span>
+		    			</label>
+		    		</li>
+		    	{% endfor %}
+		    	<br>
+		    	<button class="btn waves-effect waves-light" type="button" name="action" id="start_steps">Start
+  				</button>
+		    </ul>
+	    </div>
+    </div>
+
+	
+	
+	
+	
+
+
+{% endblock %}
+
+{%block javascript %}
+<script> var recipe_id = ({{recipe.id}}) </script>
+<script src={% static "main/js/follow.js" %}></script>
 
 {% endblock %}
