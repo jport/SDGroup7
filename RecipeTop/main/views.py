@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Recipe, User, Ingredient, Utensil
 
@@ -38,11 +38,15 @@ def users(request):
     return render(request, 'main/users.html', context)
 
 def create(request):
-    context = {
-        'ingredients':Ingredient.objects.all(),
-        'utensils': Utensil.objects.all()
-    }
-    return render(request, 'main/create.html',context)
+    if request.method == 'POST':
+        print(request.POST)
+        return redirect('/create')
+    else:
+        context = {
+            'ingredients':Ingredient.objects.all(),
+            'utensils': Utensil.objects.all()
+        }
+        return render(request, 'main/create.html',context)
 
 def search(request):
     query_list = Recipe.objects.all()

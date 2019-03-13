@@ -1,7 +1,6 @@
 let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 
-
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
     let instances = M.Chips.init(chips, "");
@@ -10,10 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
   });
-
-
-
-
   
   let tables = document.getElementById('table');
 
@@ -34,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tr.appendChild(td);
     }
     let select= document.createElement('select');
+    select.name = "unit";
     let td = document.createElement('td');
     td.classList.add('input-field');
 
@@ -43,10 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             option.innerHTML='Choose the unit';
             option.setAttribute('selected',true)
-            option.setAttribute('disabled',true) 
+            option.setAttribute('disabled',true)
         }
         else
         {
+            option.value = i
             option.innerHTML = unitOptions[i-1];
         }
 
