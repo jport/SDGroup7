@@ -1,113 +1,141 @@
 
 $welcome_font:'Coiny', cursive;
 
-.body{
-    margin: 0 auto;
-    
+$font: 'Roboto', sans-serif;
 
+
+body{
+    width: 100%;
+    height:100%;
+    background-image: url('../img/food.png')
 }
 
-
-
-
+.top{
+    width:100%;
+    height:15vh;
+}
 .Micontainer{
-    height:100vh;
+    margin:0 auto;
+    background:#f5f5f5;
+    font-family: $font;
     
+    width:60vw;
+    height: 70vh;
+    border-radius: 10px;
+    // -webkit-box-shadow: 6px 25px 52px 10px rgba(0,0,0,0.75);
+    // -moz-box-shadow: 6px 25px 52px 10px rgba(0,0,0,0.75);
+    // box-shadow: 6px 25px 52px 10px rgba(0,0,0,0.75);
+
+    -webkit-box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
+box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
 
 
-    .message{
-        font-family: $welcome_font;
+    .title{
         display:flex;
-        align-content: center;
-        align-items: center;
         justify-content: center;
-        height:30vh;
-        padding-top:20px;
-        text-align:center;
-
-        h1{
-            color:#f9f9f9;
-            // text-shadow: 2
+        align-items: center;
+        // background:orange;
+        height:20%;
+        width:100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        h3{
+            font-weight: 900;
         }
-
     }
 
-    .forms{
-        display:grid;
-        margin:0 auto;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 10px;
-        justify-content: space-between;
-        
-        width:90%;
-        height:100%;
+
     
 
-        .person{
-            position: relative;
-            background-color:#FC4E4E;
-            height:20px;
-            width:100%;
+    .users{
+       
+        height:70%;
+        width:100%;
+        // display:grid;
+        // // grid-template-columns: repeat(autofill,minmax(250px,1fr));
+        // grid-template-columns: 1fr 1fr 1fr;
+        // grid-column-gap: 5%;
+        display:flex;
+        justify-content:space-between;
+        .user{
+            width:25%;
+            height:100%;
             display:flex;
-            align-content: center;
-            justify-content: center;
-            height:30vh;
-            // box-shadow: 0 6px;
-            border-radius:20px;
-            &:hover{
-                cursor:pointer;
+            justify-content: space-around;
+            align-items: center;
+            flex-flow: column;
+            // background-color:red;
+            padding-right: 1%;
+            padding-left:1%;
+            .bl{
+                display:flex;
+                justify-content: center;
+                // align-items: center;
+                // background-color:white;
+                height:30%;
+                width:100%;
+                h5{
+                    font-weight: 400;
+                }
             }
 
-            .picture{
+
+            .user_profile{
+                
+                // border-radius:50%;
+                height:100px;
+                width:100px;
+                background-image: url('../img/chef.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-origin: center;
-                position: absolute;
-                top:-15%;
+                filter: drop-shadow(2px 15px 3px rgba(0, 0, 0, 0.3));
+                
             }
-            .girl{
-                background-image: url('../img/girl.png');
-                height:100px;
-                width:50px;
-
-
-            }
-
-            .boy{
-                background-image: url('../img/boy.png');
-                height:100px;
-                width:50px;
-
-
-            }
-
-            h1{
-              color:#f9f9f9;
-              position: absolute;
-            //   text-shadow: 2px 4px 12px #f9f9f9;
-            }
-
-        
         }
-
-
-
     
-        
-
-         
-
     }
-
-    .create{
-        margin: 0 auto;
+    .continue{
         display:flex;
-        align-items: center;
-        align-content: center;
-        background-color:rosybrown;
-        height:20vh;
-        width:100vh;
+        align-items:center;
+        justify-content: center;
+        padding-bottom: 2px;
+        h4{
+            font-weight: 700;
+            line-height: 0px;
+            font-size:28px;
+        }
+        
+        
     }
+  
 
 
+    // .message{
+    //     font-family: $welcome_font;
+    //     display:flex;
+    //     align-content: center;
+    //     align-items: center;
+    //     justify-content: center;
+    //     height:30vh;
+    //     padding-top:20px;
+    //     text-align:center;
+
+    //     h1{
+    //         color:#f9f9f9;
+    //         // text-shadow: 2
+    //     }
+
+    // }
+
+
+}
+
+.add_user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:20vh;
+    width:100%;
 }

@@ -1,75 +1,89 @@
-.body {
-  margin: 0 auto;
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/food.png");
+}
+
+.top {
+  width: 100%;
+  height: 15vh;
 }
 
 .Micontainer {
-  height: 100vh;
-}
-.Micontainer .message {
-  font-family: "Coiny", cursive;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  padding-top: 20px;
-  text-align: center;
-}
-.Micontainer .message h1 {
-  color: #f9f9f9;
-}
-.Micontainer .forms {
-  display: grid;
   margin: 0 auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 10px;
-  justify-content: space-between;
-  width: 90%;
-  height: 100%;
+  background: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 6px 88px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 6px 88px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 6px 88px 5px rgba(0, 0, 0, 0.75);
 }
-.Micontainer .forms .person {
-  position: relative;
-  background-color: #FC4E4E;
-  height: 20px;
+.Micontainer .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.Micontainer .title h3 {
+  font-weight: 900;
+}
+.Micontainer .users {
+  height: 70%;
   width: 100%;
   display: flex;
-  align-content: center;
+  justify-content: space-between;
+}
+.Micontainer .users .user {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+.Micontainer .users .user .bl {
+  display: flex;
   justify-content: center;
-  height: 30vh;
-  border-radius: 20px;
+  height: 30%;
+  width: 100%;
 }
-.Micontainer .forms .person:hover {
-  cursor: pointer;
+.Micontainer .users .user .bl h5 {
+  font-weight: 400;
 }
-.Micontainer .forms .person .picture {
+.Micontainer .users .user .user_profile {
+  height: 100px;
+  width: 100px;
+  background-image: url("../img/chef.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: center;
-  position: absolute;
-  top: -15%;
+  filter: drop-shadow(2px 15px 3px rgba(0, 0, 0, 0.3));
 }
-.Micontainer .forms .person .girl {
-  background-image: url("../img/girl.png");
-  height: 100px;
-  width: 50px;
-}
-.Micontainer .forms .person .boy {
-  background-image: url("../img/boy.png");
-  height: 100px;
-  width: 50px;
-}
-.Micontainer .forms .person h1 {
-  color: #f9f9f9;
-  position: absolute;
-}
-.Micontainer .create {
-  margin: 0 auto;
+.Micontainer .continue {
   display: flex;
   align-items: center;
-  align-content: center;
-  background-color: rosybrown;
+  justify-content: center;
+  padding-bottom: 2px;
+}
+.Micontainer .continue h4 {
+  font-weight: 700;
+  line-height: 0px;
+  font-size: 28px;
+}
+
+.add_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 20vh;
-  width: 100vh;
+  width: 100%;
 }
 
 /*# sourceMappingURL=users.css.map */
