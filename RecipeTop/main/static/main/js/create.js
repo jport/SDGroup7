@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let instances = M.Chips.init(chips, "");
     // var instance = M.Chips.getInstance(elems);
 
-    let elems = document.querySelectorAll('.autocomplete');
-    let elem_instances = M.Autocomplete.init(elems);
-
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
   });
