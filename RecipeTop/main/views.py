@@ -92,7 +92,7 @@ def create(request):
 
             step.save()
 
-        return redirect('/create')
+        return redirect('/home')
     else:
         context = {
             'ingredients':Ingredient.objects.all(),
