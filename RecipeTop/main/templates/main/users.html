@@ -21,17 +21,16 @@
     <div class="users">
          {% for user in users %}
             <div class="user" id={{user.id}}>
-                <div class="user_profile">
+                <div class="user_profile" id={{user.id}}>
                 </div>
-                <div class='bl'>
-                        <h5>{{user.userName}}</h5>
+                <div class='user_name'>
+                        <h5 id={{user.id}} class="names">{{user.userName}}</h5>
                 </div>
-                
             </div>
         {% endfor %}
     </div>
-    <div class="continue">
-        <h4>Continue</h4>
+    <div id="continue">
+        <h4 id="msg">Continue</h4>
     </div>
      
 

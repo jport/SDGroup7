@@ -48,14 +48,11 @@ body {
   padding-right: 1%;
   padding-left: 1%;
 }
-.Micontainer .users .user .bl {
+.Micontainer .users .user .user_name {
   display: flex;
   justify-content: center;
   height: 30%;
   width: 100%;
-}
-.Micontainer .users .user .bl h5 {
-  font-weight: 400;
 }
 .Micontainer .users .user .user_profile {
   height: 100px;
@@ -64,18 +61,51 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: center;
-  filter: drop-shadow(2px 15px 3px rgba(0, 0, 0, 0.3));
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  transition: filter 2s ease;
 }
-.Micontainer .continue {
+.Micontainer #continue {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 2px;
 }
-.Micontainer .continue h4 {
+.Micontainer #continue #msg {
   font-weight: 700;
   line-height: 0px;
   font-size: 28px;
+  padding: 5px 5px;
+}
+.Micontainer #continue #msg:hover {
+  cursor: pointer;
+}
+
+.animate {
+  filter: drop-shadow(2px 30px 3px rgba(0, 0, 0, 0.3));
+  border: 4px solid gold;
+  border-radius: 45%;
+}
+
+.highlight {
+  font-weight: 900;
+}
+
+.glow {
+  animation: glowing 5000ms infinite;
+}
+@keyframes glowing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .add_user {

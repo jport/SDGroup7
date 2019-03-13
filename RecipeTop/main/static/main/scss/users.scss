@@ -68,16 +68,16 @@ box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
             // background-color:red;
             padding-right: 1%;
             padding-left:1%;
-            .bl{
+            .user_name{
                 display:flex;
                 justify-content: center;
                 // align-items: center;
                 // background-color:white;
                 height:30%;
                 width:100%;
-                h5{
-                    font-weight: 400;
-                }
+                // .names{
+                //     font-weight: 400;
+                // }
             }
 
 
@@ -90,21 +90,33 @@ box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-origin: center;
-                filter: drop-shadow(2px 15px 3px rgba(0, 0, 0, 0.3));
+                // filter: drop-shadow(2px 15px 3px rgba(0, 0, 0, 0.3));
+                // animation: move 2s linear none 1;
+                -webkit-transition: all 2s ease;  
+                -moz-transition: all 2s ease;  
+                -o-transition: all 2s ease;  
+                -ms-transition: all 2s ease;  
+                transition: filter 2s ease; 
+                
                 
             }
         }
     
     }
-    .continue{
+    #continue{
         display:flex;
         align-items:center;
         justify-content: center;
         padding-bottom: 2px;
-        h4{
+        #msg{
             font-weight: 700;
             line-height: 0px;
             font-size:28px;
+            padding:5px 5px;
+
+            &:hover{
+                cursor:pointer;
+            }
         }
         
         
@@ -112,25 +124,46 @@ box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
   
 
 
-    // .message{
-    //     font-family: $welcome_font;
-    //     display:flex;
-    //     align-content: center;
-    //     align-items: center;
-    //     justify-content: center;
-    //     height:30vh;
-    //     padding-top:20px;
-    //     text-align:center;
-
-    //     h1{
-    //         color:#f9f9f9;
-    //         // text-shadow: 2
-    //     }
-
-    // }
+   
 
 
 }
+
+
+.animate{
+    filter: drop-shadow(2px 30px 3px rgba(0, 0, 0, 0.3));
+    border: 4px solid gold;
+    border-radius: 45%;
+    // border-color: aqua;
+}
+
+.highlight{
+    font-weight: 900;
+    
+}
+
+.glow{
+
+    animation: glowing 5000ms infinite;
+
+    @keyframes glowing {
+         0%{
+             transform: scale(1);
+         }
+         50%{
+             transform:scale(1.05);
+             color:white;
+         }
+         100%{
+             transform: scale(1);
+             color:black;
+         }
+      }
+      
+}
+
+
+
 
 .add_user{
     display: flex;
