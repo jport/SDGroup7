@@ -75,7 +75,8 @@ const addSteps=()=>{
 let checker = document.querySelectorAll('#example > td');
 
 
-let salt = document.getElementById('chip')
+let salt = document.getElementById('chip');
+
 
 
 

@@ -5,40 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900i" rel="stylesheet">
     <link rel="stylesheet" href={% static "main/css/materialize.css" %}>
     <link rel="stylesheet" href={% static "main/css/users.css" %}>
     
     <title>loading screen</title>
 </head>
 <body>
-<div class="body">
-    <div class="Micontainer">
-        <div class="message">
-            <h1>Who's cooking?</h1>
-        </div>
-        <div class="forms">
-            {% for user in users %}
-                <div class="person1 person" id={{user.id}}>
-                    <div class="picture girl"></div>
-                    <h1>{{user.userName}}</h1>
+<div class="top"></div>
+
+<div class="Micontainer">
+    <div class="title">
+        <h3>Who's cooking?</h3>
+    </div>
+    <div class="users">
+         {% for user in users %}
+            <div class="user" id={{user.id}}>
+                <div class="user_profile">
                 </div>
-            {% endfor %}
-        </div>
+                <div class='bl'>
+                        <h5>{{user.userName}}</h5>
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+    <div class="continue">
+        <h4>Continue</h4>
+    </div>
+     
 
-        <div class="create">
-            <form action="{% url 'users' %}" method="POST">
-                {% csrf_token %}
-                <input type="text" placeholder="name" name="name" required>
-                <input type="text" placeholder="age" name="age" required>
-                <input type="submit" value="Register" class="btn btn-secondary btn-block">
-            </form>
-        </div>
-        {% if error %}
-        <h1 id="error">{{error}}</h1>
-        {% endif %}
+  
+    
+    <!-- <div class="message">
+        <h1>Who's cooking?</h1>
+    </div>
+    <div class="forms">
+        {% for user in users %}
+            <div class="person1 person" id={{user.id}}>
+                <div class="picture girl"></div>
+                <h1>{{user.userName}}</h1>
+            </div>
+        {% endfor %}
+    </div>
 
-        <h4>{{example}}</h4>
+    <div class="create">
+        <form action="{% url 'users' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="name" name="name" required>
+            <input type="text" placeholder="age" name="age" required>
+            <input type="submit" value="Register" class="btn btn-secondary btn-block">
+        </form>
+    </div>
+    {% if error %}
+    <h1 id="error">{{error}}</h1>
+    {% endif %}
 
+    <h4>{{example}}</h4> -->
+</div>
+   <!-- Modal Trigger -->
+   <div class="add_user">
+        <button data-target="modal1" class="btn modal-trigger red lighten-2">Add User</button>
+  </div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <form action="{% url 'users' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="name" name="name" required>
+            <input type="text" placeholder="age" name="age" required>
+            <input type="submit" value="Register" class="btn btn-secondary btn-block">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
 
