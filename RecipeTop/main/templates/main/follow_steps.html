@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/follow_steps.css" %}>
+{% endblock %}
+
+
+{% block content %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+<p> following my recip</p>
+
+{% endblock %}
+
+{%block javascript %}
+<script> var recipe_id = ({{recipe.id}}) </script>
+<script src={% static "main/js/follow_steps.js" %}></script>
+
+{% endblock %}
