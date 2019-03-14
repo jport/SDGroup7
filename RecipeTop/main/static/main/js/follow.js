@@ -1,3 +1,4 @@
+
 let start_buttons = document.getElementById("start_steps");
 //let recipe_id = 
 
@@ -15,3 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
       hoverEnabled: false
     });
   });
+
+  // Drag anywhere
+
+  $(document).ready(function() {
+  
+  new jBox('Modal', {
+    attach: $('#modal-drag-anywhere'),
+    width: 220,
+    title: 'jBox',
+    overlay: false,
+    createOnInit: true,
+    content: 'Drag me around by clicking anywhere',
+    draggable: true,
+    repositionOnOpen: false,
+    repositionOnContent: false
+  });
+    
+});
