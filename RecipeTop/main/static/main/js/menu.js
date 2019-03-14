@@ -31,7 +31,10 @@ function set_time(){
     if(hour>12){
         hour-=12;
     }
-    document.getElementById("time").innerHTML=hour+":"+minutes;
+    if(minutes<10)
+        document.getElementById("time").innerHTML=hour+":0"+minutes;
+    else
+        document.getElementById("time").innerHTML=hour+":"+minutes;
 
 }
 
