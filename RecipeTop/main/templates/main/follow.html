@@ -3,6 +3,7 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/follow.css" %}>
+<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -45,5 +46,9 @@
 {%block javascript %}
 <script> var recipe_id = ({{recipe.id}}) </script>
 <script src={% static "main/js/follow.js" %}></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script>
+
 
 {% endblock %}

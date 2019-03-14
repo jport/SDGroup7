@@ -1,3 +1,14 @@
+@import 'https://stephanwagner.me/css/jBox/demo-html.css';
+
+#popup-container button {
+  margin: 0 0 15px;
+  min-width: 250px;
+}
+
+#popup-container button:last-child {
+  margin-bottom: 0;
+}
+
 .follow_container{
 	float: right;
     margin:0 auto;
