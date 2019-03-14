@@ -7,7 +7,7 @@ body {
 
 .Mnavbar {
   position: fixed;
-  height: 15vh;
+  height: 13vh;
   width: 100%;
   z-index: 100;
 }
@@ -38,7 +38,7 @@ body {
   padding-left: 80px;
 }
 .Mnavbar .Mnav_container .time #time {
-  color: white;
+  color: black;
 }
 .Mnavbar .Mnav_container div {
   width: 100%;
