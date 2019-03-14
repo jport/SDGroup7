@@ -31,6 +31,13 @@
 
 }
 
-.card .card-image .card-title{
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+.card{
+    .card-title {
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    .card-image .card-title{
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    }
 }

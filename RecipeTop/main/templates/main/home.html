@@ -1,6 +1,8 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block title %}Home{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
 {% endblock %}
@@ -15,7 +17,7 @@
             <div class="Home_container">
                 <div class="photo photo{{forloop.counter}}">
                         <div class="min">
-                            <h3>50</h3>
+                            <h3>{{recipe.estDuration}}</h3>
                             <span>mins</span>
                         </div>
                         <div class="heart_icon">
