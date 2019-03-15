@@ -39,9 +39,9 @@
   			</a>
   			<div class="popup-container">
   			<ul>
-    			<li><a class="btn-floating teal lighten-3"><i class="material-icons" id="modal-drag-anywhere">timer</i></a></li>
-    			<li><a class="btn-floating teal lighten-1"><i class="material-icons">whatshot</i></a></li>
-    			<li><a class="btn-floating teal"><i class="material-icons">fitness_center</i></a></li>
+    			<li><a class="btn-floating teal lighten-3"><i class="material-icons" id="timer-drag-anywhere">timer</i></a></li>
+    			<li><a class="btn-floating teal lighten-1"><i class="material-icons" id="preheat-drag-anywhere">whatshot</i></a></li>
+    			<li><a class="btn-floating teal"><i class="material-icons" id="scale-drag-anywhere">fitness_center</i></a></li>
   			</ul>
   			</div>
 		</div>
@@ -58,6 +58,7 @@
 {% endblock %}
 
 {%block javascript %}
+
 <script> var recipe_id = ({{recipe.id}}) </script>
 <script src={% static "main/js/follow.js" %}></script>
 
