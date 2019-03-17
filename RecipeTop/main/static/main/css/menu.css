@@ -7,7 +7,7 @@ body {
 
 .Mnavbar {
   position: fixed;
-  height: 15vh;
+  height: 13vh;
   width: 100%;
   z-index: 100;
 }
@@ -38,7 +38,7 @@ body {
   padding-left: 80px;
 }
 .Mnavbar .Mnav_container .time #time {
-  color: white;
+  color: black;
 }
 .Mnavbar .Mnav_container div {
   width: 100%;
@@ -100,7 +100,7 @@ body {
 #MainMenu {
   height: 100vh;
   width: 300px;
-  background-color: rgba(23, 23, 23, 0.9);
+  background-color: #cfd8dc;
   -webkit-clip-path: polygon(0 0, 100% 0, 0% 100%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 0% 100%, 0% 100%);
   position: fixed;

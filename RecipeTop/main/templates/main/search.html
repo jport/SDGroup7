@@ -1,14 +1,20 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block title %}Search Recipes{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/search.css" %}>
+<<<<<<< HEAD
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 
 
 
 
+=======
+>>>>>>> 3f0158f6ab07c691e843c54c4e888dce37673662
 {% endblock %}
+
 {% block content %}
 <br>
 <br>
@@ -18,7 +24,7 @@
 <div class="container">
     <div class="grid">
         {% for recipe in hearted %}
-        <div class="card">
+        <div class="card" id={{recipe.id}}>
             <div class="card-image">
                 {% if recipe.image %}
                 <img src="{{recipe.image.url}}">

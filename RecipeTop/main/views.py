@@ -149,7 +149,8 @@ def follow_steps(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)
 
     context = {
-        'recipe':recipe
+        'recipe':recipe,
+        'units':["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"]
         
     }
     return render(request, 'main/follow_steps.html',context)

@@ -3,6 +3,7 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/follow.css" %}>
+<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -23,7 +24,7 @@
 		    		<li>
 		    			<label>
 		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient"/>
-		       				 <span>{{ing.quantity}} {{ing.unit}} {{ing.ingredient.name}}  </span>
+		       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
 		    			</label>
 		    		</li>
 		    	{% endfor %}
@@ -32,7 +33,21 @@
   				</button>
 		    </ul>
 	    </div>
+	    <div class="fixed-action-btn">
+  			<a class="btn-floating btn-large teal darken-3">
+    			<i class="large material-icons">cake</i>
+  			</a>
+  			<div class="popup-container">
+  			<ul>
+    			<li><a class="btn-floating teal lighten-3"><i class="material-icons" id="timer-drag-anywhere">timer</i></a></li>
+    			<li><a class="btn-floating teal lighten-1"><i class="material-icons" id="preheat-drag-anywhere">whatshot</i></a></li>
+    			<li><a class="btn-floating teal"><i class="material-icons" id="scale-drag-anywhere">fitness_center</i></a></li>
+  			</ul>
+  			</div>
+		</div>
     </div>
+
+
 
 	
 	
@@ -43,7 +58,12 @@
 {% endblock %}
 
 {%block javascript %}
+
 <script> var recipe_id = ({{recipe.id}}) </script>
 <script src={% static "main/js/follow.js" %}></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script>
+
 
 {% endblock %}

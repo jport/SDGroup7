@@ -1,5 +1,8 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+
+{% block title %}Create Recipe{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/create.css" %}>
 {% endblock %}
@@ -24,6 +27,18 @@
 			<input type="text" name="description">
 			<label for="description">Description</label>
 		</div>
+
+
+    	<div class="file-field input-field">
+      		<div class="btn">
+        		<span>Browse Images</span>
+        		<input type="file">
+      		</div>
+      		<div class="file-path-wrapper">
+        		<input class="file-path validate" type="text" name="recipe_image">
+        		<label for="recipe_image">Select an image</label>
+      		</div>
+    	</div>
 
         <table id="table">
         <tr>
@@ -61,30 +76,60 @@
        
 
         <!-- utensils -->
-        <h3>Utensils</h3>
 
-        {% for utensil in utensils%}
-        <label>
-			<input type="checkbox" value="{{utensil}}" name="utensil"/>
-			<span>{{utensil}}</span>
-        </label>
+        <h4>Utensils</h4>
+        <table>
+        <tr>
+        {% for utensil in utensils %}
+        	{% if not forloop.last and forloop.counter == 5 or forloop.counter == 9 %}
+        		    </tr>
+    				<tr>
+        	{% endif %}
+        	<td>
+        		<label>
+					<input type="checkbox" value="{{utensil}}" name="utensil"/>
+					<span>{{utensil}}</span>
+        		</label>
+        	</td>
+        
         {% endfor %}
+        	</tr>
+
+       	</table>
+
+
 
 		<!-- Tags -->
-        <h3>Tags</h3>
+        <h4>Tags</h4>
 		<div class="chips chips-autocomplete" id="chip"></div>
 		<div class="time">
-			<h3>Time</h3>
-			<input type="text" name="time">
+			<h4>Time</h4>
+      		<input type="range" name="time" min="0" max="180" />
+
 		</div>
 
 		<!-- steps -->
 		<div id="steps">
 			<h3> Steps</h3>
 			<!-- <input type="text"  name=step id="in"> -->
+			<table id="table_steps">
+				<tr>
+					<td class="step_number">
+						<span>1.</span>
+					</td>
+					<td>
+						<input type="text" name="step" placeholder="Preheat oven to ...">
+					</td>
+				</tr>
+			
+			</table>
 		</div>
-		<button onclick="addSteps()" class='waves-effect waves-light btn' type="button">Add a step</button>
-		<button type="submit" onclick="addChips()">Submit Changes</button>
+
+		<button onclick="addSteps()" class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+		<br>
+		<br>
+
+		<button type="submit" onclick="addChips()" class='waves-effect waves-light btn teal accent-3'>Save Recipe</button>
 	</form>
 		
 </div>

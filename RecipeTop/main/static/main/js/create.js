@@ -65,15 +65,29 @@ const table =()=>{
     loadAutoComplete()
   }
 
-let steps = document.getElementById('steps');
+var steps = document.getElementById('table_steps');
 let trial = document.getElementById('in');
 
+let num_steps=2;
+
 const addSteps=()=>{
+    let new_row = document.createElement('tr');
+    let td1 = document.createElement('td');
+    td1.classList.add("step_number")
+    let step_num = document.createTextNode(num_steps.toString()+".");
+    td1.appendChild(step_num);
+    new_row.appendChild(td1)
+    let td2 = document.createElement('td');
+    td2.classList.add("step_field")
     let input = document.createElement('input');
+    td2.appendChild(input);
+    new_row.appendChild(td2);
+
+    num_steps++;
     input.type="text";
     input.name='step';
 
-    steps.append(input);
+    steps.appendChild(new_row);
 }
 
 
