@@ -13,7 +13,38 @@
 	<br>
 	<br>
 
-<p> following my recip</p>
+<div class = "follow_steps_info white">
+		<h3>Gather your ingredients...</h3>
+
+		<div class="follow_steps_container white">
+			<h5>{{recipe.title}}</h5>
+		    <ul>
+		    	{% for ing in recipe.recipetoingredient_set.all %}
+		    		<li>
+		    			<label>
+		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient"/>
+		       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+		    			</label>
+		    		</li>
+		    	{% endfor %}
+		    	<br>
+		    	<button class="btn waves-effect waves-light" type="button" name="action" id="start_steps">Start
+  				</button>
+		    </ul>
+	    </div>
+	    <div class="fixed-action-btn">
+  			<a class="btn-floating btn-large teal darken-3">
+    			<i class="large material-icons">cake</i>
+  			</a>
+  			<div class="popup-container">
+  			<ul>
+    			<li><a class="btn-floating teal lighten-3"><i class="material-icons" id="timer-drag-anywhere">timer</i></a></li>
+    			<li><a class="btn-floating teal lighten-1"><i class="material-icons" id="preheat-drag-anywhere">whatshot</i></a></li>
+    			<li><a class="btn-floating teal"><i class="material-icons" id="scale-drag-anywhere">fitness_center</i></a></li>
+  			</ul>
+  			</div>
+		</div>
+    </div>
 
 {% endblock %}
 

@@ -39,12 +39,27 @@ def users(request):
 
 def create(request):
     if request.method == 'POST':
+        
+        if not request.FILES['recipe_image']:
+            r = Recipe(
+                title=request.POST['title'],
+                description=request.POST['description'],
+                #image = request.FILES['recipe_image']
+
+                # TODO: Add other fields
+            )
+
+            #TODO add validation for iamge, save a defualt image if the file chosen doesnt exist?
+
         # Create the recipe
-        r = Recipe(
-            title=request.POST['title'],
-            description=request.POST['description'],
-            # TODO: Add other fields
-        )
+        else:
+            r = Recipe(
+                title=request.POST['title'],
+                description=request.POST['description'],
+                image = request.FILES['recipe_image']
+
+                # TODO: Add other fields
+            )
 
         # Save the recipe to create the id
         r.save()
@@ -149,8 +164,7 @@ def follow_steps(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)
 
     context = {
-        'recipe':recipe,
-        'units':["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"]
+        'recipe':recipe
         
     }
     return render(request, 'main/follow_steps.html',context)

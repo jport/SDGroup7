@@ -89,7 +89,10 @@ const addSteps=()=>{
 
     steps.appendChild(new_row);
 }
+const addRating=()=>{
 
+    
+} 
 
 let chip = document.getElementById('chip');
 
@@ -108,3 +111,5 @@ function addChips()
         createForm.append(input);
     }
 }
+
+   
