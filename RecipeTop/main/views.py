@@ -91,7 +91,7 @@ def create(request):
 
 
         # Create new utensils
-        utensils = request.POST.getlist('utensil')
+        utensils = request.POST.getlist('utensils')
 
         for i in range(0, len(utensils)):
             uten = Utensil.objects.get_or_create(name = utensils[i])[0]

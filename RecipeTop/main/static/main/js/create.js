@@ -1,6 +1,7 @@
 let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 let instances = null
+var utensil_modal_instance;
 
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
@@ -9,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
+
+    var utensil_modals = document.getElementById("utensil_modal");
+    //alert(utensil_modals);
+    utensil_modal_instance = M.Modal.init(utensil_modals);
 
   });
 
@@ -31,7 +36,7 @@ for (let i = 0, len = stars.length; i < len; i++) {
             //alert(star_icon);
             star_icon.innerHTML = '<i class="medium material-icons icon-teal">star</i>'; 
         }
-        for (var k = num_stars; k <= 5; k++){
+        for (var k = num_stars*1 +1; k <= 5; k++){
             let star_icon = document.getElementById(k.toString());
             //alert(star_icon);
             star_icon.innerHTML = '<i class="medium material-icons icon-teal">star_outline</i>'; 
@@ -145,6 +150,22 @@ const addSteps=()=>{
 }
 
 
+
+var list_of_utensils = []
+
+
+var table_of_utensils = document.getElementById('utensils_table');
+const addUtensil=()=>{
+    utensil_field=document.getElementById('new_utensil');
+    list_of_utensils.push(utensil_field.value);
+    utensil_field.value = "";
+    utensil_modal_instance.close()
+
+
+
+}
+
+
 let chip = document.getElementById('chip');
 
 function addChips()
@@ -161,6 +182,23 @@ function addChips()
 
         createForm.append(input);
     }
+
+    for(let y = 0; y < list_of_utensils.length; y++){
+        let utensils_field = document.createElement('input');
+        utensils_field.type = 'hidden';
+        utensils_field.name = 'utensils';
+        utensils_field.value = list_of_utensils[y];
+        createForm.append(utensils_field);
+    }
+
+}
+
+function saveForm(){
+    //TODO check if form is not valid
+    //return false;
+    addChips();
+    return true;
+
 }
 
    
