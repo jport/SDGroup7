@@ -79,21 +79,17 @@
         <!-- Utensils -->
         <div id="utensils">
         	<h4>Utensils</h4>
-        	<table "utensils_table">
+        	<table id="utensils_table">
         		<tr>
-        			{% for utensil in utensils %}
-        				{% if not forloop.last and forloop.counter == 5 or forloop.counter == 9 %}
-        		</tr>
-    			<tr>
-        				{% endif %}
-        				<td>
-        					<label>
-								<input type="checkbox" value="{{utensil}}" name="utensil"/>
-								<span>{{utensil}}</span>
-        					</label>
-        				</td>
-        
-        			{% endfor %}
+				{% for utensil in utensils %}
+				<td>
+					<label>
+						<input type="checkbox" value="{{utensil}}" name="utensils"/>
+						<span>{{utensil}}</span>
+					</label>
+				</td>
+				{% cycle "" "" "" "</tr><tr>" %}
+				{% endfor %}
         		</tr>
 
        		</table>

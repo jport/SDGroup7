@@ -151,18 +151,55 @@ const addSteps=()=>{
 
 
 
-var list_of_utensils = []
+//let list_of_utensils = []
+let table_of_utensils = $('#utensils_table')//document.getElementById('utensils_table');
 
-
-var table_of_utensils = document.getElementById('utensils_table');
 const addUtensil=()=>{
-    utensil_field=document.getElementById('new_utensil');
-    list_of_utensils.push(utensil_field.value);
+    utensil_field = document.getElementById('new_utensil');
+    //list_of_utensils.push(utensil_field.value);
+
+    let rows = table_of_utensils.children().children();
+    let len = rows.length;
+
+    let added = false;
+    for(let i = 0; i < len && !added; i++)
+    {
+        let row = rows[i];
+        if(row.childElementCount == 4) continue;
+
+        rows[i].appendChild(createNewUtensil(utensil_field.value));
+        added = true;
+    }
+
+    if(!added)
+    {
+        // Add new row
+        table_of_utensils.append("<tr></tr>");
+        table_of_utensils.children().children()[len].appendChild(createNewUtensil(utensil_field.value));
+    }
+
     utensil_field.value = "";
     utensil_modal_instance.close()
+}
 
+function createNewUtensil(value)
+{
+    let col = document.createElement("td");
+    let label = document.createElement("label");
+    let input = document.createElement("input");
+    let span = document.createElement("span");
 
+    input.type = "checkbox";
+    input.value = value;
+    input.name = "utensils";
+    input.checked = true;
+    span.innerHTML = value;
 
+    col.appendChild(label);
+    label.appendChild(input);
+    label.appendChild(span);
+
+    return col;
 }
 
 
@@ -183,13 +220,13 @@ function addChips()
         createForm.append(input);
     }
 
-    for(let y = 0; y < list_of_utensils.length; y++){
+    /*for(let y = 0; y < list_of_utensils.length; y++){
         let utensils_field = document.createElement('input');
         utensils_field.type = 'hidden';
         utensils_field.name = 'utensils';
         utensils_field.value = list_of_utensils[y];
         createForm.append(utensils_field);
-    }
+    }*/
 
 }
 
