@@ -34,11 +34,9 @@ $(document).ready(function() {
 	    content:'\
 	    <div>\
 	    	<div id="demo">'	    		
-	    		+'<form action="#">'
     			+'	<p class="range-field">\
       					<input type="range" id="test5" min="0" max="100" />\
     				</p>\
-  				</form>\
   			</div>\
 	    	<br>\
 	    	<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer"> Start Timer </button>\
@@ -66,6 +64,7 @@ $(document).ready(function() {
 				}, 1000);\
 			});\
 		</script>\
+		<script src={% static "main/js/materialize.min.js" %}></script>\
 	    	',
 	    draggable: 'title',
 	    repositionOnOpen: false,

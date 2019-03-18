@@ -44,6 +44,9 @@ def create(request):
             r = Recipe(
                 title=request.POST['title'],
                 description=request.POST['description'],
+                rating = request.POST['rating'],
+                estDuration = request.POST['time'],
+                
                 #image = request.FILES['recipe_image']
 
                 # TODO: Add other fields
@@ -56,7 +59,10 @@ def create(request):
             r = Recipe(
                 title=request.POST['title'],
                 description=request.POST['description'],
-                image = request.FILES['recipe_image']
+                image = request.FILES['recipe_image'],
+                rating = request.POST['rating'],
+                estDuration = request.POST['time'],
+                
 
                 # TODO: Add other fields
             )
@@ -66,11 +72,12 @@ def create(request):
 
         # Create new ingredients only
         ingredients = request.POST.getlist('ingredient')
+        print(ingredients)
         quanties = request.POST.getlist('quantity')
         units = request.POST.getlist('unit')
 
         for i in range(0, len(ingredients)):
-            ing = Ingredient.objects.get_or_create(name__iexact=ingredients[i])[0]
+            ing = Ingredient.objects.get_or_create(name=ingredients[i])[0]
             repToIng = RecipeToIngredient(
                 recipe = r,
                 ingredient = ing,
@@ -85,14 +92,14 @@ def create(request):
         utensils = request.POST.getlist('utensil')
 
         for i in range(0, len(utensils)):
-            uten = Utensil.objects.get_or_create(name__iexact = utensils[i])[0]
+            uten = Utensil.objects.get_or_create(name = utensils[i])[0]
             r.utensils.add(uten)
 
         # Create new keywords
         tags = request.POST.getlist('tags')
 
         for i in range(0, len(tags)):
-            tag = Keyword.objects.get_or_create(name__iexact = tags[i])[0]
+            tag = Keyword.objects.get_or_create(name= tags[i])[0]
             r.keywords.add(tag)
 
         # Create steps

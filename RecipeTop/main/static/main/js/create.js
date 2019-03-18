@@ -1,6 +1,7 @@
 let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 let instances = null
+
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
     instances = M.Chips.init(chips, "");
@@ -8,7 +9,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
+
   });
+
+let stars = document.getElementsByClassName("star_button");
+
+var num_stars = 0;
+for (let i = 0, len = stars.length; i < len; i++) {
+    stars[i].onclick = function (){
+        let star_field = document.createElement('input');
+        let rating_container = document.getElementById("rating_container")
+        num_stars = stars[i].id;
+        //alert(num_stars.toString());
+        star_field.type = "hidden";
+        star_field.name = "rating";
+        star_field.value = num_stars.toString();
+        rating_container.appendChild(star_field);
+        for (var j = 1; j <= num_stars; j++){
+            let star_icon = document.getElementById(j.toString());
+            //alert(star_icon);
+            star_icon.innerHTML = '<i class="medium material-icons icon-teal">star</i>'; 
+        }
+        for (var k = num_stars; k <= 5; k++){
+            let star_icon = document.getElementById(k.toString());
+            //alert(star_icon);
+            star_icon.innerHTML = '<i class="medium material-icons icon-teal">star_outline</i>'; 
+        }
+    }
+}
+
   
 let tables = document.getElementById('table');
 
