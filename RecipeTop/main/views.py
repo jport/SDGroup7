@@ -46,6 +46,7 @@ def create(request):
                 description=request.POST['description'],
                 rating = request.POST['rating'],
                 estDuration = request.POST['time'],
+                difficulty = request.POST['difficulty']
                 
                 #image = request.FILES['recipe_image']
 
@@ -62,6 +63,7 @@ def create(request):
                 image = request.FILES['recipe_image'],
                 rating = request.POST['rating'],
                 estDuration = request.POST['time'],
+                difficulty = request.POST['difficulty']
                 
 
                 # TODO: Add other fields

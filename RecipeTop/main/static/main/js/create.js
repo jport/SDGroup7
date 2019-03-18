@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let stars = document.getElementsByClassName("star_button");
 
+
 var num_stars = 0;
 for (let i = 0, len = stars.length; i < len; i++) {
     stars[i].onclick = function (){
@@ -34,6 +35,30 @@ for (let i = 0, len = stars.length; i < len; i++) {
             let star_icon = document.getElementById(k.toString());
             //alert(star_icon);
             star_icon.innerHTML = '<i class="medium material-icons icon-teal">star_outline</i>'; 
+        }
+    }
+}
+let cakes = document.getElementsByClassName("difficulty_button");
+var num_cakes = 0;
+for (let i = 0, len = cakes.length; i < len; i++) {
+    cakes[i].onclick = function (){
+        let cake_field = document.createElement('input');
+        let difficulty_container = document.getElementById("difficulty_container")
+        num_cakes = cakes[i].id-100;
+        //alert(num_stars.toString());
+        cake_field.type = "hidden";
+        cake_field.name = "difficulty";
+        cake_field.value = num_cakes.toString();
+        difficulty_container.appendChild(cake_field);
+        for (var l = 101; l <= num_cakes*1 +100; l++){
+            let cake_icon = document.getElementById(l.toString());
+            //alert(l)
+            cake_icon.innerHTML = '<i class="medium material-icons icon-teal">cake</i>'; 
+        }
+        for (var p = num_cakes*1 +101; p <= 105; p++){
+            let cake_icon = document.getElementById(p.toString());
+            //alert(p)
+            cake_icon.innerHTML = '<i class="medium material-icons icon-grey">cake</i>'; 
         }
     }
 }
@@ -118,10 +143,7 @@ const addSteps=()=>{
 
     steps.appendChild(new_row);
 }
-const addRating=()=>{
 
-    
-} 
 
 let chip = document.getElementById('chip');
 
