@@ -99,7 +99,7 @@ ul.stepper {
       height: auto;
       display: block; }
     ul.stepper .step.active::before, ul.stepper .step.done::before {
-      background-color: #2196f3; }
+      background-color: #26a69a; }
     ul.stepper .step.done::before {
       content: '\e5ca';
       font-size: 16px;

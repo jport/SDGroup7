@@ -14,39 +14,50 @@
 	<br>
 	<br>
 
-<ul class="stepper linear">
-   <li class="step active">
-      <div class="step-title waves-effect">E-mail</div>
-      <div class="step-content">
-         <!-- Your step content goes here (like inputs or so) -->
-         <div class="step-actions">
-            <!-- Here goes your actions buttons -->
-            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-         </div>
-      </div>
-   </li>
-</ul>
-
 
 <div class = "follow_steps_info white">
-		<h3>Gather your ingredients...</h3>
+		<div class="follow_steps_container">
+		<div class="card">
+            <div class="card-content">
+               <ul class="stepper ">
+                  <li class="step ">
+                     <div  class="step-title waves-effect waves-dark">Step 1</div>
+                     <div class="step-content">
+                        <div class="row">
+                           this is my step
+                        </div>
+                        <div class="step-actions">
+                           <button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="step">
+                     <div class="step-title waves-effect waves-dark">Step 2</div>
+                     <div class="step-content">
+                        <div class="row">
 
-		<div class="follow_steps_container white">
-			<h5>{{recipe.title}}</h5>
-		    <ul>
-		    	{% for ing in recipe.recipetoingredient_set.all %}
-		    		<li>
-		    			<label>
-		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient"/>
-		       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
-		    			</label>
-		    		</li>
-		    	{% endfor %}
-		    	<br>
-		    	<button class="btn waves-effect waves-light" type="button" name="action" id="start_steps">Start
-  				</button>
-		    </ul>
-	    </div>
+                        </div>
+                        <div class="step-actions">
+                           <button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="step">
+                     <div class="step-title waves-effect waves-dark">Step 3</div>
+                     <div class="step-content">
+                        Finish!
+                        <div class="step-actions">
+                           <button class="waves-effect waves-dark btn teal lighten-1" type="submit">Finish!</button>
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         </div>
+
+		
 	    <div class="fixed-action-btn">
   			<a class="btn-floating btn-large teal darken-3">
     			<i class="large material-icons">cake</i>
