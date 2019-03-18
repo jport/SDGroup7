@@ -95,7 +95,7 @@
 <h1> {{i.title}}={{i.difficulty}} : {{i.rating}}</h1>
 
 {% endfor %} -->
-
+<input type="text" id="input" onkeyup='recipe_search()'>
 
 <div id="portfolio" class="section gray">
     <div class="container">
@@ -114,7 +114,7 @@
                 <!-- card title -->
                 <div class="gallery-header">
                    <div class="ingredient_title">
-                        <span class= description>{{recipe}}</span>
+                        <span class= "title">{{recipe.title}}</span>
                    </div>
                    <br>
                    <div class="ingredient_props">
@@ -162,6 +162,9 @@
 
 {% block javascript %}
 <script src={% static "main/js/hearted.js" %}></script>
+
+
+<script src={% static "main/js/search.js" %}></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
