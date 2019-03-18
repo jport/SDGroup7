@@ -95,7 +95,7 @@
 <h1> {{i.title}}={{i.difficulty}} : {{i.rating}}</h1>
 
 {% endfor %} -->
-
+<input type="text" id="input" onkeyup='recipe_search()'>
 
 <div id="portfolio" class="section gray">
     <div class="container">
@@ -105,7 +105,7 @@
                 <div class="gallery-curve-wrapper">
                 <a class="gallery-cover gray card-image">
                     {% if recipe.image %}
-                    <img src="{{recipe.image.url}}">
+                    <img class="responsive-img" src="{{recipe.image.url}}">
                     {% else %}
                     <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
                     <!-- <div class="circle">circle</div> -->
@@ -114,7 +114,7 @@
                 <!-- card title -->
                 <div class="gallery-header">
                    <div class="ingredient_title">
-                        <span class= description>{{recipe}}</span>
+                        <span class= "title">{{recipe.title}}</span>
                    </div>
                    <br>
                    <div class="ingredient_props">
@@ -124,7 +124,7 @@
                        </div>
                         <div class="prop2"><i class="material-icons hearted">schedule</i></div>
                         <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
-                        <div class="prop2"><i class="material-icons hearted">favorite</i></div>
+                        <div class="prop2"><i class="material-icons hearted">favorite_border</i></div>
                         
                    </div>
                 </div>
@@ -149,7 +149,7 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
                 </div>
                     <div class="gallery-action">
-                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted">favorite</i></a>
+                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted">favorite_border</i></a>
                         <button class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></button>
                     </div>
                 </div>
@@ -162,6 +162,9 @@
 
 {% block javascript %}
 <script src={% static "main/js/hearted.js" %}></script>
+
+
+<script src={% static "main/js/search.js" %}></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
