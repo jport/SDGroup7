@@ -17,7 +17,7 @@
 <br>
 
 <div class="create_container white">
-	<form action="{% url 'create' %}" method="POST">
+	<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<div class="input-field">
 			<input type="text" name="title">
@@ -28,18 +28,19 @@
 			<label for="description">Description</label>
 		</div>
 
-
+		<!-- Icon image file picker-->
     	<div class="file-field input-field">
       		<div class="btn">
         		<span>Browse Images</span>
-        		<input type="file">
+        		<input type="file" name="recipe_image">
       		</div>
       		<div class="file-path-wrapper">
-        		<input class="file-path validate" type="text" name="recipe_image">
+        		<input class="file-path validate" type="text" >
         		<label for="recipe_image">Select an image</label>
       		</div>
     	</div>
 
+    	<!-- Ingredients-->
         <table id="table">
         <tr>
 			<td>Ingredient</td>
@@ -75,42 +76,44 @@
 	
        
 
-        <!-- utensils -->
+        <!-- Utensils -->
+        <div id="utensils">
+        	<h4>Utensils</h4>
+        	<table id="utensils_table">
+        		<tr>
+				{% for utensil in utensils %}
+				<td>
+					<label>
+						<input type="checkbox" value="{{utensil}}" name="utensils"/>
+						<span>{{utensil}}</span>
+					</label>
+				</td>
+				{% cycle "" "" "" "</tr><tr>" %}
+				{% endfor %}
+        		</tr>
 
-        <h4>Utensils</h4>
-        <table>
-        <tr>
-        {% for utensil in utensils %}
-        	{% if not forloop.last and forloop.counter == 5 or forloop.counter == 9 %}
-        		    </tr>
-    				<tr>
-        	{% endif %}
-        	<td>
-        		<label>
-					<input type="checkbox" value="{{utensil}}" name="utensil"/>
-					<span>{{utensil}}</span>
-        		</label>
-        	</td>
-        
-        {% endfor %}
-        	</tr>
+       		</table>
+       		<button data-target="utensil_modal" class='waves-effect waves-light btn modal-trigger blue-grey' type="button">Add utensil</button>
+       		<!-- Modal Structure -->
+		  	<div class="modal" id="utensil_modal">
+		    	<div class="modal-content">
+		      		<h3>Add Utensil:</h3>
+		      		<div class="input-field">
+						<input type="text" name="utensil" id="new_utensil">
+						<label for="utensil">Utensil</label>
+					</div>
+		    	</div>
+		    	<div class="modal-footer">
+		      		<button onclick="addUtensil()" class='waves-effect waves-light btn teal-accent' type="button">Save</button>
+		    	</div>
+		    </div>
+       	</div>
+       	<br>
 
-       	</table>
-
-
-
-		<!-- Tags -->
-        <h4>Tags</h4>
-		<div class="chips chips-autocomplete" id="chip"></div>
-		<div class="time">
-			<h4>Time</h4>
-      		<input type="range" name="time" min="0" max="180" />
-
-		</div>
 
 		<!-- steps -->
 		<div id="steps">
-			<h3> Steps</h3>
+			<h4>Method:</h4>
 			<!-- <input type="text"  name=step id="in"> -->
 			<table id="table_steps">
 				<tr>
@@ -124,12 +127,97 @@
 			
 			</table>
 		</div>
-
 		<button onclick="addSteps()" class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
 		<br>
-		<br>
 
-		<button type="submit" onclick="addChips()" class='waves-effect waves-light btn teal accent-3'>Save Recipe</button>
+
+		<!-- Tags -->
+        <h4>Tags</h4>
+		<div class="chips chips-autocomplete" id="chip"></div>
+
+		<!-- Estimated Duration -->
+		<div class="time">
+			<h4>Estimated Duration (minutes)</h4>
+			<p class="range-field">
+      			<input type="range" name="time" min="0" max="120" step="5"/>
+      		</p>
+		</div>
+
+		<!-- Rating -->
+		
+		<div class="rating" id="rating_container">
+			<h4>Rating</h4>
+			<table id="rating_table">
+				<tr>
+					<td>
+						<button type="button" id="1" class="star_button" >
+							<i class="medium material-icons icon-teal">star_outline</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="2" class="star_button">
+							<i class="medium material-icons icon-teal">star_outline</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="3" class="star_button">
+							<i class="medium material-icons icon-teal">star_outline</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="4" class="star_button">
+							<i class="medium material-icons icon-teal">star_outline</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="5" class="star_button">
+							<i class="medium material-icons icon-teal">star_outline</i>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Difficulty-->
+		
+		<div class="difficulty" id="difficulty_container">
+			<h4>Difficulty</h4>
+			<table id="difficulty_table">
+				<tr>
+					<td>
+						<button type="button" id="101" class="difficulty_button" >
+							<i class="medium material-icons icon-grey">cake</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="102" class="difficulty_button">
+							<i class="medium material-icons icon-grey">cake</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="103" class="difficulty_button">
+							<i class="medium material-icons icon-grey">cake</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="104" class="difficulty_button">
+							<i class="medium material-icons icon-grey">cake</i>
+						</button>
+					</td>
+					<td>
+						<button type="button" id="105" class="difficulty_button">
+							<i class="medium material-icons icon-grey">cake</i>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<br>		
+		<!-- Submit -->
+		<button type="submit" onclick="return saveForm()" class='waves-effect waves-light btn teal accent-3'>Save Recipe</button>
+		<br>
+		<br>
 	</form>
 		
 </div>
@@ -137,6 +225,7 @@
 
 {%block javascript %}
 <script src={% static "main/js/create.js" %}></script>
+
 
 <script>
 	function loadAutoComplete()

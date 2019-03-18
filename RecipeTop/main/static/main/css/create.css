@@ -5,10 +5,47 @@
   margin: 0 auto;
 }
 
+
 .step_number{
 	width:2%;
 	align:left;
-	color:#1de9b6;
+	color:teal;
+}
+
+.icon-teal{
+	color:#80cbc4;
+}
+.icon-grey{
+	color:#b0bec5;
+}
+
+.time{
+	width:50%;
+	align:right;
+
+}
+.rating{
+	width:50%;
+	align:right;
+
+}
+.difficulty{
+	width:50%;
+	align:right;
+}
+
+.star_button{
+	border: none;
+	background-color: white;
+	padding: 15px 10px; 
+
+}
+
+.difficulty_button{
+	border: none;
+	background-color: white;
+	padding: 15px 10px; 
+
 }
 
 

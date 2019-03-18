@@ -1,6 +1,8 @@
 let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 let instances = null
+var utensil_modal_instance;
+
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
     instances = M.Chips.init(chips, "");
@@ -8,7 +10,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let select = document.querySelectorAll('select');
     let select_instances = M.FormSelect.init(select);
+
+    var utensil_modals = document.getElementById("utensil_modal");
+    //alert(utensil_modals);
+    utensil_modal_instance = M.Modal.init(utensil_modals);
+
   });
+
+let stars = document.getElementsByClassName("star_button");
+
+
+var num_stars = 0;
+for (let i = 0, len = stars.length; i < len; i++) {
+    stars[i].onclick = function (){
+        let star_field = document.createElement('input');
+        let rating_container = document.getElementById("rating_container")
+        num_stars = stars[i].id;
+        //alert(num_stars.toString());
+        star_field.type = "hidden";
+        star_field.name = "rating";
+        star_field.value = num_stars.toString();
+        rating_container.appendChild(star_field);
+        for (var j = 1; j <= num_stars; j++){
+            let star_icon = document.getElementById(j.toString());
+            //alert(star_icon);
+            star_icon.innerHTML = '<i class="medium material-icons icon-teal">star</i>'; 
+        }
+        for (var k = num_stars*1 +1; k <= 5; k++){
+            let star_icon = document.getElementById(k.toString());
+            //alert(star_icon);
+            star_icon.innerHTML = '<i class="medium material-icons icon-teal">star_outline</i>'; 
+        }
+    }
+}
+let cakes = document.getElementsByClassName("difficulty_button");
+var num_cakes = 0;
+for (let i = 0, len = cakes.length; i < len; i++) {
+    cakes[i].onclick = function (){
+        let cake_field = document.createElement('input');
+        let difficulty_container = document.getElementById("difficulty_container")
+        num_cakes = cakes[i].id-100;
+        //alert(num_stars.toString());
+        cake_field.type = "hidden";
+        cake_field.name = "difficulty";
+        cake_field.value = num_cakes.toString();
+        difficulty_container.appendChild(cake_field);
+        for (var l = 101; l <= num_cakes*1 +100; l++){
+            let cake_icon = document.getElementById(l.toString());
+            //alert(l)
+            cake_icon.innerHTML = '<i class="medium material-icons icon-teal">cake</i>'; 
+        }
+        for (var p = num_cakes*1 +101; p <= 105; p++){
+            let cake_icon = document.getElementById(p.toString());
+            //alert(p)
+            cake_icon.innerHTML = '<i class="medium material-icons icon-grey">cake</i>'; 
+        }
+    }
+}
+
   
 let tables = document.getElementById('table');
 
@@ -91,6 +150,59 @@ const addSteps=()=>{
 }
 
 
+
+//let list_of_utensils = []
+let table_of_utensils = $('#utensils_table')//document.getElementById('utensils_table');
+
+const addUtensil=()=>{
+    utensil_field = document.getElementById('new_utensil');
+    //list_of_utensils.push(utensil_field.value);
+
+    let rows = table_of_utensils.children().children();
+    let len = rows.length;
+
+    let added = false;
+    for(let i = 0; i < len && !added; i++)
+    {
+        let row = rows[i];
+        if(row.childElementCount == 4) continue;
+
+        rows[i].appendChild(createNewUtensil(utensil_field.value));
+        added = true;
+    }
+
+    if(!added)
+    {
+        // Add new row
+        table_of_utensils.append("<tr></tr>");
+        table_of_utensils.children().children()[len].appendChild(createNewUtensil(utensil_field.value));
+    }
+
+    utensil_field.value = "";
+    utensil_modal_instance.close()
+}
+
+function createNewUtensil(value)
+{
+    let col = document.createElement("td");
+    let label = document.createElement("label");
+    let input = document.createElement("input");
+    let span = document.createElement("span");
+
+    input.type = "checkbox";
+    input.value = value;
+    input.name = "utensils";
+    input.checked = true;
+    span.innerHTML = value;
+
+    col.appendChild(label);
+    label.appendChild(input);
+    label.appendChild(span);
+
+    return col;
+}
+
+
 let chip = document.getElementById('chip');
 
 function addChips()
@@ -107,4 +219,23 @@ function addChips()
 
         createForm.append(input);
     }
+
+    /*for(let y = 0; y < list_of_utensils.length; y++){
+        let utensils_field = document.createElement('input');
+        utensils_field.type = 'hidden';
+        utensils_field.name = 'utensils';
+        utensils_field.value = list_of_utensils[y];
+        createForm.append(utensils_field);
+    }*/
+
 }
+
+function saveForm(){
+    //TODO check if form is not valid
+    //return false;
+    addChips();
+    return true;
+
+}
+
+   

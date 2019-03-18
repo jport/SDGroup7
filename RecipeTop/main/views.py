@@ -39,23 +39,47 @@ def users(request):
 
 def create(request):
     if request.method == 'POST':
+        
+        if not request.FILES['recipe_image']:
+            r = Recipe(
+                title=request.POST['title'],
+                description=request.POST['description'],
+                rating = request.POST['rating'],
+                estDuration = request.POST['time'],
+                difficulty = request.POST['difficulty']
+                
+                #image = request.FILES['recipe_image']
+
+                # TODO: Add other fields
+            )
+
+            #TODO add validation for iamge, save a defualt image if the file chosen doesnt exist?
+
         # Create the recipe
-        r = Recipe(
-            title=request.POST['title'],
-            description=request.POST['description'],
-            # TODO: Add other fields
-        )
+        else:
+            r = Recipe(
+                title=request.POST['title'],
+                description=request.POST['description'],
+                image = request.FILES['recipe_image'],
+                rating = request.POST['rating'],
+                estDuration = request.POST['time'],
+                difficulty = request.POST['difficulty']
+                
+
+                # TODO: Add other fields
+            )
 
         # Save the recipe to create the id
         r.save()
 
         # Create new ingredients only
         ingredients = request.POST.getlist('ingredient')
+        print(ingredients)
         quanties = request.POST.getlist('quantity')
         units = request.POST.getlist('unit')
 
         for i in range(0, len(ingredients)):
-            ing = Ingredient.objects.get_or_create(name__iexact=ingredients[i])[0]
+            ing = Ingredient.objects.get_or_create(name__iexact = ingredients[i], defaults={'name':ingredients[i]})[0]
             repToIng = RecipeToIngredient(
                 recipe = r,
                 ingredient = ing,
@@ -67,17 +91,17 @@ def create(request):
 
 
         # Create new utensils
-        utensils = request.POST.getlist('utensil')
+        utensils = request.POST.getlist('utensils')
 
         for i in range(0, len(utensils)):
-            uten = Utensil.objects.get_or_create(name__iexact = utensils[i])[0]
+            uten = Utensil.objects.get_or_create(name__iexact = utensils[i], defaults={'name':utensils[i]})[0]
             r.utensils.add(uten)
 
         # Create new keywords
         tags = request.POST.getlist('tags')
 
         for i in range(0, len(tags)):
-            tag = Keyword.objects.get_or_create(name__iexact = tags[i])[0]
+            tag = Keyword.objects.get_or_create(name__iexact = tags[i], defaults={'name':tags[i]})[0]
             r.keywords.add(tag)
 
         # Create steps
@@ -149,8 +173,7 @@ def follow_steps(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)
 
     context = {
-        'recipe':recipe,
-        'units':["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"]
+        'recipe':recipe
         
     }
     return render(request, 'main/follow_steps.html',context)
