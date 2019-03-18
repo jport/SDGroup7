@@ -79,7 +79,7 @@ def create(request):
         units = request.POST.getlist('unit')
 
         for i in range(0, len(ingredients)):
-            ing = Ingredient.objects.get_or_create(name=ingredients[i])[0]
+            ing = Ingredient.objects.get_or_create(name__iexact = ingredients[i], defaults={'name':ingredients[i]})[0]
             repToIng = RecipeToIngredient(
                 recipe = r,
                 ingredient = ing,
@@ -94,14 +94,14 @@ def create(request):
         utensils = request.POST.getlist('utensil')
 
         for i in range(0, len(utensils)):
-            uten = Utensil.objects.get_or_create(name = utensils[i])[0]
+            uten = Utensil.objects.get_or_create(name__iexact = utensils[i], defaults={'name':utensils[i]})[0]
             r.utensils.add(uten)
 
         # Create new keywords
         tags = request.POST.getlist('tags')
 
         for i in range(0, len(tags)):
-            tag = Keyword.objects.get_or_create(name= tags[i])[0]
+            tag = Keyword.objects.get_or_create(name__iexact = tags[i], defaults={'name':tags[i]})[0]
             r.keywords.add(tag)
 
         # Create steps
