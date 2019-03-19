@@ -171,6 +171,7 @@ def follow(request, recipe_id=0):
 
 def follow_steps(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)
+    #steps = get_object_or_404(RecipeStep,pk=recipe_id)
 
     context = {
         'recipe':recipe

@@ -17,44 +17,42 @@
 
 <div class = "follow_steps_info white">
 		<div class="follow_steps_container">
-		<div class="card">
-            <div class="card-content">
-               <ul class="stepper ">
-                  <li class="step ">
-                     <div  class="step-title waves-effect waves-dark">Step 1</div>
-                     <div class="step-content">
-                        <div class="row">
-                           this is my step
-                        </div>
-                        <div class="step-actions">
-                           <button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="step">
-                     <div class="step-title waves-effect waves-dark">Step 2</div>
-                     <div class="step-content">
-                        <div class="row">
+			<div class="card">
+	            <div class="card-content">
+	               <ul class="stepper ">
+	               		{% for step in recipe.steps.all %}
+	                  		<li class="step ">
+	                     		<div  class="step-title waves-effect waves-dark">Step {{forloop.counter}}</div>
+	                     		<div class="step-content">
+	                        		<div class="row">
+	                           			{{step.text}}
+	                        		</div>
+	                        		<div class="step-actions">
+	                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+	                        		{% if forloop.counter != 1 %}
+	                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+	                        			
+	                        		{% endif %}
+	                        		</div>
 
-                        </div>
-                        <div class="step-actions">
-                           <button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
-                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="step">
-                     <div class="step-title waves-effect waves-dark">Step 3</div>
-                     <div class="step-content">
-                        Finish!
-                        <div class="step-actions">
-                           <button class="waves-effect waves-dark btn teal lighten-1" type="submit">Finish!</button>
-                        </div>
-                     </div>
-                  </li>
-               </ul>
-            </div>
-         </div>
+	                     		</div>
+	                  		</li>
+
+
+	                  	{% endfor %}
+
+	                  	<li class="step">
+			                    <div class="step-title waves-effect waves-dark">Finish!</div>
+			                    <div class="step-content">
+			                        
+			                        <div class="step-actions">
+			                           <button class="waves-effect waves-dark btn teal lighten-1" type="submit">Finish!</button>
+			                        </div>
+			                    </div>
+	                  		</li>
+	               </ul>
+	            </div>
+	         </div>
          </div>
 
 		

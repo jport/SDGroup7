@@ -35,7 +35,7 @@ class RecipeToIngredient(models.Model):
         return str(self.recipe) + " " + str(self.ingredient) + " " + str(self.quantity) + " " + str(self.unit)
     def get_unit(self):
 
-        return units[self.unit]
+        return units[self.unit-1]
 
 class Utensil(models.Model):
     name = models.CharField(max_length=200)
