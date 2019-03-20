@@ -71,16 +71,13 @@ $(document).ready(function() {
 	
 	var timer_button = document.getElementById("start_timer");
 	timer_button.addEventListener("click", event_handler, 1000);
-});
 
-function foo()
-{
-	alert("hello");
-}
+	// Reinitialize range slider
+	M.Range.init($('input[type=range]'));
+});
 
 
 function event_handler() {
-	alert("event_handler()");
 	document.getElementById("start_timer").classList.add("hide");
 	var range_val = document.getElementById("test5").value;
 	var day = Date.now();
