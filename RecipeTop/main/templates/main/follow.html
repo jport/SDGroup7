@@ -24,14 +24,14 @@
 		    <ul>
 		    	{% for ing in recipe.recipetoingredient_set.all %}
 		    		<li>
-		    			<label>
-		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient"/>
+		    			<label style="zoom:1.5;">
+		        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient" />
 		       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
 		    			</label>
 		    		</li>
 		    	{% endfor %}
 		    	<br>
-		    	<button class="btn waves-effect waves-light" type="button" name="action" id="start_steps">Start
+		    	<button class="btn-large waves-effect waves-light" type="button" name="action" id="start_steps">Start
   				</button>
 		    </ul>
 	    </div>

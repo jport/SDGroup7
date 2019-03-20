@@ -5,6 +5,7 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/create.css" %}>
+<link rel="stylesheet" href={% static "main/css/mstepper.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -17,207 +18,322 @@
 <br>
 
 <div class="create_container white">
+
 	<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
-		{% csrf_token %}
-		<div class="input-field">
-			<input type="text" name="title">
-			<label for="title">Title</label>
-		</div>
-		<div class="input-field">
-			<input type="text" name="description">
-			<label for="description">Description</label>
-		</div>
-
-		<!-- Icon image file picker-->
-    	<div class="file-field input-field">
-      		<div class="btn">
-        		<span>Browse Images</span>
-        		<input type="file" name="recipe_image">
-      		</div>
-      		<div class="file-path-wrapper">
-        		<input class="file-path validate" type="text" >
-        		<label for="recipe_image">Select an image</label>
-      		</div>
-    	</div>
-
-    	<!-- Ingredients-->
-        <table id="table">
-        <tr>
-			<td>Ingredient</td>
-			<td>Quantity</td>
-			<td>Unit</td>
-        </tr>       
-		<tr id="example">
-			<td>
-				<!-- <input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete"> -->
-				<div class="input-field">
-					<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete">
+		<div class="card">
+				<br>
+				<div class="card-title">
+					<h4>Create a new recipe:</h4>
 				</div>
-			</td>   
-			<td><input type="text" name="quantity" placeholder="Enter your quantity"></td>
-			<td class="input-field col s10">
-				<select name="unit">
-					<option value="" disabled selected>Choose the unit</option>
-					<option value="1" name="">cup(s)</option>
-					<option value="2" name="">kg</option>
-					<option value="3" name="">grams</option>
-					<option value="4" name="">lbs</option>
-					<option value="5" name="">ounces</option>
-					<option value="6" name="">ml</option>
-					<option value="7" name="">units</option>
-					<option value="8" name="">tbsp</option>
-					<option value="9" name="">tsp</option>
-					<option value="10" name="">handfuls</option>
-				</select>
-			</td>	 
-		</tr>
-		</table>
-		<button onclick="table()" class='waves-effect waves-light btn' type="button">Add another Ingredient</button>
-	
-       
+	            <div class="card-content">
+	               <ul class="stepper">
+	               		<!-- Title -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Recipe Title</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<div class="input-field">
+										<input type="text" name="title">
+										<label for="title">Title</label>
+									</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Description -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Description</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<div class="input-field">
+										<input type="text" name="description">
+										<label for="description">Description</label>
+									</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Image -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Add an image</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                        			<!-- Icon image file picker-->
+							    	<div class="file-field input-field">
+							      		<div class="btn">
+							        		<span>Browse Images</span>
+							        		<input type="file" name="recipe_image">
+							      		</div>
+							      		<div class="file-path-wrapper">
+							        		<input class="file-path validate" type="text" >
+							        		<label for="recipe_image">Select an image</label>
+							      		</div>
+							    	</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Ingredients -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Ingredients</div>
+                     		<div class="step-content">
+                        		<div class="row">
+							    	<!-- Ingredients-->
+							        <table id="table">
+								        <tr>
+											<td>Ingredient</td>
+											<td>Quantity</td>
+											<td>Unit</td>
+								        </tr>       
+										<tr id="example">
+											<td>
+												<!-- <input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete"> -->
+												<div class="input-field">
+													<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete">
+												</div>
+											</td>   
+											<td><input type="text" name="quantity" placeholder="Enter your quantity"></td>
+											<td class="input-field col s10">
+												<select name="unit">
+													<option value="" disabled selected>Choose the unit</option>
+													<option value="1" name="">cup(s)</option>
+													<option value="2" name="">kg</option>
+													<option value="3" name="">grams</option>
+													<option value="4" name="">lbs</option>
+													<option value="5" name="">ounces</option>
+													<option value="6" name="">ml</option>
+													<option value="7" name="">units</option>
+													<option value="8" name="">tbsp</option>
+													<option value="9" name="">tsp</option>
+													<option value="10" name="">handfuls</option>
+												</select>
+											</td>	 
+										</tr>
+									</table>
+									<button onclick="table()" class='waves-effect waves-light btn' type="button">Add another Ingredient</button>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Utensils -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Utensils</div>
+                     		<div class="step-content">
+                        		<div class="row">
+							        <!-- Utensils -->
+							        <div id="utensils">
+							        	<table id="utensils_table">
+							        		<tr>
+											{% for utensil in utensils %}
+											<td>
+												<label>
+													<input type="checkbox" value="{{utensil}}" name="utensils"/>
+													<span>{{utensil}}</span>
+												</label>
+											</td>
+											{% cycle "" "" "" "</tr><tr>" %}
+											{% endfor %}
+							        		</tr>
 
-        <!-- Utensils -->
-        <div id="utensils">
-        	<h4>Utensils</h4>
-        	<table id="utensils_table">
-        		<tr>
-				{% for utensil in utensils %}
-				<td>
-					<label>
-						<input type="checkbox" value="{{utensil}}" name="utensils"/>
-						<span>{{utensil}}</span>
-					</label>
-				</td>
-				{% cycle "" "" "" "</tr><tr>" %}
-				{% endfor %}
-        		</tr>
+							       		</table>
+							       		<button data-target="utensil_modal" class='waves-effect waves-light btn modal-trigger blue-grey' type="button">Add utensil</button>
+							       		<!-- Modal Structure -->
+									  	<div class="modal" id="utensil_modal">
+									    	<div class="modal-content">
+									      		<h3>Add Utensil:</h3>
+									      		<div class="input-field">
+													<input type="text" name="utensil" id="new_utensil">
+													<label for="utensil">Utensil</label>
+												</div>
+									    	</div>
+									    	<div class="modal-footer">
+									      		<button onclick="addUtensil()" class='waves-effect waves-light btn teal-accent' type="button">Save</button>
+									    	</div>
+									    </div>
+							       	</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Steps -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Method</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<!-- steps -->
+									<div id="steps">
+										<!-- <input type="text"  name=step id="in"> -->
+										<table id="table_steps">
+											<tr>
+												<td class="step_number">
+													<span>1.</span>
+												</td>
+												<td>
+													<input type="text" name="step" placeholder="Preheat oven to ...">
+												</td>
+											</tr>
+										
+										</table>
+									</div>
+									<button onclick="addSteps()" class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Tags -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Tags</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<!-- Tags -->
+									<div class="chips chips-autocomplete" id="chip"></div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
 
-       		</table>
-       		<button data-target="utensil_modal" class='waves-effect waves-light btn modal-trigger blue-grey' type="button">Add utensil</button>
-       		<!-- Modal Structure -->
-		  	<div class="modal" id="utensil_modal">
-		    	<div class="modal-content">
-		      		<h3>Add Utensil:</h3>
-		      		<div class="input-field">
-						<input type="text" name="utensil" id="new_utensil">
-						<label for="utensil">Utensil</label>
-					</div>
-		    	</div>
-		    	<div class="modal-footer">
-		      		<button onclick="addUtensil()" class='waves-effect waves-light btn teal-accent' type="button">Save</button>
-		    	</div>
-		    </div>
-       	</div>
-       	<br>
+
+                  		<!-- Estimated Duration -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Estimated Duration (minutes)</div>
+                     		<div class="step-content">
+                        		<div class="row">	
+									<div class="time">
+										<p class="range-field">
+							      			<input type="range" name="time" min="0" max="120" step="5"/>
+							      		</p>
+									</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+
+                  		<!-- Rating -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Rating</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<div class="rating" id="rating_container">
+										<table id="rating_table">
+											<tr>
+												<td>
+													<button type="button" id="1" class="star_button" >
+														<i class="medium material-icons icon-teal">star_outline</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="2" class="star_button">
+														<i class="medium material-icons icon-teal">star_outline</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="3" class="star_button">
+														<i class="medium material-icons icon-teal">star_outline</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="4" class="star_button">
+														<i class="medium material-icons icon-teal">star_outline</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="5" class="star_button">
+														<i class="medium material-icons icon-teal">star_outline</i>
+													</button>
+												</td>
+											</tr>
+										</table>
+									</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>                  		
+                  		<!-- Difficulty -->
+                  		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Difficulty</div>
+                     		<div class="step-content">
+                        		<div class="row">
+									<div class="difficulty" id="difficulty_container">
+										<table id="difficulty_table">
+											<tr>
+												<td>
+													<button type="button" id="101" class="difficulty_button" >
+														<i class="medium material-icons icon-grey">cake</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="102" class="difficulty_button">
+														<i class="medium material-icons icon-grey">cake</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="103" class="difficulty_button">
+														<i class="medium material-icons icon-grey">cake</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="104" class="difficulty_button">
+														<i class="medium material-icons icon-grey">cake</i>
+													</button>
+												</td>
+												<td>
+													<button type="button" id="105" class="difficulty_button">
+														<i class="medium material-icons icon-grey">cake</i>
+													</button>
+												</td>
+											</tr>
+										</table>
+									</div>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                        		</div>
+                     		</div>
+                  		</li>
+                  		<!-- Submit -->
+	                  	<li class="step">
+			                    <div class="step-title waves-effect waves-dark">Submit!</div>
+			                    <div class="step-content">
+			                        
+			                        <div class="step-actions">
+										<button type="submit" onclick="return saveForm()" class='waves-effect waves-dark btn teal lighten-1'>Save Recipe</button>
+			                        </div>
+			                    </div>
+	                  	</li>
+	               </ul>
+	            </div>
+	         </div>
+		{% csrf_token %}
 
 
-		<!-- steps -->
-		<div id="steps">
-			<h4>Method:</h4>
-			<!-- <input type="text"  name=step id="in"> -->
-			<table id="table_steps">
-				<tr>
-					<td class="step_number">
-						<span>1.</span>
-					</td>
-					<td>
-						<input type="text" name="step" placeholder="Preheat oven to ...">
-					</td>
-				</tr>
-			
-			</table>
-		</div>
-		<button onclick="addSteps()" class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
-		<br>
 
-
-		<!-- Tags -->
-        <h4>Tags</h4>
-		<div class="chips chips-autocomplete" id="chip"></div>
-
-		<!-- Estimated Duration -->
-		<div class="time">
-			<h4>Estimated Duration (minutes)</h4>
-			<p class="range-field">
-      			<input type="range" name="time" min="0" max="120" step="5"/>
-      		</p>
-		</div>
-
-		<!-- Rating -->
-		
-		<div class="rating" id="rating_container">
-			<h4>Rating</h4>
-			<table id="rating_table">
-				<tr>
-					<td>
-						<button type="button" id="1" class="star_button" >
-							<i class="medium material-icons icon-teal">star_outline</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="2" class="star_button">
-							<i class="medium material-icons icon-teal">star_outline</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="3" class="star_button">
-							<i class="medium material-icons icon-teal">star_outline</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="4" class="star_button">
-							<i class="medium material-icons icon-teal">star_outline</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="5" class="star_button">
-							<i class="medium material-icons icon-teal">star_outline</i>
-						</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<!-- Difficulty-->
-		
-		<div class="difficulty" id="difficulty_container">
-			<h4>Difficulty</h4>
-			<table id="difficulty_table">
-				<tr>
-					<td>
-						<button type="button" id="101" class="difficulty_button" >
-							<i class="medium material-icons icon-grey">cake</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="102" class="difficulty_button">
-							<i class="medium material-icons icon-grey">cake</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="103" class="difficulty_button">
-							<i class="medium material-icons icon-grey">cake</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="104" class="difficulty_button">
-							<i class="medium material-icons icon-grey">cake</i>
-						</button>
-					</td>
-					<td>
-						<button type="button" id="105" class="difficulty_button">
-							<i class="medium material-icons icon-grey">cake</i>
-						</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<br>		
-		<!-- Submit -->
-		<button type="submit" onclick="return saveForm()" class='waves-effect waves-light btn teal accent-3'>Save Recipe</button>
-		<br>
-		<br>
 	</form>
 		
 </div>
@@ -225,7 +341,14 @@
 
 {%block javascript %}
 <script src={% static "main/js/create.js" %}></script>
-
+<script src={% static "main/js/mstepper.min.js" %}></script>
+<script>
+   var stepper = document.querySelector('.stepper');
+   var stepperInstace = new MStepper(stepper, {
+      // options
+      firstActive: 0 // this is the default
+   })
+</script>
 
 <script>
 	function loadAutoComplete()
@@ -243,4 +366,5 @@
 		loadAutoComplete();
 	});
 </script>
+
 {% endblock%}

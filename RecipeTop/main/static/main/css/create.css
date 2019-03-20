@@ -5,6 +5,11 @@
   margin: 0 auto;
 }
 
+.card-title {
+  margin: 2px 15px;
+  height: 10px;
+}
+
 
 .step_number{
 	width:2%;
