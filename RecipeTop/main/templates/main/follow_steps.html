@@ -6,6 +6,7 @@
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/follow_steps.css" %}>
 <link rel="stylesheet" href={% static "main/css/mstepper.css" %}>
+<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -21,7 +22,32 @@
 		<div class="follow_steps_container">
 			<div class="card">
 	            <div class="card-content">
-	               <ul class="stepper ">
+	            	<div class="card-title">
+						<h4>{{recipe.title}}</h4>
+					</div>
+	               	<ul class="stepper ">
+	               		<!-- Gather ingredients-->
+	               		<li class="step">
+                     		<div  class="step-title waves-effect waves-dark">Gather your ingredients...</div>
+                     		<div class="step-content">
+                        		<div class="row">
+                           			<ul>
+		    						{% for ing in recipe.recipetoingredient_set.all %}
+							    		<li>
+							    			<label>
+							        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient" />
+							       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+							    			</label>
+							    		</li>
+							    	{% endfor %}
+				
+								    </ul>
+                        		</div>
+                        		<div class="step-actions">
+                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                        		</div>
+                     		</div>
+                  		</li>
 	               		{% for step in recipe.steps.all %}
 	                  		<li class="step ">
 	                     		<div  class="step-title waves-effect waves-dark">Step {{forloop.counter}}</div>
@@ -31,10 +57,7 @@
 	                        		</div>
 	                        		<div class="step-actions">
 	                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
-	                        		{% if forloop.counter != 1 %}
 	                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-	                        			
-	                        		{% endif %}
 	                        		</div>
 
 	                     		</div>
@@ -68,6 +91,15 @@
 	    				<a class="btn-floating teal lighten-3">
 	    					<i class="material-icons" id="timer-drag-anywhere">timer</i>
 	    				</a>
+	    				<div  id="timer_modal_content">
+        					<div id="demo">          
+          						<p class="range-field">
+                					<input type="range" id="test5" min="0" max="100" />	
+            					</p>
+        					</div>
+        					<br>
+        					<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer"> Start Timer </button>
+	    				</div>
 	    			</li>
 	    			<li>
 	    				<a class="btn-floating teal lighten-1">
@@ -89,6 +121,7 @@
 {%block javascript %}
 <script> var recipe_id = ({{recipe.id}}) </script>
 <script src={% static "main/js/follow_steps.js" %}></script>
+<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script>
 <script src={% static "main/js/mstepper.min.js" %}></script>
 <script>
    var stepper = document.querySelector('.stepper');

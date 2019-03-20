@@ -11,15 +11,17 @@
 
 .follow_container {
   float: right;
+  position: relative;
   margin: 0 auto;
-  height: 1000px;
+  height: 665px;
   width: 15%;
   margin: 0 auto;
 }
 
 .follow_info{
     margin:0 auto;
-    height:1000px;
+    position: relative;
+    height:500px;
     width: 95%;
     margin:0 auto;
 
