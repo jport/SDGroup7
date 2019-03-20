@@ -1,6 +1,8 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block title %}Gather ingredients for {{recipe.title}}{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/follow.css" %}>
 <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">

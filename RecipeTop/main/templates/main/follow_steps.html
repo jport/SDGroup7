@@ -1,6 +1,8 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block title %}Cooking {{recipe.title}}{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/follow_steps.css" %}>
 <link rel="stylesheet" href={% static "main/css/mstepper.css" %}>
