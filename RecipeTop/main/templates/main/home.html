@@ -13,7 +13,7 @@
 <div class="container">
     <div class="carousel">
     {% for recipe in recipes %}
-        <a href="{% url 'follow' recipe.id %}" class="carousel-item">
+        <a href="{% url 'follow_steps' recipe.id %}" class="carousel-item">
             <div class="Home_container">
                 <div class="photo photo{{forloop.counter}}">
                         <div class="min">
