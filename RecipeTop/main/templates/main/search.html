@@ -14,6 +14,8 @@
 <br>
 <br>
 <br>
+
+<!--
 <div class="container">
     <div class="grid">
         {% for recipe in hearted %}
@@ -71,7 +73,7 @@
         {% endfor %}
     </div>
 </div>
-
+-->
 
 
 <!-- <div class="container">
@@ -100,6 +102,61 @@
 <div id="portfolio" class="section gray">
     <div class="container">
         <div class="gallery row">
+            {% for recipe in hearted %}
+            <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                <div class="gallery-curve-wrapper">
+                <a class="gallery-cover gray card-image">
+                    {% if recipe.image %}
+                    <img class="responsive-img" src="{{recipe.image.url}}">
+                    {% else %}
+                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                    <!-- <div class="circle">circle</div> -->
+                    {% endif %}
+                </a>
+                <!-- card title -->
+                <div class="gallery-header">
+                    <div class="ingredient_title">
+                        <span class= "title">{{recipe.title}}</span>
+                    </div>
+                    <br>
+                    <div class="ingredient_props">
+                        <div>
+                            <i class="material-icons">library_books</i>
+                            <!-- <span><i class="material-icons hearted ">note</i>steps:{{recipe.steps.all.count}}</span> -->
+                        </div>
+                        <div class="prop2"><i class="material-icons hearted">schedule</i></div>
+                        <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
+                        <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">favorite</i></div>
+                    </div>
+                </div>
+                <!-- inside the card stuff -->
+                <div class="gallery-body">
+                        <div class="title-wrapper">
+                            <h3>{{recipe.title}}</h3>
+                            <span class="price">steps:{{recipe.steps.all.count}}</span>
+                        </div>
+                        <h3>Ingredients</h3>
+                        <div class="ingredient">
+                        {% for ing in recipe.recipetoingredient_set.all %}
+                            <p>name: {{ing.ingredient.name}}</p>
+                            <p>unit: {{ing.unit}}</p>
+                            <p>quantity: {{ing.quantity}}</p>
+                        {% endfor %}
+                        </div>
+                        <h2>description</h2>
+                        <p class="description">
+                                {{recipe.description}}
+                        </p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
+                </div>
+                    <div class="gallery-action">
+                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">favorite</i></a>
+                        <a href="{% url 'follow' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
             {% for recipe in recipes %}
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
@@ -118,14 +175,13 @@
                    </div>
                    <br>
                    <div class="ingredient_props">
-                       <div>    
+                       <div>
                             <i class="material-icons">library_books</i>
                             <!-- <span><i class="material-icons hearted ">note</i>steps:{{recipe.steps.all.count}}</span> -->
                        </div>
                         <div class="prop2"><i class="material-icons hearted">schedule</i></div>
                         <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
-                        <div class="prop2"><i class="material-icons hearted">favorite_border</i></div>
-                        
+                        <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">favorite_border</i></div>
                    </div>
                 </div>
                 <!-- inside the card stuff -->
@@ -149,8 +205,8 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
                 </div>
                     <div class="gallery-action">
-                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted">favorite_border</i></a>
-                        <button class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></button>
+                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">favorite_border</i></a>
+                        <a href="{% url 'follow' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
                     </div>
                 </div>
             </div>
@@ -169,7 +225,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src={% static "main/js/gallery/materialize.min.js" %}></script>
-<script src={% static "main/js/gallery/masonry.pkgd.min.js"" %}></script>
+<script src={% static "main/js/gallery/masonry.pkgd.min.js" %}></script>
 <script src={% static "main/js/gallery/galleryExpand.js" %}></script>
 <script src={% static "main/js/gallery/init.js" %}></script>
 <script src={% static "main/js/gallery/color-thief.min.js" %}></script>
