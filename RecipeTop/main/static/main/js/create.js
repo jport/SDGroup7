@@ -21,9 +21,10 @@ let stars = document.getElementsByClassName("star_button");
 
 
 var num_stars = 0;
+let star_field = document.createElement('input');
 for (let i = 0, len = stars.length; i < len; i++) {
     stars[i].onclick = function (){
-        let star_field = document.createElement('input');
+        
         let rating_container = document.getElementById("rating_container")
         num_stars = stars[i].id;
         //alert(num_stars.toString());
@@ -45,9 +46,10 @@ for (let i = 0, len = stars.length; i < len; i++) {
 }
 let cakes = document.getElementsByClassName("difficulty_button");
 var num_cakes = 0;
+let cake_field = document.createElement('input');
 for (let i = 0, len = cakes.length; i < len; i++) {
     cakes[i].onclick = function (){
-        let cake_field = document.createElement('input');
+        
         let difficulty_container = document.getElementById("difficulty_container")
         num_cakes = cakes[i].id-100;
         //alert(num_stars.toString());
