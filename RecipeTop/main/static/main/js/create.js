@@ -2,6 +2,8 @@ let key_word_input= document.getElementById("key_word_input");
 let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
 let instances = null
 var utensil_modal_instance;
+let added = false;
+let focusChipInput = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
@@ -15,6 +17,24 @@ document.addEventListener('DOMContentLoaded', function() {
     //alert(utensil_modals);
     utensil_modal_instance = M.Modal.init(utensil_modals);
 
+    let ch = M.Chips.getInstance(chip);
+    ch.$input[0].onfocus = function(){
+        focusChipInput = true;
+        if(added) return;
+        added = true;
+
+        let comma = $("[_key='\,']")[0];
+        comma.onclick = function(){
+            if(!focusChipInput) return;
+            let val = ch.$input[0].value;
+            val = val.replace(",", "");
+
+            ch.addChip({tag:val});
+            ch.$input[0].value = "";
+        }
+    }
+
+    ch.$input[0].addEventListener("focusout", function(){focusChipInput = false;});
   });
 
 let stars = document.getElementsByClassName("star_button");
