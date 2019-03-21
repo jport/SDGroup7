@@ -52,13 +52,36 @@ $(document).ready(function() {
    var timer_button = document.getElementById("start_timer");
    timer_button.addEventListener("click", event_handler, 1000);
 
+
+
+
    // Reinitialize range slider
    M.Range.init($('input[type=range]'));
 });
 
+let stop_timer=false;
+
+
+function restart_timer(){
+  document.getElementById("demo").innerHTML = '<p class="range-field"><input type="range" id="test5" min="0" max="100" /></p>';
+  document.getElementById("timer_button_holder").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer">Start Timer</button>'
+  stop_timer = true;
+  var timer_button = document.getElementById("start_timer");
+  timer_button.addEventListener("click", event_handler, 1000);
+
+
+
+
+   // Reinitialize range slider
+   M.Range.init($('input[type=range]'));
+}
+
 
 function event_handler() {
-   document.getElementById("start_timer").classList.add("hide");
+    stop_timer = false;
+   document.getElementById("timer_button_holder").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer"> Stop Timer </button>'
+   var end_timer_button = document.getElementById("end_timer");
+   end_timer_button.addEventListener("click", restart_timer);
    var range_val = document.getElementById("test5").value;
    var day = Date.now();
    var countDownDate = day + range_val*1000*60;
@@ -69,7 +92,14 @@ function event_handler() {
          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-         document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+         if (stop_timer){
+            clearInterval(x);
+            
+         }
+         if (!stop_timer){
+          document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+         }
+         
          if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("demo").innerHTML = "EXPIRED";
