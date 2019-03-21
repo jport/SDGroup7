@@ -8,13 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-
-  // Drag anywhere
-
 $(document).ready(function() {
 
   
-   new jBox('Modal', {
+   var timerJbox = new jBox('Modal', {
        attach: $('#timer-drag-anywhere'),
        width: 220,
        title: 'Timer',
@@ -26,7 +23,7 @@ $(document).ready(function() {
        repositionOnContent: false
    });
 
-   new jBox('Modal', {
+   var preheat_jbox = new jBox('Modal', {
        attach: $('#preheat-drag-anywhere'),
        width: 220,
        title: 'jBox',
@@ -37,7 +34,7 @@ $(document).ready(function() {
        repositionOnOpen: false,
        repositionOnContent: false
    });
-   new jBox('Modal', {
+   var scal_jbox = new jBox('Modal', {
        attach: $('#scale-drag-anywhere'),
        width: 220,
        title: 'Start weighing...',
@@ -52,14 +49,7 @@ $(document).ready(function() {
    var timer_button = document.getElementById("start_timer");
    timer_button.addEventListener("click", event_handler, 1000);
 
-
-
-
-   // Reinitialize range slider
-   M.Range.init($('input[type=range]'));
-});
-
-let stop_timer=false;
+   let stop_timer=false;
 
 
 function restart_timer(){
@@ -77,7 +67,10 @@ function restart_timer(){
 }
 
 
-function event_handler() {
+   // Reinitialize range slider
+   M.Range.init($('input[type=range]'));
+
+   function event_handler() {
     stop_timer = false;
    document.getElementById("timer_button_holder").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer"> Stop Timer </button>'
    var end_timer_button = document.getElementById("end_timer");
@@ -102,8 +95,15 @@ function event_handler() {
          
          if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
+                document.getElementById("demo").innerHTML = '<strong>TIMER EXPIRED</strong>';
+                timerJbox.open();
+
          }
       }
    );
 }
+});
+
+
+
+
