@@ -7,7 +7,7 @@ let focusChipInput = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     let chips = document.querySelectorAll('.chips');
-    instances = M.Chips.init(chips, "");
+    instances = M.Chips.init(chips, {placeholder:"Comma seperated", secondaryPlaceholder:"+Tag"});
     // var instance = M.Chips.getInstance(elems);
 
     let select = document.querySelectorAll('select');

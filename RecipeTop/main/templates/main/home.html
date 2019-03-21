@@ -15,7 +15,7 @@
     {% for recipe in recipes %}
         <a href="{% url 'follow_steps' recipe.id %}" class="carousel-item">
             <div class="Home_container">
-                <div class="photo photo{{forloop.counter}}">
+                <div class="photo" style="background-image: url({{recipe.image.url}})">
                         <div class="min">
                             <h3>{{recipe.estDuration}}</h3>
                             <span>mins</span>
@@ -31,13 +31,5 @@
     {% endfor %}
     </div>
 </div>
-
-<style>
-{% for recipe in recipes %}
-    .Home_container .photo{{forloop.counter}} {
-        background-image: url({{recipe.image.url}});
-    }
-{% endfor %}
-</style>
 
 {% endblock %}
