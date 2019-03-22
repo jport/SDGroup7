@@ -10,7 +10,7 @@
 
 * Make name clickable: Miguel
 * Add icons?: Miguel
-* Add Logo: Jason
+* <del>Add Logo: Jason
 
 ## Layout/Menu/NavBar
 
@@ -57,6 +57,7 @@
 * Turn preheat popup to another timer: Gera
 * Add fishing/rating page (see next section): Jason+Geta
 * Fix scale worker: Jason
+* The menu bar at the top is off centered, scrolling is visable through it: Miguel
 
 ## Finish Recipe
 * Front end: Gera
