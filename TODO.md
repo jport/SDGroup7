@@ -69,6 +69,9 @@
 * Add more recipes: Gera
 * Remove copyright images: Gera
 
+## Settings - stretch only if done
+* Account/Settings
+
 #
 # Hardware
 
@@ -84,3 +87,11 @@
 * Wall warts into strip
 * Paint?
 * Secure PCB, Battery, Power button
+
+#
+# Admin
+* 8 page conference paper
+* Update 120 page paper
+* Update power point slide
+* Prepare and practice demo
+* Repractice presentation
