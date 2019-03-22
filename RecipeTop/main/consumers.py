@@ -38,3 +38,6 @@ class ScaleConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps({
             'message': message
         }))
+
+    def toggle(self, event):
+        pass
