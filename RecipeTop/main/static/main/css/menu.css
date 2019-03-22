@@ -30,6 +30,10 @@ body {
   justify-content: center;
   padding-left: 230px;
 }
+.Mnavbar .Mnav_container .logo .logoimg {
+  width: 400px;
+  height: 112px;
+}
 .Mnavbar .Mnav_container .time {
   display: flex;
   align-content: center;
