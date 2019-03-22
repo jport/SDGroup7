@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 let timerJbox = null
 let preheat_jbox = null
 let scale_jbox = null
+
+let chatSocket = new WebSocket('ws://' + window.location.host + '/ws/scale/');
+
 $(document).ready(function() {
 
    timerJbox = new jBox('Modal', {
@@ -48,6 +51,32 @@ $(document).ready(function() {
        repositionOnOpen: false,
        repositionOnContent: false
    });
+
+   // When Floating button clicked, start scale
+   $('#scale-drag-anywhere').click(function(){
+      chatSocket.send(JSON.stringify({
+         'message': "on"
+      }))
+   });
+
+   // When jbox closed, stop scale
+   $('#jBox3 > div > div.jBox-title > div.jBox-closeButton.jBox-noDrag').click(function(){
+      chatSocket.send(JSON.stringify({
+         'message': "off"
+      }))
+   });
+
+   // Show incomming message in box
+   chatSocket.onmessage = function(e) {
+      let data = JSON.parse(e.data);
+      let message = data['message'];
+      scale_jbox.content.html(message + " grams");
+   };
+
+   // Check for errors
+   chatSocket.onclose = function(e) {
+      console.error('Chat socket closed unexpectedly');
+   };
    
    let timer_button = document.getElementById("start_timer");
    timer_button.addEventListener("click", event_handler, 1000);
