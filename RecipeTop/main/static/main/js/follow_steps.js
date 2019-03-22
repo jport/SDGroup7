@@ -1,17 +1,19 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, {
+    let elems = document.querySelectorAll('.fixed-action-btn');
+    let instances = M.FloatingActionButton.init(elems, {
       direction: 'left',
       hoverEnabled: false
     });
   });
 
 
+let timerJbox = null
+let preheat_jbox = null
+let scal_jbox = null
 $(document).ready(function() {
 
-  
-   var timerJbox = new jBox('Modal', {
+   timerJbox = new jBox('Modal', {
        attach: $('#timer-drag-anywhere'),
        width: 220,
        title: 'Timer',
@@ -23,7 +25,7 @@ $(document).ready(function() {
        repositionOnContent: false
    });
 
-   var preheat_jbox = new jBox('Modal', {
+   preheat_jbox = new jBox('Modal', {
        attach: $('#preheat-drag-anywhere'),
        width: 220,
        title: 'jBox',
@@ -34,7 +36,8 @@ $(document).ready(function() {
        repositionOnOpen: false,
        repositionOnContent: false
    });
-   var scal_jbox = new jBox('Modal', {
+
+   scal_jbox = new jBox('Modal', {
        attach: $('#scale-drag-anywhere'),
        width: 220,
        title: 'Start weighing...',
@@ -46,7 +49,7 @@ $(document).ready(function() {
        repositionOnContent: false
    });
    
-   var timer_button = document.getElementById("start_timer");
+   let timer_button = document.getElementById("start_timer");
    timer_button.addEventListener("click", event_handler, 1000);
 
    let stop_timer=false;
@@ -56,7 +59,7 @@ function restart_timer(){
   document.getElementById("demo").innerHTML = '<p class="range-field"><input type="range" id="test5" min="0" max="100" /></p>';
   document.getElementById("timer_button_holder").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer">Start Timer</button>'
   stop_timer = true;
-  var timer_button = document.getElementById("start_timer");
+  let timer_button = document.getElementById("start_timer");
   timer_button.addEventListener("click", event_handler, 1000);
 
 
@@ -73,18 +76,18 @@ function restart_timer(){
    function event_handler() {
     stop_timer = false;
    document.getElementById("timer_button_holder").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer"> Stop Timer </button>'
-   var end_timer_button = document.getElementById("end_timer");
+   let end_timer_button = document.getElementById("end_timer");
    end_timer_button.addEventListener("click", restart_timer);
-   var range_val = document.getElementById("test5").value;
-   var day = Date.now();
-   var countDownDate = day + range_val*1000*60;
-   var x = setInterval(function() {
-            var now = new Date().getTime();
-         var distance = countDownDate - now;
-         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+   let range_val = document.getElementById("test5").value;
+   let day = Date.now();
+   let countDownDate = day + range_val*1000*60;
+   let x = setInterval(function() {
+            let now = new Date().getTime();
+         let distance = countDownDate - now;
+         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+         let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
          if (stop_timer){
             clearInterval(x);
             
