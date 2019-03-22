@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let timerJbox = null
 let preheat_jbox = null
-let scal_jbox = null
+let scale_jbox = null
 $(document).ready(function() {
 
    timerJbox = new jBox('Modal', {
@@ -37,7 +37,7 @@ $(document).ready(function() {
        repositionOnContent: false
    });
 
-   scal_jbox = new jBox('Modal', {
+   scale_jbox = new jBox('Modal', {
        attach: $('#scale-drag-anywhere'),
        width: 220,
        title: 'Start weighing...',

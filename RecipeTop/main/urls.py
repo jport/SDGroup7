@@ -10,7 +10,6 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('sensor', views.sensor, name='sensor'),
     path('hearted', views.hearted, name='hearted'),
-    path('follow/<int:recipe_id>', views.follow, name='follow'),
     path('follow_steps/<int:recipe_id>', views.follow_steps, name='follow_steps')
 
 ]
