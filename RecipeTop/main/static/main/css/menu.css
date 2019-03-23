@@ -4,6 +4,39 @@ body {
   background-color: white;
   height: 1000px;
 }
+.icon-teal-lightest{
+  color:#80cbc4;
+}
+
+.link-teal-lightest{
+  color:#80cbc4;
+  width: 60%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+
+}
+
+.link-home{
+  color:#000000;
+
+
+
+}
+
+.icon-teal-dark{
+  color:#4db6ac;
+}
+
+.link-teal-dark{
+  color:#4db6ac;
+  width: 60%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+
+}
+
 
 .Mnavbar {
   position: fixed;
