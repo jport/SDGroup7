@@ -18,7 +18,7 @@
 * Search bar/icon: Miguel
 * Make close button larger: Miguel
 * Remove close button outline: Miguel
-* Fix color of buttons: Miguel
+* <del> Fix color of buttons: Miguel
 
 ## Home Page
 
