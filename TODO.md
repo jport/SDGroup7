@@ -38,7 +38,7 @@
 * <del>Add number to steps
 * <del>Add actions to steps
 * Add field validation for numbers and duration: Miguel
-* Default image: Jason
+* <del>Default image: Jason
 
 ## Search Page
 
