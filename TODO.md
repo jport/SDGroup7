@@ -54,7 +54,7 @@
 ## <del>Follow - Gather
 
 ## Follow - Execute
-* Turn preheat popup to another timer: Gera
+* <del> Turn preheat popup to another timer: Gera
 * Add fishing/rating page (see next section): Jason+Geta
 * Fix scale worker: Jason
 * The menu bar at the top is off centered, scrolling is visable through it: Miguel
