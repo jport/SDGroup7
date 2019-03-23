@@ -13,7 +13,8 @@ def home(request, userId=-1):
         request.session["userId"] = userId
 
     context = {
-        'recipes': Recipe.objects.all()
+        'recipes': Recipe.objects.all(),
+        'suggestions': Recipe.objects.all()[:3]
     }
     
     return render(request, 'main/home.html',context)
