@@ -16,26 +16,42 @@ let chatSocket = new WebSocket('ws://' + window.location.host + '/ws/scale/');
 
 $(document).ready(function() {
 
-   timerJbox = new jBox('Modal', {
-       attach: $('#timer-drag-anywhere'),
-       width: 220,
-       title: 'Timer',
-       overlay: false,
-       createOnInit: true,
-      content:$('#timer_modal_content'),
-       draggable: 'title',
-       repositionOnOpen: false,
-       repositionOnContent: false
+   timer1Jbox = new jBox('Modal', {
+      attach: $('#timer-1-drag-anywhere'),
+      width: 220,
+      title: 'Timer 1',
+      overlay: false,
+      createOnInit: true,
+      content:$('#timer1_modal_content'),
+      draggable: 'title',
+      position: {
+          x: 'left',
+          y: 'top'
+      },
+      offset: {
+          x: 30,
+          y: 110
+       },
+      repositionOnOpen: false,
+      repositionOnContent: false
    });
 
-   preheat_jbox = new jBox('Modal', {
-       attach: $('#preheat-drag-anywhere'),
+   timer2Jbox = new jBox('Modal', {
+       attach: $('#timer-2-drag-anywhere'),
        width: 220,
-       title: 'jBox',
+       title: 'Timer 2',
        overlay: false,
        createOnInit: true,
-       content: 'Drag me around by clicking anywhere',
-       draggable: true,
+       content: $('#timer2_modal_content'),
+       draggable: 'title',
+       position: {
+          x: 'left',
+          y: 'center'
+       },
+       offset: {
+          x: 30,
+          y: 80
+       },
        repositionOnOpen: false,
        repositionOnContent: false
    });
@@ -48,6 +64,14 @@ $(document).ready(function() {
        createOnInit: true,
        content: '100 grams',
        draggable: true,
+       position: {
+          x: 'left',
+          y: 'bottom'
+       },
+       offset: {
+          x: 30,
+          y: -30
+       },
        repositionOnOpen: false,
        repositionOnContent: false
    });
@@ -78,18 +102,22 @@ $(document).ready(function() {
       console.error('Chat socket closed unexpectedly');
    };
    
-   let timer_button = document.getElementById("start_timer");
-   timer_button.addEventListener("click", event_handler, 1000);
+   let timer_button1 = document.getElementById("start_timer1");
+   timer_button1.addEventListener("click", event_handler1, 1000);
 
-   let stop_timer=false;
+   let timer_button2 = document.getElementById("start_timer2");
+   timer_button2.addEventListener("click", event_handler2, 1000);
+
+   let stop_timer1=false;
+   let stop_timer2=false;
 
 
-function restart_timer(){
-  document.getElementById("demo").innerHTML = '<p class="range-field"><input type="range" id="test5" min="0" max="100" /></p>';
-  document.getElementById("timer_button_holder").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer">Start Timer</button>'
-  stop_timer = true;
-  let timer_button = document.getElementById("start_timer");
-  timer_button.addEventListener("click", event_handler, 1000);
+function restart_timer1(){
+  document.getElementById("demo1").innerHTML = '<p class="range-field"><input type="range" id="timer1" min="0" max="60" /></p>';
+  document.getElementById("timer_button_holder1").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer1">Start Timer</button>'
+  stop_timer1 = true;
+  let timer_button1 = document.getElementById("start_timer1");
+  timer_button1.addEventListener("click", event_handler1, 1000);
 
 
 
@@ -98,42 +126,89 @@ function restart_timer(){
    M.Range.init($('input[type=range]'));
 }
 
+function restart_timer2(){
+  document.getElementById("demo2").innerHTML = '<p class="range-field"><input type="range" id="timer2" min="0" max="60" /></p>';
+  document.getElementById("timer_button_holder2").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer2">Start Timer</button>'
+  stop_timer2 = true;
+  let timer_button2 = document.getElementById("start_timer2");
+  timer_button2.addEventListener("click", event_handler2, 1000);
+
+
+
+
+   // Reinitialize range slider
+   M.Range.init($('input[type=range]'));
+}
 
    // Reinitialize range slider
    M.Range.init($('input[type=range]'));
 
-   function event_handler() {
-    stop_timer = false;
-   document.getElementById("timer_button_holder").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer"> Stop Timer </button>'
-   let end_timer_button = document.getElementById("end_timer");
-   end_timer_button.addEventListener("click", restart_timer);
-   let range_val = document.getElementById("test5").value;
+function event_handler1() {
+    stop_timer1 = false;
+   document.getElementById("timer_button_holder1").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer1"> Stop Timer </button>'
+   let end_timer_button1 = document.getElementById("end_timer1");
+   end_timer_button1.addEventListener("click", restart_timer1);
+   let range_val = document.getElementById("timer1").value;
    let day = Date.now();
    let countDownDate = day + range_val*1000*60;
    let x = setInterval(function() {
-            let now = new Date().getTime();
+         let now = new Date().getTime();
          let distance = countDownDate - now;
          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
          let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-         if (stop_timer){
+         if (stop_timer1){
             clearInterval(x);
             
          }
-         if (!stop_timer){
-          document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+         if (!stop_timer1){
+          document.getElementById("demo1").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
          }
          
          if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = '<strong>TIMER EXPIRED</strong>';
-                timerJbox.open();
+                document.getElementById("demo1").innerHTML = '<strong>TIMER EXPIRED</strong>';
+                timer1Jbox.open();
 
          }
       }
    );
-}
+  }
+
+   function event_handler2() {
+    stop_timer2 = false;
+   document.getElementById("timer_button_holder2").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer2"> Stop Timer </button>'
+   let end_timer_button2 = document.getElementById("end_timer2");
+   end_timer_button2.addEventListener("click", restart_timer2);
+   let range_val = document.getElementById("timer2").value;
+   let day = Date.now();
+   let countDownDate = day + range_val*1000*60;
+   let x = setInterval(function() {
+         let now = new Date().getTime();
+         let distance = countDownDate - now;
+         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+         let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+         if (stop_timer2){
+            clearInterval(x);
+            
+         }
+         if (!stop_timer2){
+          document.getElementById("demo2").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+         }
+         
+         if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo2").innerHTML = '<strong>TIMER EXPIRED</strong>';
+                timer2Jbox.open();
+
+         }
+      }
+   );
+  }
+
 });
 
 
