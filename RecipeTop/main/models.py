@@ -14,7 +14,7 @@ class Recipe(models.Model):
     utensils = models.ManyToManyField('Utensil')
     keywords = models.ManyToManyField('Keyword', blank=True)
 
-    image = models.ImageField(upload_to='recipe_image', blank=True)
+    image = models.ImageField(upload_to='recipe_image', blank=True, default='/recipe_image/default.jpeg')
 
     def __str__(self):
         return self.title 

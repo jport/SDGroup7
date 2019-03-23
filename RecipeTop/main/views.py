@@ -41,7 +41,7 @@ def users(request):
 def create(request):
     if request.method == 'POST':
         
-        if not request.FILES['recipe_image']:
+        if not 'recipe_image' in request.FILES:
             r = Recipe(
                 title=request.POST['title'],
                 description=request.POST['description'],
