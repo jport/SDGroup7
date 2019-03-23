@@ -1,3 +1,7 @@
+.body{
+  padding: 0px !important;
+}
+
 @import 'https://stephanwagner.me/css/jBox/demo-html.css';
 
 .follow_steps_container {
