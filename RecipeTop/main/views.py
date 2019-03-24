@@ -13,7 +13,8 @@ def home(request, userId=-1):
         request.session["userId"] = userId
 
     context = {
-        'recipes': Recipe.objects.all()
+        'recipes': Recipe.objects.all(),
+        'suggestions': Recipe.objects.all()[:3]
     }
     
     return render(request, 'main/home.html',context)
@@ -40,7 +41,7 @@ def users(request):
 def create(request):
     if request.method == 'POST':
         
-        if not request.FILES['recipe_image']:
+        if not 'recipe_image' in request.FILES:
             r = Recipe(
                 title=request.POST['title'],
                 description=request.POST['description'],
