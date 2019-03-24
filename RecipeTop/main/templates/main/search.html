@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% load pass_params %}
 
 {% block title %}Search Recipes{% endblock %}
 
@@ -103,6 +104,7 @@
     <div class="container">
         <div class="gallery row">
             {% for recipe in hearted %}
+
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                 <a class="gallery-cover gray card-image">
@@ -132,7 +134,7 @@
                 <!-- inside the card stuff -->
                 <div class="gallery-body">
                         <div class="title-wrapper">
-                            <h3>{{recipe.title}}</h3>
+                            <h3>{{recipe.title}} {% check_hearted recipe.id %}</h3>
                             <span class="price">steps:{{recipe.steps.all.count}}</span>
                         </div>
                         <h3>Ingredients</h3>
@@ -187,7 +189,7 @@
                 <!-- inside the card stuff -->
                 <div class="gallery-body">
                         <div class="title-wrapper">
-                          <h3>{{recipe.title}}</h3>
+                          <h3>{{recipe.title}} {% check_hearted recipe.id %}</h3>
                           <span class="price">steps:{{recipe.steps.all.count}}</span>
                         </div>
                         <h3>Ingredients</h3>

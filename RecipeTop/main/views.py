@@ -142,7 +142,8 @@ def search(request):
         'hearted': Recipe.objects.filter(user__id=request.session["userId"]),
         'recipes': Recipe.objects.exclude(user__id=request.session["userId"]),
         'filter':query_list,
-        'values':request.GET
+        'values':request.GET,
+        'user':User.objects.get(pk=request.session["userId"])
 
     }
     return render(request, 'main/search.html', context)

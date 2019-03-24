@@ -19,6 +19,8 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title 
 
+
+
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
 
@@ -68,8 +70,13 @@ class User(models.Model):
     age = models.IntegerField(default=0)
     likedRecipes = models.ManyToManyField(Recipe)
 
+
     def __str__(self):
         return self.userName + " " + str(self.age) + " " + str(self.likedRecipes)
+
+
+
+
 
 class History(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='recipeHistory')
