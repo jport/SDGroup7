@@ -140,8 +140,7 @@ def search(request):
             query_list = query_list.filter(rating = rating)
     
     context = {
-        'hearted': Recipe.objects.filter(user__id=request.session["userId"]),
-        'recipes': Recipe.objects.exclude(user__id=request.session["userId"]),
+        'recipes': Recipe.objects.all(),
         'filter':query_list,
         'values':request.GET,
         'user':User.objects.get(pk=request.session["userId"])
