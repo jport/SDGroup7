@@ -49,7 +49,7 @@
 * Implement search text, tags, rating, difficulty, time front end: Gera
 * Implement search text, tags, rating, difficulty, time back end: Jason
 * Add content to cards: Gera
-* Clean up heart vs non hearted rendering: Gera
+* <del>Clean up heart vs non hearted rendering: Gera
 
 ## <del>Follow - Gather
 
