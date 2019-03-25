@@ -42,6 +42,7 @@ let stars = document.getElementsByClassName("star_button");
 
 var num_stars = 0;
 let star_field = document.createElement('input');
+star_field.required=true;
 for (let i = 0, len = stars.length; i < len; i++) {
     stars[i].onclick = function (){
         
