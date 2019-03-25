@@ -164,14 +164,15 @@ icon-teal-lightest{
     z-index: 102;
     
     #logo{
-        img{
-            height:75px;
-            width:75px;
-            background-image: url("../img/user.png");
-            background-size:cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+        height:75px;
+        width:75px;
+        background-image: url("../img/user.png");
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        // img{
+           
+        // }
     }
     ul{
         list-style: none;
@@ -214,17 +215,17 @@ icon-teal-lightest{
 
 #close{
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%);
-    img{
-            height:30px;
-            width:30px;
-            background-image: url("../img/Close.png");
-            background-size:cover;
-            background-position: center;
-            background-repeat: no-repeat;
-    }
+    width:60px;
+    height:60px;
+    border:none !important;
+    background-image: url("../img/Close.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
 
     &:hover{
         

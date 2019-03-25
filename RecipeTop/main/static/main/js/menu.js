@@ -24,6 +24,14 @@ close_button.addEventListener('click',function(){
     setTimeout(hidemenu,100);
 });
 
+window.addEventListener('mousedown',function(){
+let menu = document.getElementById('MainMenu');
+console.log(event.target+"+"+event.target.parentNode)
+if(event.target!=menu && event.target.parentNode!=menu){
+    setTimeout(hidemenu,100);
+}
+});
+
 function set_time(){
     let date = new Date();
     let hour = date.getHours();
