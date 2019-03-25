@@ -140,6 +140,8 @@ def search(request):
             query_list = query_list.filter(rating = rating)
     
     context = {
+        'ingredients':Ingredient.objects.all(),
+        'utensils': Utensil.objects.all(),
         'recipes': Recipe.objects.all(),
         'filter':query_list,
         'values':request.GET,
