@@ -13,7 +13,7 @@
     <link rel="stylesheet" href={% static "main/css/menu.css" %}>
     {% block stylesheet %}{% endblock %}
 </head>
-<body>
+<body id="body">
     <div class="Mnavbar">
         <div class="Mnav_container">
             <div class="logo">
@@ -33,7 +33,7 @@
         <div id="logo">
             <img>
         </div>
-        <ul class="collapsible">
+        <ul class="collapsible" id="uls">
             <li>
                 <a href={% url 'Home' %} class="link-home">
                 <div class="collapsible-header teal lighten-3"><i class="material-icons">home</i>Home</div>

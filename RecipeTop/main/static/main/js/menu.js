@@ -1,17 +1,20 @@
 let menu_icon =document.getElementById('MenuIcon');
 let menu = document.getElementById('MainMenu');
 let close_button= document.getElementById('close');
+var counter=0;
 
 function showmenu(){
     menu_icon.style.display="none";
     menu.style.left='0px';
     menu.style.clipPath='polygon(0 0,100% 0,100% 100%,0% 100%)';
+    counter++;
 }
 
 function hidemenu(){
     menu_icon.style.display="block";
     menu.style.left="-300px";
     menu.style.clipPath="polygon(0 0,0% 0,100% 100%,0% 100%)";
+    counter--;
 }
 
 //menu icon clicked to bring up menu
@@ -24,12 +27,25 @@ close_button.addEventListener('click',function(){
     setTimeout(hidemenu,100);
 });
 
-window.addEventListener('mousedown',function(){
+
+//close on click outside menu bar
+window.addEventListener('mousedown',function(event){
 let menu = document.getElementById('MainMenu');
-console.log(event.target+"+"+event.target.parentNode)
-if(event.target!=menu && event.target.parentNode!=menu){
-    setTimeout(hidemenu,100);
-}
+let logo = document.getElementById('logo');
+let uls = document.getElementById('uls');
+let body = document.getElementById('body');
+if(event.target!=menu
+    && event.target!=logo && event.target!=uls 
+    && event.target.parentNode!=uls
+    && event.target.parentNode.parentNode!=uls
+    && event.target.parentNode.parentNode.parentNode!=uls
+    && event.target.parentNode.parentNode.parentNode.parentNode!=uls)
+    {
+        setTimeout(hidemenu,100);
+    }
+    if(event.target==body&&counter==1){
+        setTimeout(hidemenu,100);
+    }
 });
 
 function set_time(){
