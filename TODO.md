@@ -56,8 +56,9 @@
 ## Follow - Execute
 * <del> Turn preheat popup to another timer: Gera
 * Add fishing/rating page (see next section): Jason+Geta
-* Fix scale worker: Jason
+* <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
+* Add Tare button and units change
 
 ## Finish Recipe
 * Front end: Gera
