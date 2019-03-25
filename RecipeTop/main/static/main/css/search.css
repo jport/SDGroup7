@@ -4,6 +4,9 @@
 }
 
 /*# sourceMappingURL=search.css.map */
+.ingredients_table{
+  width: 100%;
+}
 .container {
   width: 80%;
   height: 100;
@@ -15,9 +18,10 @@
 }
 
 .ingredient {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
+
+}
+.content-wrapper {
+  padding-top: 40px;
 }
 
 .ingredient_title {
