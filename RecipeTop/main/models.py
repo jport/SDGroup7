@@ -84,7 +84,8 @@ class History(models.Model):
     timeOfStart = models.DateTimeField()
     timeOfEnd = models.DateTimeField()
 
-
+class ScaleFlag(models.Model):
+    enabled = models.BooleanField(default=False)
 
 # examples:
 # get all recipes Recipe.objects.all()
