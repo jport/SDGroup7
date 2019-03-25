@@ -100,122 +100,154 @@
 {% endfor %} -->
 <input type="text" id="input" onkeyup='recipe_search()'>
 
-<div id="portfolio" class="section gray">
-    <div class="container">
-        <div class="gallery row">
-            <!--
-            {% for recipe in hearted %}
+<div class="search_filters">
 
-            <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
-                <div class="gallery-curve-wrapper">
-                <a class="gallery-cover gray card-image">
-                    {% if recipe.image %}
-                    <img class="responsive-img" src="{{recipe.image.url}}">
-                    {% else %}
-                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
-                    
-                    {% endif %}
-                </a>
-                
-                <div class="gallery-header">
-                    <div class="ingredient_title">
-                        <span class= "title">{{recipe.title}}</span>
-                    </div>
-                    <br>
-                    <div class="ingredient_props">
-                        <div>
-                            <i class="material-icons">library_books</i>
-                            
-                        </div>
-                        <div class="prop2"><i class="material-icons hearted">schedule</i></div>
-                        <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
-                        <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">favorite</i></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-body">
-                        <div class="title-wrapper">
-                            <h3>{{recipe.title}} {% check_hearted recipe.id %}</h3>
-                            <span class="price">steps:{{recipe.steps.all.count}}</span>
-                        </div>
-                        <h3>Ingredients</h3>
-                        <div class="ingredient">
-                        {% for ing in recipe.recipetoingredient_set.all %}
-                            <p>name: {{ing.ingredient.name}}</p>
-                            <p>unit: {{ing.unit}}</p>
-                            <p>quantity: {{ing.quantity}}</p>
-                        {% endfor %}
-                        </div>
-                        <h2>description</h2>
-                        <p class="description">
-                                {{recipe.description}}
-                        </p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
-                </div>
-                    <div class="gallery-action">
-                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">favorite</i></a>
-                        <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
-                    </div>
-                </div>
+    <nav class="teal">
+        <div class="nav-wrapper">
+        <form>
+            <!-- Search Bar -->
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
             </div>
-            {% endfor %}
+            <!-- Rating-->
+            <h5 class="change_color">Rating</h5>
+            <!-- Difficulty-->
+            <h5 class="change_color">Difficulty</h5>
+            <div class="difficulty" id="difficulty_container">
+                <table id="difficulty_table">
+                    <tr>
+                        <td>
+                            <button type="button" id="1001" class="difficulty_button" >
+                                <i class="small material-icons icon-grey">cake</i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" id="1002" class="difficulty_button">
+                                <i class="small material-icons icon-grey">cake</i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" id="1003" class="difficulty_button">
+                                <i class="small material-icons icon-grey">cake</i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" id="1004" class="difficulty_button">
+                                <i class="small material-icons icon-grey">cake</i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" id="1005" class="difficulty_button">
+                                <i class="small material-icons icon-grey">cake</i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-            -->
+            <!-- Utensils -->
+            <h5 class="change_color">Utensils</h5>
+            <div class="utensils">
+                {% for utensil in utensils|slice:":10" %}
+                <label>
+                    <input type="checkbox" value="{{utensil}}" name="utensils"/>
+                    <span>{{utensil}}</span>
+                </label>
+                <br>
+                {% endfor %}
 
-            {% for recipe in recipes %}
-            <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
-                <div class="gallery-curve-wrapper">
-                <a class="gallery-cover gray card-image">
-                    {% if recipe.image %}
-                    <img class="responsive-img" src="{{recipe.image.url}}">
-                    {% else %}
-                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
-                    <!-- <div class="circle">circle</div> -->
-                    {% endif %}
-                </a>
-                <!-- card title -->
-                <div class="gallery-header">
-                   <div class="ingredient_title">
-                        <span class= "title">{{recipe.title}}</span>
-                   </div>
-                   <br>
-                   <div class="ingredient_props">
-                       <div>
-                            <i class="material-icons">library_books</i>
-                            <!-- <span><i class="material-icons hearted ">note</i>steps:{{recipe.steps.all.count}}</span> -->
+            </div>
+            <h5 class="change_color">Ingredients</h5>
+            <div class="ingredients">
+                {% for ingredient in ingredients|slice:":10" %}
+                <label>
+                    <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+                    <span>{{ingredient.name}}</span>
+                </label>
+                <br>
+                {% endfor %}
+
+            </div>
+        </form>
+        </div>
+    </nav>
+
+</div>
+
+<div class="cards-section">
+    <div id="portfolio" class="section gray">
+        <div class="container">
+            <div class="gallery row">
+                {% for recipe in recipes %}
+                <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                    <div class="gallery-curve-wrapper">
+                    <a class="gallery-cover gray card-image">
+                        {% if recipe.image %}
+                        <img class="responsive-img" src="{{recipe.image.url}}">
+                        {% else %}
+                        <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                        <!-- <div class="circle">circle</div> -->
+                        {% endif %}
+                    </a>
+                    <!-- card title -->
+                    <div class="gallery-header">
+                       <div class="ingredient_title">
+                            <span class= "title">{{recipe.title}}</span>
                        </div>
-                        <div class="prop2"><i class="material-icons hearted">schedule</i></div>
-                        <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
-                        <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
-                   </div>
-                </div>
-                <!-- inside the card stuff -->
-                <div class="gallery-body">
-                        <div class="title-wrapper">
-                          <h3>{{recipe.title}} {% check_hearted recipe.id %}</h3>
-                          <span class="price">steps:{{recipe.steps.all.count}}</span>
+                       <br>
+                       <div class="ingredient_props">
+                           <div>
+                                <i class="material-icons">library_books</i>
+                                <!-- <span><i class="material-icons hearted ">note</i>steps:{{recipe.steps.all.count}}</span> -->
+                           </div>
+                            <div class="prop2"><i class="material-icons hearted">schedule</i></div>
+                            <div class="prop1"><i class="material-icons hearted ">local_dining</i></div>
+                            <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
+                       </div>
+                    </div>
+                    <!-- inside the card stuff -->
+                    <div class="gallery-body">
+                            <div class="title-wrapper">
+                              <h3>{{recipe.title}}</h3>
+                            
+                            </div>
+                            <div class="content-wrapper">
+                                <p class="description">
+                                        {{recipe.description}}
+                                </p>
+                                <h4>Ingredients</h4>
+                                <div class="ingredient">
+                                    <table class="ingredients_table">
+                                        <tr>
+                                        {% for ing in recipe.recipetoingredient_set.all %}
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+                                                    <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+                                            </label>
+                                        </td>
+                                        {% cycle "" ""  "</tr><tr>" %}
+                                        {% endfor %}
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
+                            </div>
+                    </div>
+                        <div class="gallery-action">
+                            <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
+                            <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
                         </div>
-                        <h3>Ingredients</h3>
-                        <div class="ingredient">
-                        {% for ing in recipe.recipetoingredient_set.all %}
-                            <p>name: {{ing.ingredient.name}}</p>
-                            <p>unit: {{ing.unit}}</p>
-                            <p>quantity: {{ing.quantity}}</p>
-                        {% endfor %}
-                        </div>
-                        <h2>description</h2>
-                        <p class="description">
-                                {{recipe.description}}
-                        </p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo modi vel autem ducimus atque eligendi dolores repellat, temporibus, animi eum quis deserunt placeat exercitationem praesentium eaque at rerum aperiam soluta?</p>
-                </div>
-                    <div class="gallery-action">
-                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
-                        <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
