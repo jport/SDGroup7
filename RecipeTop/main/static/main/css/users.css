@@ -67,9 +67,15 @@ body {
   justify-items: center;
   align-items: center;
 }
+.Micontainer .users .user .prefences .img1 {
+  align-self: end;
+}
 .Micontainer .users .user .prefences img {
   width: 50%;
-  height: 50%;
+  height: 40%;
+}
+.Micontainer .users .user .prefences .img2 {
+  align-self: start;
 }
 .Micontainer .users .user .user_profile {
   height: 100px;
@@ -139,6 +145,7 @@ body {
 .choices_container {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 100px 100px;
   justify-items: center;
   align-items: center;
   width: 100%;
@@ -146,7 +153,7 @@ body {
 }
 .choices_container img {
   width: 50%;
-  height: 50%;
+  height: 40%;
 }
 .choices_container img:hover {
   cursor: pointer;
