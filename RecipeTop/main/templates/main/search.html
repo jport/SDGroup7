@@ -16,20 +16,56 @@
 <br>
 <br>
 
+           
 
 <div class="search_filters">
 
     <nav class="teal">
+
         <div class="nav-wrapper">
+
         <form>
+
             <!-- Search Bar -->
             <div class="input-field">
               <input id="search" type="search" required>
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
+
             <!-- Rating-->
             <h5 class="change_color">Rating</h5>
+                <div class="rating" id="rating_container">
+                    <table id="rating_table">
+                        <tr>
+                            <td>
+                                <button type="button" id="1" class="star_button" >
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="2" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="3" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="4" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="5" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             <!-- Difficulty-->
             <h5 class="change_color">Difficulty</h5>
             <div class="difficulty" id="difficulty_container">
@@ -63,11 +99,18 @@
                     </tr>
                 </table>
             </div>
+            <!-- Time-->
+            <h5 class="change_color">Duration (minutes)</h5>
+            <div class="time change-line-height">
+                <p class="range-field">
+                    <input type="range" name="search_time" min="0" max="120" step="5" />
+                </p>
+            </div>
 
             <!-- Utensils -->
             <h5 class="change_color">Utensils</h5>
             <div class="utensils">
-                {% for utensil in utensils|slice:":10" %}
+                {% for utensil in utensils %}
                 <label>
                     <input type="checkbox" value="{{utensil}}" name="utensils"/>
                     <span>{{utensil}}</span>
@@ -78,7 +121,7 @@
             </div>
             <h5 class="change_color">Ingredients</h5>
             <div class="ingredients">
-                {% for ingredient in ingredients|slice:":10" %}
+                {% for ingredient in ingredients %}
                 <label>
                     <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
                     <span>{{ingredient.name}}</span>
@@ -86,6 +129,15 @@
                 <br>
                 {% endfor %}
 
+            </div>
+            <h5 class="change_color">Tags</h5>
+            <div class="tags_container">
+                {% for tag in tags%}
+                    <div class="chip">
+                        {{tag.name}}
+                        <i class="close material-icons">close</i>
+                    </div>
+                {% endfor %}
             </div>
         </form>
         </div>
