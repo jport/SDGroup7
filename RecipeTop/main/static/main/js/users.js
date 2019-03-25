@@ -1,12 +1,6 @@
 // let user_selection = document.getElementsByClassName("person");
 
 
-// for (let i = 0; i < user_selection.length; i++) {
-//     user_selection[i].addEventListener("click", function() {
-//       window.location.href="home/" + user_selection[i].id;
-//     });
-//   };
-
 let user_selection = document.getElementsByClassName("user_profile");
 let user_names=document.getElementsByClassName('names');
 let continue_btn = document.getElementById("msg");
@@ -65,9 +59,26 @@ const addAnimate=(index)=>{
       user_box[index].classList.add('border');
 }
 
-  // setInterval(() => {
-  //   if (error_message.innerHTML=='')
-  //   console.log("ys");
-  // }, 01);
+
+//Modal stuff
+
+let choices_img =document.getElementsByClassName('choices_img');
+for(let i =0;i<choices_img.length;i++){
+  choices_img[i].addEventListener("click",function(){
+    icon_pic(i);
+  });
+}
+
+const icon_pic=(index)=>{
+  let img_src =choices_img[index].src;
+  if(img_src.indexOf('2')!=-1){
+    img_src=img_src.replace('2','1');
+  }
+  else{
+    img_src=img_src.replace('1','2');
+  }
+  choices_img[index].src=img_src;
+  
+}
 
 

@@ -184,6 +184,28 @@ box-shadow: 2px 6px 88px 5px rgba(0,0,0,0.75);
       
 }
 
+.pref_title{
+    margin:0 auto;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}
+.choices_container{
+    display:grid;
+    grid-template-columns: .5fr .5fr .5fr;
+    justify-items: center;
+    align-items: center;
+    width:100%;
+    height:30vh;
+    img{
+        width:50%;
+        height:50%;
+        &:hover{
+            cursor:pointer;
+        }
+    }
+}
+
 
 
 
