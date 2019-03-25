@@ -20,7 +20,7 @@
 
 <div class="search_filters">
 
-    <nav class="teal">
+    <nav class="teal difficulty_table">
 
         <div class="nav-wrapper">
 
@@ -70,8 +70,8 @@
             <h5 class="change_color">Difficulty</h5>
             <div class="difficulty" id="difficulty_container">
                 <table id="difficulty_table">
-                    <tr>
-                        <td>
+                    <tr class="difficulty_table">
+                        <td >
                             <button type="button" id="1001" class="difficulty_button" >
                                 <i class="small material-icons icon-grey">cake</i>
                             </button>
@@ -139,6 +139,7 @@
                     </div>
                 {% endfor %}
             </div>
+            <button type="submit"  class='waves-effect waves-dark btn teal lighten-1'>Apply Filters</button>
         </form>
         </div>
     </nav>
