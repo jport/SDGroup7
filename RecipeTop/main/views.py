@@ -178,3 +178,13 @@ def follow_steps(request, recipe_id=0):
         
     }
     return render(request, 'main/follow_steps.html',context)
+
+def finish_recipe(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    #steps = get_object_or_404(RecipeStep,pk=recipe_id)
+
+    context = {
+        'recipe':recipe
+        
+    }
+    return render(request, 'main/finish_recipe.html',context)

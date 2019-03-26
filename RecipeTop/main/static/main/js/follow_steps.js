@@ -62,7 +62,7 @@ $(document).ready(function() {
        title: 'Start weighing...',
        overlay: false,
        createOnInit: true,
-       content: '100 grams',
+       content: 'Turn on scale',
        draggable: true,
        position: {
           x: 'left',

@@ -69,10 +69,47 @@ class User(models.Model):
     userName = models.CharField(max_length=50)
     age = models.IntegerField(default=0)
     likedRecipes = models.ManyToManyField(Recipe)
+    cheese=models.BooleanField(default=False)
+    steak=models.BooleanField(default=False)
+    fastfood=models.BooleanField(default=False)
+    cupcake=models.BooleanField(default=False)
+    broccoli=models.BooleanField(default=False)
+    apple=models.BooleanField(default=False)
 
 
     def __str__(self):
         return self.userName + " " + str(self.age) + " " + str(self.likedRecipes)
+    def check_cheese(self):
+        if self.cheese:
+            return "1"
+        else:
+            return "2"
+    def check_steak(self):
+        if self.steak:
+            return "1"
+        else:
+            return "2"
+    def check_fastfood(self):
+        if self.fastfood:
+            return "1"
+        else:
+            return "2"
+    def check_cupcake(self):
+        if self.cupcake:
+            return "1"
+        else:
+            return "2"
+    def check_broccoli(self):
+        if self.broccoli:
+            return "1"
+        else:
+            return "2"
+    def check_apple(self):
+        if self.apple:
+            return "1"
+        else:
+            return "2"
+ 
 
 
 
@@ -81,8 +118,8 @@ class User(models.Model):
 class History(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='recipeHistory')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userHistory')
-    timeOfStart = models.DateTimeField()
-    timeOfEnd = models.DateTimeField()
+    timeOfStart = models.DateTimeField(blank=True, null=True)
+    timeOfEnd = models.DateTimeField(blank=True, null=True)
 
 class ScaleFlag(models.Model):
     enabled = models.BooleanField(default=False)
