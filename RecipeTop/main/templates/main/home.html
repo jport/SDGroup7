@@ -5,6 +5,7 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
+<link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -38,8 +39,46 @@
 <br>
 
 <div class="side_container">
-    
+    <div id="portfolio" class="section gray cards">
+        <div class="container">
+                <div class="gallery">
+                    <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                        <div class="gallery-curve-wrapper">
+                                <a class="gallery-cover gray">
+                                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                                </a>
+                                <div class="gallery-header">
+                                    <span>Aquamarine</span>
+                                </div>
+                                <div class="gallery-body">
+                                <div class="title-wrapper">
+                                    <h3>Aquamarine</h3>
+                                    <span class="price">$29.99</span>
+                                </div>
+                                <p class="description">
+                Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                                <p class="description">
+                Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+                                </div>
+                                <div class="gallery-action">
+                                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div> 
 </div>
 
+{% endblock %}
 
+{% block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src={% static "main/js/home.js" %}></script>
+<script src={% static "main/js/gallery/materialize.min.js" %}></script>
+<script src={% static "main/js/gallery/masonry.pkgd.min.js" %}></script>
+<script src={% static "main/js/gallery/galleryExpand.js" %}></script>
+<script src={% static "main/js/gallery/init.js" %}></script>
+<script src={% static "main/js/gallery/color-thief.min.js" %}></script>
+<script src={% static "main/js/gallery/imagesloaded.pkgd.min.js" %}></script>
 {% endblock %}
