@@ -118,8 +118,8 @@ class User(models.Model):
 class History(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='recipeHistory')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userHistory')
-    timeOfStart = models.DateTimeField(blank=True)
-    timeOfEnd = models.DateTimeField(blank=True)
+    timeOfStart = models.DateTimeField(blank=True, null=True)
+    timeOfEnd = models.DateTimeField(blank=True, null=True)
 
 class ScaleFlag(models.Model):
     enabled = models.BooleanField(default=False)

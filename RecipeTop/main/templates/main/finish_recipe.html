@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Cooking {{recipe.title}}{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/finish_recipe.css" %}>
+<link rel="stylesheet" href={% static "main/css/mstepper.css" %}>
+{% endblock %}
+{% block content %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+<div class = "finish_recipe white">
+	<h3>{{recipe.title}}</h3>
+
+</div>
+
+{% endblock %}
+
+{%block javascript %}
+<script src={% static "main/js/finish_recipe.js" %}></script>
+<script src={% static "main/js/mstepper.min.js" %}></script>
+
+{% endblock %}
