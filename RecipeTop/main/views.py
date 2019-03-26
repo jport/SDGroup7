@@ -161,7 +161,11 @@ def sensor(request):
 def hearted(request):
     context ={
         'recipes': Recipe.objects.filter(user__id=request.session["userId"]),
-        'user': User.objects.get(pk=request.session["userId"])
+        'user': User.objects.get(pk=request.session["userId"]),
+        'ingredients':Ingredient.objects.all(),
+        'utensils': Utensil.objects.all(),
+        'tags': Keyword.objects.all()
+
     }
     return render(request, 'main/search.html',context)
 

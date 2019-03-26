@@ -39,27 +39,27 @@
                     <table id="rating_table">
                         <tr>
                             <td>
-                                <button type="button" id="1" class="star_button" >
+                                <button type="button" id="10001" class="star_button" >
                                     <i class="small material-icons icon-teal">star_outline</i>
                                 </button>
                             </td>
                             <td>
-                                <button type="button" id="2" class="star_button">
+                                <button type="button" id="10002" class="star_button">
                                     <i class="small material-icons icon-teal">star_outline</i>
                                 </button>
                             </td>
                             <td>
-                                <button type="button" id="3" class="star_button">
+                                <button type="button" id="10003" class="star_button">
                                     <i class="small material-icons icon-teal">star_outline</i>
                                 </button>
                             </td>
                             <td>
-                                <button type="button" id="4" class="star_button">
+                                <button type="button" id="10004" class="star_button">
                                     <i class="small material-icons icon-teal">star_outline</i>
                                 </button>
                             </td>
                             <td>
-                                <button type="button" id="5" class="star_button">
+                                <button type="button" id="10005" class="star_button">
                                     <i class="small material-icons icon-teal">star_outline</i>
                                 </button>
                             </td>
@@ -110,7 +110,7 @@
             <!-- Utensils -->
             <h5 class="change_color">Utensils</h5>
             <div class="utensils">
-                {% for utensil in utensils %}
+                {% for utensil in utensils|slice:":10" %}
                 <label>
                     <input type="checkbox" value="{{utensil}}" name="utensils"/>
                     <span>{{utensil}}</span>
@@ -121,7 +121,7 @@
             </div>
             <h5 class="change_color">Ingredients</h5>
             <div class="ingredients">
-                {% for ingredient in ingredients %}
+                {% for ingredient in ingredients|slice:":10" %}
                 <label>
                     <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
                     <span>{{ingredient.name}}</span>
@@ -132,7 +132,7 @@
             </div>
             <h5 class="change_color">Tags</h5>
             <div class="tags_container">
-                {% for tag in tags%}
+                {% for tag in tags|slice:":10"%}
                     <div class="chip">
                         {{tag.name}}
                         <i class="close material-icons">close</i>
