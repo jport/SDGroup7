@@ -46,7 +46,7 @@
 * <del>Clean up cards
 * <del>Add pop up cards before executing
 * Add shadow/border to card titles
-* Implement search text, tags, rating, difficulty, time front end: Gera
+* <del> Implement search text, tags, rating, difficulty, time front end: Gera
 * Implement search text, tags, rating, difficulty, time back end: Jason
 * Add content to cards: Gera
 * <del>Clean up heart vs non hearted rendering: Gera
