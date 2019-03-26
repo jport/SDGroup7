@@ -1,10 +1,12 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% load pass_params %}
 
 {% block title %}Home{% endblock %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
+<link rel="stylesheet" href={% static "main/css/cards.css" %}>
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 {% endblock %}
 
@@ -41,31 +43,43 @@
 <div class="side_container">
     <div id="portfolio" class="section gray cards">
         <div class="container">
+            {% for recipe in recipes %}
                 <div class="gallery">
                     <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                         <div class="gallery-curve-wrapper">
                                 <a class="gallery-cover gray">
-                                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                                    <img class="responsive-img" src="{{recipe.image.url}}" alt="placeholder">
                                 </a>
+                                <!-- gallery header -->
                                 <div class="gallery-header">
-                                    <span>Aquamarine</span>
+                                        <div class="ingredient_title">
+                                             <span class= "title">{{recipe.title}}</span>
+                                        </div>
+                                        <br>
+                                        <div class="ingredient_props">
+                                                <div class="prop1"><i class="material-icons">library_books</i></div>
+                                                <div class="prop2"><i class="material-icons">schedule</i></div>
+                                                <div class="prop1"><i class="material-icons">local_dining</i></div>
+                                                <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
+                                        </div>
                                 </div>
+                                <!-- gallery body -->
                                 <div class="gallery-body">
                                 <div class="title-wrapper">
-                                    <h3>Aquamarine</h3>
-                                    <span class="price">$29.99</span>
+                                    <h3>{{recipe.title}}</h3>
                                 </div>
                                 <p class="description">
-                Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
-                                <p class="description">
-                Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+                                    {{recipe.description}}
+                                </p>
                                 </div>
                                 <div class="gallery-action">
-                                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+                                    <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
+                                    <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
                                 </div>
                             </div>
                     </div>
             </div>
+            {% endfor %}
         </div>
     </div> 
 </div>

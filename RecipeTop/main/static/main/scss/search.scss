@@ -12,15 +12,12 @@
 .container{
     width:80%;
     height:100;
-    
     .grid{
 
         display:grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 5px;
     }
-  
-
 }
 .search_filters{
   float:left;
@@ -50,6 +47,8 @@
    display:grid;
    grid-template-columns: 1fr 1fr;
 //    grid-column-gap: 40px;
+  justify-items: center;
+  align-items: center;
 
 }
 
