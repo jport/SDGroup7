@@ -7,13 +7,38 @@
 .ingredients_table{
   width: 100%;
 
+
+}
+#difficulty_table{
+  line-height: 15px;
+}
+#rating_table{
+  line-height: 15px;
+}
+#rating_container{
+  line-height: 10px;
+  padding: 0px 0px; 
+
+
+
 }
 .difficulty_button{
   border: none;
   background-color: inherit;
-  line-height: 15px;
+  line-height: 10px;
   padding: 0px 0px; 
 
+}
+.tags_container{
+  width: 100%;
+  overflow: scroll;
+  height:90px;
+  line-height: 10px;
+
+}
+.change-line-height{
+  padding-top: 20px;
+  line-height: 15px;
 }
 .difficulty{
   width:50%;
@@ -24,13 +49,32 @@
 }
 .utensils{
   line-height: 10px;
+  overflow: scroll;
+  height:150px;
 }
 .ingredients{
   line-height: 10px;
+  overflow: scroll;
+  height:150px;
 }
 .container {
   width: 100%;
   height: 100%;
+}
+.icon-teal{
+  color:#80cbc4;
+}
+.rating{
+  width:50%;
+  align:right;
+
+}
+.star_button{
+  border: none;
+  background-color: inherit;
+  padding: 0px 0px;
+  line-height: 15px; 
+
 }
 .change_color{
   color:#000000;
@@ -40,8 +84,9 @@
   width: 20%;
   border-right: 1px solid black;
   padding: 10px;
-  height: 95%;
+  height: 90%;
   overflow: scroll;
+  
 }
 .cards-section{
   float: left;

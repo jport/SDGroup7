@@ -145,7 +145,8 @@ def search(request):
         'recipes': Recipe.objects.all(),
         'filter':query_list,
         'values':request.GET,
-        'user': User.objects.get(pk=request.session["userId"])
+        'user': User.objects.get(pk=request.session["userId"]),
+        'tags': Keyword.objects.all()
 
     }
     return render(request, 'main/search.html', context)

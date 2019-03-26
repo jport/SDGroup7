@@ -16,109 +16,62 @@
 <br>
 <br>
 
-<!--
-<div class="container">
-    <div class="grid">
-        {% for recipe in hearted %}
-        <div class="card" id={{recipe.id}}>
-            <div class="card-image">
-                {% if recipe.image %}
-                <img src="{{recipe.image.url}}">
-                {% endif %}
-                <span class="card-title">{{recipe.title}}</span>
-            </div>
-            <div class="card-content">
-                <div class="heart_icon">
-                    <i class="material-icons hearted">favorite</i>
-                </div>
-                <p>{{recipe.description}}</p>
-                <p>Number of steps: {{recipe.steps.all.count}}</p>
-                <p>Ingredients:</p>
-                {% for ing in recipe.recipetoingredient_set.all %}
-                    <p>name: {{ing.ingredient.name}}</p>
-                    <p>unit: {{ing.unit}}</p>
-                    <p>quantity: {{ing.quantity}}</p>
-                {% endfor %}
-            </div>
-            <div class="card-action">
-                <h3>card action section</h3>
-            </div>
-        </div>
-        {% endfor %}
-
-        {% for recipe in recipes %}
-        <div class="card" id={{recipe.id}}>
-            <div class="card-image">
-                {% if recipe.image %}
-                <img src="{{recipe.image.url}}">
-                {% endif %}
-                <span class="card-title">{{recipe.title}}</span>
-            </div>
-            <div class="card-content">
-                <div class="heart_icon">
-                    <i class="material-icons hearted">favorite_border</i>
-                </div>
-                <p>{{recipe.description}}</p>
-                <p>Number of steps: {{recipe.steps.all.count}}</p>
-                <p>Ingredients:</p>
-                {% for ing in recipe.recipetoingredient_set.all %}
-                    <p>name: {{ing.ingredient.name}}</p>
-                    <p>unit: {{ing.unit}}</p>
-                    <p>quantity: {{ing.quantity}}</p>
-                {% endfor %}
-            </div>
-            <div class="card-action">
-                <h3>card action section</h3>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
--->
-
-
-<!-- <div class="container">
-    <div class="search">
-        <form action="{% url 'search' %}" method="GET">
-            <h3>Search</h3>
-            <label for="difficulty">Difficulty</label>
-            <input type="text" name='difficulty' value="{{ values.difficulty}}">
-            <hr>
-            <label for="rating">Rating</label>
-            <input type="text" name='rating' value="{{values.rating}}">
-            <hr>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</div> -->
-
-
-<!-- 
-{% for i in filter%}
-<h1> {{i.title}}={{i.difficulty}} : {{i.rating}}</h1>
-
-{% endfor %} -->
-<input type="text" id="input" onkeyup='recipe_search()'>
+           
 
 <div class="search_filters">
 
-    <nav class="teal">
+    <nav class="teal difficulty_table">
+
         <div class="nav-wrapper">
+
         <form>
+
             <!-- Search Bar -->
             <div class="input-field">
               <input id="search" type="search" required>
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
+
             <!-- Rating-->
             <h5 class="change_color">Rating</h5>
+                <div class="rating" id="rating_container">
+                    <table id="rating_table">
+                        <tr>
+                            <td>
+                                <button type="button" id="1" class="star_button" >
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="2" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="3" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="4" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="5" class="star_button">
+                                    <i class="small material-icons icon-teal">star_outline</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             <!-- Difficulty-->
             <h5 class="change_color">Difficulty</h5>
             <div class="difficulty" id="difficulty_container">
                 <table id="difficulty_table">
-                    <tr>
-                        <td>
+                    <tr class="difficulty_table">
+                        <td >
                             <button type="button" id="1001" class="difficulty_button" >
                                 <i class="small material-icons icon-grey">cake</i>
                             </button>
@@ -146,11 +99,18 @@
                     </tr>
                 </table>
             </div>
+            <!-- Time-->
+            <h5 class="change_color">Duration (minutes)</h5>
+            <div class="time change-line-height">
+                <p class="range-field">
+                    <input type="range" name="search_time" min="0" max="120" step="5" />
+                </p>
+            </div>
 
             <!-- Utensils -->
             <h5 class="change_color">Utensils</h5>
             <div class="utensils">
-                {% for utensil in utensils|slice:":10" %}
+                {% for utensil in utensils %}
                 <label>
                     <input type="checkbox" value="{{utensil}}" name="utensils"/>
                     <span>{{utensil}}</span>
@@ -161,7 +121,7 @@
             </div>
             <h5 class="change_color">Ingredients</h5>
             <div class="ingredients">
-                {% for ingredient in ingredients|slice:":10" %}
+                {% for ingredient in ingredients %}
                 <label>
                     <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
                     <span>{{ingredient.name}}</span>
@@ -170,6 +130,16 @@
                 {% endfor %}
 
             </div>
+            <h5 class="change_color">Tags</h5>
+            <div class="tags_container">
+                {% for tag in tags%}
+                    <div class="chip">
+                        {{tag.name}}
+                        <i class="close material-icons">close</i>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit"  class='waves-effect waves-dark btn teal lighten-1'>Apply Filters</button>
         </form>
         </div>
     </nav>
