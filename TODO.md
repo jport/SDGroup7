@@ -5,6 +5,7 @@
 * <del>Styling overall
 * <del>HTML Keyboard ? (Potentially OSK instead, don't implement this for now)
 * Space out buttons: Gera
+* Make buttons bigger: Gera
 
 ## Login Page
 
@@ -39,6 +40,10 @@
 * <del>Add actions to steps
 * Add field validation for numbers and duration: Miguel
 * <del>Default image: Jason
+* Make steps/ingredients deletable: ???
+
+## Edit Recipe Page !!!
+
 
 ## Search Page
 
@@ -58,7 +63,7 @@
 * Add fishing/rating page (see next section): Jason+Geta
 * <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
-* Add Tare button and units change
+* Add Tare button and units change: ???
 
 ## Finish Recipe
 * Front end: Gera
@@ -74,14 +79,17 @@
 ## Settings - stretch only if done
 * Account/Settings
 
+## Recipe import ??
+
 #
 # Hardware
 
 * Assemble Scale case
 * 2nd Case
 * 2nd PCB
-* Test PCB1
-* Arduino Code
+* <del> Test PCB1
+* Arduino Code 
+* Code for auto-reset/ low power!! : gera and Jason?
 * CAD Cutting Board
 * Assemble Cart
 * Paste 2nd Foil and test
@@ -96,4 +104,9 @@
 * Update 120 page paper
 * Update power point slide
 * Prepare and practice demo
+
+## Committee!!
+* Ask gita
+* Arup sign
+* Jason's advisor
 * Repractice presentation
