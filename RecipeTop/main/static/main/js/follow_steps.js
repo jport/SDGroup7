@@ -216,7 +216,7 @@ function event_handler1() {
 });
 
 
-function tare(){
+function tareFunc(){
   tare += curValue;
   scale_jbox.content.html(curValue + " grams");
 }
