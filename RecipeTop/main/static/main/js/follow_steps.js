@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 let timerJbox = null
 let preheat_jbox = null
 let scale_jbox = null
+let tare = 0
+let curValue = 0
 
 let chatSocket = new WebSocket('ws://' + window.location.host + '/ws/scale/');
 
@@ -94,7 +96,9 @@ $(document).ready(function() {
    chatSocket.onmessage = function(e) {
       let data = JSON.parse(e.data);
       let message = data['message'];
-      scale_jbox.content.html(message + " grams");
+
+      curValue = int(message) - tare;
+      scale_jbox.content.html(curValue + " grams");
    };
 
    // Check for errors
@@ -212,5 +216,8 @@ function event_handler1() {
 });
 
 
-
+function tare(){
+  tare += curValue;
+  scale_jbox.content.html(curValue + " grams");
+}
 
