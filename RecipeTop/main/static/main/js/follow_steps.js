@@ -97,7 +97,7 @@ $(document).ready(function() {
       let data = JSON.parse(e.data);
       let message = data['message'];
 
-      curValue = int(message) - tare;
+      curValue = praseInt(message) - tare;
       scale_jbox.content.html(curValue + " grams");
    };
 
