@@ -22,6 +22,15 @@
 
 
 }
+.utensils_table_card{
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
+
+.ingredients_table_card{
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
 .difficulty_button{
   border: none;
   background-color: inherit;
@@ -32,7 +41,7 @@
 .tags_container{
   width: 100%;
   overflow: scroll;
-  height:10%;
+  height:70%;
   line-height: 10px;
 
 }
@@ -50,12 +59,12 @@
 .utensils{
   line-height: 10px;
   overflow: scroll;
-  height:10%;
+  height:80%;
 }
 .ingredients{
   line-height: 10px;
   overflow: scroll;
-  height:10%;
+  height:80%;
 }
 .container {
   width: 100%;
