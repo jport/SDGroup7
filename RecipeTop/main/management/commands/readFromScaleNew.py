@@ -28,16 +28,18 @@ class Command(BaseCommand):
             'worker_channel'
         )
 
-        # Start server
-        curSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        curSocket.bind((TCP_IP, TCP_PORT))
-
+        # Start server 
+        curSocket = None
         curConnection = None
 
         while True: # State machine
+            print(state)
             nextState = None
             if state == SETUP:
                 # Connect to scale
+                curSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                curSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                curSocket.bind((TCP_IP, TCP_PORT))
                 curSocket.listen(1)
                 curConnection, addr = curSocket.accept()
 
@@ -70,7 +72,13 @@ class Command(BaseCommand):
 
             elif state == DESTORY:
                 # Close connection if still open
+                curConnection.shutdown(socket.SHUT_RDWR)
                 curConnection.close()
+
+                curSocket.shutdown(socket.SHUT_RDWR)
+                curSocket.close()
+
+                print("Sockets closed")
 
                 # Set state to IDLE
                 nextState = IDLE
