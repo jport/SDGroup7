@@ -16,7 +16,8 @@ def home(request, userId=-1):
     context = {
         'recipes': Recipe.objects.all(),
         'suggestions': Recipe.objects.all()[:3],
-        'user': User.objects.get(pk=request.session["userId"])
+        'user': User.objects.get(pk=request.session["userId"]),
+
     }
     
     return render(request, 'main/home.html',context)
@@ -36,6 +37,7 @@ def users(request):
     context = {
         'users': User.objects.all(),
         'error': err
+        
     }
 
     return render(request, 'main/users.html', context)
