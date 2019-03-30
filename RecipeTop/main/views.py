@@ -158,8 +158,17 @@ def search(request):
 
     if 'search_time' in request.GET:
         searchValue = request.GET['search_time']
-        print(searchValue)
         recipes = recipes.filter(estDuration__lte=searchValue)
+
+    if 'utensils' in request.GET:
+        utenList = request.GET.getlist('utensils')
+        recipes = recipes.filter(utensils__name__in=utenList)
+
+    if 'ingredients' in request.GET:
+        ingList = request.GET.getlist('ingredients')
+        recipes = recipes.filter(ingredients__name__in=ingList)
+
+    recipes = recipes.distinct()
     
     context = {
         'recipes': recipes,
