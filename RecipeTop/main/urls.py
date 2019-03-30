@@ -12,6 +12,7 @@ urlpatterns = [
     path('hearted', views.hearted, name='hearted'),
     path('follow_steps/<int:recipe_id>', views.follow_steps, name='follow_steps'),
     path('finish_recipe/<int:recipe_id>', views.finish_recipe, name='finish_recipe'),
+    path('edit/<int:recipe_id>',views.edit, name='edit'),
 
 
 ]
