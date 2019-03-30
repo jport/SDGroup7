@@ -22,31 +22,5 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
-var masonry = $('.gallery');
-masonry.masonry({
-  // set itemSelector so .grid-sizer is not used in layout
-  itemSelector: '.gallery-item',
-  // use element for option
-  columnWidth: '.gallery-item',
-  // no transitions
-  transitionDuration: 0,
-  inDuration: 0,
-  responsiveThreshold: 0,
-});
-
-// layout Masonry after each image loads
-masonry.imagesLoaded(function() {
-  masonry.masonry('layout');
-});
-
-$('.gallery-expand').galleryExpand({
-  onShow: function(el) {
-  	$('.gallery-expand').galleryExpand('open');
-  }
-});
-
-$(document).ready(function(){
-	$('.gallery-expand').galleryExpand('open');
-});
 
 

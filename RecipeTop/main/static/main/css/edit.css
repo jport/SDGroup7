@@ -1,5 +1,47 @@
-/*# sourceMappingURL=edit.css.map */
+
 
 .icon-teal{
   color:#80cbc4;
 }
+.edit_background{
+	width:100%;
+	background-color:#b0bec5;
+	height:200%;
+}
+.edit_card{
+	padding: 10px;
+	padding-left: 25px;
+	border-radius: 2px;
+	width:70%;
+	background-color: #ffffff;
+	margin:auto;
+	height:90%;
+
+
+	
+}
+
+.edit_card_action{
+	position: relative;
+	top:-27px;
+	float: right;
+    width: 21%;
+}
+
+.utensils_table_card{
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.recipe_steps{
+  display: grid;
+  grid-template-columns:1fr 30fr;
+}
+
+.ingredients_table_card{
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+
+/*# sourceMappingURL=edit.css.map */
