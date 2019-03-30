@@ -135,7 +135,7 @@ def search(request):
 
     recipes = Recipe.objects.all()
 
-    if 'search' in request.GET:
+    if 'search' in request.GET and request.GET['search']:
         searchText = request.GET['search']
         print(searchText)
 
@@ -147,6 +147,19 @@ def search(request):
 
         recipes = titleResults | descResults | stepResults | ingResults | utilResults
         recipes = recipes.distinct()
+
+    if 'rating' in request.GET:
+        ratingValue = request.GET['rating']
+        recipes = recipes.filter(rating=ratingValue)
+
+    if 'difficulty' in request.GET:
+        difficultyValue = request.GET['difficulty']
+        recipes = recipes.filter(difficulty=difficultyValue)
+
+    if 'search_time' in request.GET:
+        searchValue = request.GET['search_time']
+        print(searchValue)
+        recipes = recipes.filter(estDuration__lte=searchValue)
     
     context = {
         'recipes': recipes,
