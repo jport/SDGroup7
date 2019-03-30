@@ -206,12 +206,19 @@
 
                                 <h4>Method</h4>
                                 <div class="recipe_steps">
+                                    {% for step in recipe.steps.all %}
+                                            <span >{{step.stepNumber}}.</span>
+                                            <span>{{step.text}}  </span>
+                                           
+                                    {% endfor %}
+
                                 </div>
 
                             </div>
                     </div>
                         <div class="gallery-action">
                             <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
+                            <a class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">edit</i></a>
                             <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
                         </div>
                     </div>
