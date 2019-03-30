@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.db.models import Count
 from .models import *
 
 # Create your views here.
@@ -127,6 +128,8 @@ def create(request):
         return render(request, 'main/create.html',context)
 
 def search(request):
+    print(request.GET)
+
     query_list = Recipe.objects.all()
 
     #difficulty
@@ -147,7 +150,7 @@ def search(request):
         'filter':query_list,
         'values':request.GET,
         'user': User.objects.get(pk=request.session["userId"]),
-        'tags': Keyword.objects.all()
+        'tags': Keyword.objects.annotate(num_rep=Count('recipe')).order_by('num_rep').reverse()[:5]
 
     }
     return render(request, 'main/search.html', context)

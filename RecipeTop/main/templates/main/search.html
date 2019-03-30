@@ -24,11 +24,11 @@
 
         <div class="nav-wrapper">
 
-        <form>
+        <form action={% url 'search' %} method="GET">
 
             <!-- Search Bar -->
             <div class="input-field">
-              <input id="search" type="search">
+              <input id="search" type="search" name="search">
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
@@ -112,8 +112,8 @@
             <div class="utensils">
                 {% for utensil in utensils|slice:":10" %}
                 <label>
-                    <input type="checkbox" value="{{utensil}}" name="utensils"/>
-                    <span>{{utensil}}</span>
+                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+                    <span>{{utensil.name}}</span>
                 </label>
                 <br>
                 {% endfor %}
@@ -123,7 +123,7 @@
             <div class="ingredients">
                 {% for ingredient in ingredients|slice:":10" %}
                 <label>
-                    <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+                    <input type="checkbox" value="{{ingredient.name}}" name="ingredients"/>
                     <span>{{ingredient.name}}</span>
                 </label>
                 <br>
