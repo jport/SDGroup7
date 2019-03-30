@@ -1,0 +1,125 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load pass_params %}
+
+{% block title %}Edit Recipes{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/search.css" %}>
+<link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="portfolio" class="section gray">
+    <div class="container">
+        <div class="gallery row">
+            <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                <div class="gallery-curve-wrapper">
+                <a class="gallery-cover gray card-image" >
+                    {% if recipe.image %}
+                    <img class="responsive-img" id="image_index" src="{{recipe.image.url}}">
+                    {% else %}
+                    <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                    <!-- <div class="circle">circle</div> -->
+                    {% endif %}
+                </a>
+                <!-- card title -->
+                <div class="gallery-header">
+                   <div class="ingredient_title">
+                        <span class= "title">{{recipe.title}}</span>
+                   </div>
+                   <br>
+                   <div class="ingredient_props">
+                        <div class="prop1"><i class="material-icons">library_books</i></div>
+                        <div class="prop2"><i class="material-icons">schedule</i></div>
+                        <div class="prop1"><i class="material-icons">local_dining</i></div>
+                        <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
+                   </div>
+                </div>
+                <!-- inside the card stuff -->
+                <div class="gallery-body">
+                        <div class="title-wrapper">
+                          <h3 id="edit_title">{{recipe.title}} <i class="small material-icons icon-teal">edit</i></h3>
+						  <!-- Modal Structure -->
+							<div id="title_modal" class="modal">
+								<div class="modal-content">
+						    		<h4>Modal Header</h4>
+						    		<p>A bunch of text</p>
+						    	</div>
+						    	<div class="modal-footer">
+						    		<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+						    	</div>
+							</div>                          
+                        </div>
+                        <div class="content-wrapper">
+                            <p class="description" id="edit_description">
+                                    {{recipe.description}} <i class="small material-icons icon-teal">edit</i>
+                            </p>
+                            <div id="edit_ingredients">
+	                            <h4>Ingredients <i class="small material-icons icon-teal">edit</i></h4>
+	                            <div class="ingredients_table_card">
+	                                {% for ing in recipe.recipetoingredient_set.all %}
+	                                    <label>
+	                                        <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+	                                            <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+	                                    </label>
+	                                {% endfor %}
+	                            </div>
+                            </div>
+                            <br>
+                            <h4>Utensils</h4>
+                            <div class="utensils_table_card">
+                                  {% for utensil in recipe.utensils.all %}
+                                        <label>
+                                            <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+                                                <span>{{utensil.name}}  </span>
+                                        </label>
+                                    {% endfor %}
+                            </div>
+
+                            <h4>Method</h4>
+                            <div class="recipe_steps">
+                                {% for step in recipe.steps.all %}
+                                        <span >{{step.stepNumber}}.</span>
+                                        <span>{{step.text}}  </span>
+                                       
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                </div>
+                    <div class="gallery-action">
+                        <a class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">close</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+{% endblock %}
+
+{% block javascript %}
+<script src={% static "main/js/hearted.js" %}></script>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src={% static "main/js/gallery/materialize.min.js" %}></script>
+<script src={% static "main/js/gallery/masonry.pkgd.min.js" %}></script>
+<script src={% static "main/js/gallery/galleryExpand.js" %}></script>
+<script src={% static "main/js/gallery/init.js" %}></script>
+<script src={% static "main/js/gallery/color-thief.min.js" %}></script>
+<script src={% static "main/js/gallery/imagesloaded.pkgd.min.js" %}></script>
+<script src={% static "main/js/edit.js" %}></script>
+
+
+{% endblock %}
