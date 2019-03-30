@@ -130,27 +130,41 @@ def create(request):
         return render(request, 'main/create.html',context)
 
 def search(request):
+    print(request.method)
     print(request.GET)
 
-    query_list = Recipe.objects.all()
+    recipes = Recipe.objects.all()
 
-    #difficulty
-    if 'difficulty' in request.GET:
-        difficulty = request.GET['difficulty']
-        if difficulty:
-            query_list = query_list.filter(difficulty = difficulty)
-    #rating
+    if 'search' in request.GET and request.GET['search']:
+        searchText = request.GET['search']
+        print(searchText)
+
+        titleResults = Recipe.objects.filter(title__icontains=searchText)
+        descResults = Recipe.objects.filter(description__icontains=searchText)
+        stepResults = Recipe.objects.filter(steps__text__icontains=searchText)
+        ingResults = Recipe.objects.filter(ingredients__name__icontains=searchText)
+        utilResults = Recipe.objects.filter(utensils__name__icontains=searchText)
+
+        recipes = titleResults | descResults | stepResults | ingResults | utilResults
+        recipes = recipes.distinct()
+
     if 'rating' in request.GET:
-        rating = request.GET['rating']
-        if rating:
-            query_list = query_list.filter(rating = rating)
+        ratingValue = request.GET['rating']
+        recipes = recipes.filter(rating=ratingValue)
+
+    if 'difficulty' in request.GET:
+        difficultyValue = request.GET['difficulty']
+        recipes = recipes.filter(difficulty=difficultyValue)
+
+    if 'search_time' in request.GET:
+        searchValue = request.GET['search_time']
+        print(searchValue)
+        recipes = recipes.filter(estDuration__lte=searchValue)
     
     context = {
+        'recipes': recipes,
         'ingredients':Ingredient.objects.all(),
         'utensils': Utensil.objects.all(),
-        'recipes': Recipe.objects.all(),
-        'filter':query_list,
-        'values':request.GET,
         'user': User.objects.get(pk=request.session["userId"]),
         'tags': Keyword.objects.annotate(num_rep=Count('recipe')).order_by('num_rep').reverse()[:5]
 
