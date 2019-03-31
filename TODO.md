@@ -4,8 +4,8 @@
 
 * <del>Styling overall
 * <del>HTML Keyboard ? (Potentially OSK instead, don't implement this for now)
-* Space out buttons: Gera
-* Make buttons bigger: Gera
+* <del> Space out buttons: Gera
+* <del> Make buttons bigger: Gera
 
 ## Login Page
 
@@ -82,7 +82,7 @@
 * <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
 * Add Tare button and units change: ???
-* Bigger buttons
+* <del> Bigger buttons
 * Move buttons to left
 
 ## Finish Recipe
