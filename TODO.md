@@ -12,6 +12,9 @@
 * Make name clickable: Miguel
 * Add icons?: Miguel
 * <del>Add Logo: Jason
+* less spacing/border around each users card
+* add user -> select preferences
+* make continue a button
 
 ## Layout/Menu/NavBar
 
@@ -24,8 +27,9 @@
 ## Home Page
 
 * Add cards on the right for suggestions: Miguel
-* Suggestion algorithm (3 or 5): Jason
+* Suggestion algorithm (3 or 5): Jason!!!
 * Add floating button: Gera
+* resize suggestions cards
 
 ## Create Page
 
@@ -41,9 +45,22 @@
 * Add field validation for numbers and duration: Miguel
 * <del>Default image: Jason
 * Make steps/ingredients deletable: ???
+* bigger buttons
+* put images on PI
+* replace range button?
 
 ## Edit Recipe Page !!!
 
+
+* <del> html for edit page
+* add rating
+* add difficulty
+* add image
+* ajax call for title
+* ajax call for description
+* ajax call for ingredients
+* ajax call for utensils
+* ajax call for method
 
 ## Search Page
 
@@ -55,6 +72,7 @@
 * Implement search text, tags, rating, difficulty, time back end: Jason
 * Add content to cards: Gera
 * <del>Clean up heart vs non hearted rendering: Gera
+* <del> Edit button
 
 ## <del>Follow - Gather
 
@@ -64,6 +82,8 @@
 * <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
 * Add Tare button and units change: ???
+* Bigger buttons
+* Move buttons to left
 
 ## Finish Recipe
 * Front end: Gera
@@ -78,6 +98,7 @@
 
 ## Settings - stretch only if done
 * Account/Settings
+* Add images/reviews in finish recipe page and display in search cards
 
 ## Recipe import ??
 
