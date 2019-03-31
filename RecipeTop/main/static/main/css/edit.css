@@ -27,6 +27,10 @@
 
 	
 }
+.utensils_modal_table{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
 .ingredients_table_modal{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
