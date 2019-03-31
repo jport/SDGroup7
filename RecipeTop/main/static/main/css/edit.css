@@ -1,4 +1,11 @@
+.ing_modal{
+	height:70%; important!
+}
 
+.modal_save_btn{
+	position: relative;
+	bottom:-50px;
+}	
 
 .icon-teal{
   color:#80cbc4;
@@ -19,6 +26,10 @@
 
 
 	
+}
+.ingredients_table_modal{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .edit_card_action{

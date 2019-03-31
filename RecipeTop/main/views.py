@@ -215,6 +215,8 @@ def edit(request, recipe_id=0):
     context = {
         'recipe':recipe,
         'user': User.objects.get(pk=request.session["userId"]),
+        'ingredients':Ingredient.objects.all(),
+        'utensils': Utensil.objects.all()
 
     }
     return render(request, 'main/edit.html', context)

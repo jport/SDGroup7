@@ -24,7 +24,7 @@
 	<br>
 	<br>
 	<div class="edit_card_action">
-        <a class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">close</i></a>
+        <a href="{% url 'Home' %}" class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">close</i></a>
     </div>
 <div class="edit_card">
 
@@ -49,6 +49,19 @@
     <p class="description" id="edit_description">
             {{recipe.description}} <i class="small material-icons icon-teal">edit</i>
     </p>
+    <div id="description_modal" class="modal">
+		<div class="modal-content">
+			<h4>Edit Description</h4>
+			<br>
+			<div class="input-field">
+				<input type="text" name="description" value="{{recipe.description}}">
+				<label for="description">Description</label>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
+		</div>
+	</div>
     <div id="edit_ingredients">
         <h4>Ingredients <i class="small material-icons icon-teal">edit</i></h4>
         <div class="ingredients_table_card">
@@ -60,6 +73,50 @@
             {% endfor %}
         </div>
     </div>
+    <div id="ingredients_modal" class="modal ing_modal">
+		<div class="modal-content">
+			<h4>Edit Ingredients</h4>
+			<br>
+			<div class="ingredients_table_modal">
+				{% for ing in recipe.recipetoingredient_set.all %}
+	               
+	            
+
+					<div class="input-field">
+						<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
+						<label for="ingredient">Ingredient</label>
+					</div>
+					<div class="input-field">
+						<input type="text" name="quantity" placeholder="Enter your quantity" value="{{ing.quantity}}">
+						<label for="quantity">Quantity</label>
+					</div>
+					<div class="input-field">
+						<select id="ing_select" name="unit" value="{{ing.unit}}">
+							<option value="" disabled selected>Choose the units</option>
+							<option value="1" name="">cup(s)</option>
+							<option value="2" name="">kg</option>
+							<option value="3" name="">grams</option>
+							<option value="4" name="">lbs</option>
+							<option value="5" name="">ounces</option>
+							<option value="6" name="">ml</option>
+							<option value="7" name="">units</option>
+							<option value="8" name="">tbsp</option>
+							<option value="9" name="">tsp</option>
+							<option value="10" name="">handfuls</option>
+						</select>
+						<label for="unit"> Unit</label>
+					</div>
+				{% endfor %}
+
+			</div>
+			<br>
+
+			<a href="#!" class="modal-close waves-effect waves-green modal_save_btn right btn">Save</a>
+		</div>
+
+			
+
+	</div>
     <br>
     <div id="edit_utensils">
 	    <h4>Utensils <i class="small material-icons icon-teal">edit</i></h4>
@@ -94,6 +151,23 @@
 
 {% block javascript %}
 <script src={% static "main/js/hearted.js" %}></script>
+<script>
+	function loadAutoComplete()
+	{
+		$('input.autocomplete').autocomplete({
+			data: {
+				{% for ing in ingredients%}
+				"{{ing.name}}": null,
+				{% endfor %}
+			},
+			limit:3,
+		});
+	}
+
+	$(document).ready(function(){
+		loadAutoComplete();
+	});
+</script>
 
 
 
