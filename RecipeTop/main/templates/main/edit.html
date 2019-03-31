@@ -24,9 +24,9 @@
 	<br>
 	<br>
 	<div class="edit_card_action">
-        <a href="{% url 'Home' %}" class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">close</i></a>
+        <a href="{% url 'Home' %}" class="btn-floating btn-large waves-effect teal lighten-2 z-depth-3"><i class="material-icons">close</i></a>
     </div>
-<div class="edit_card">
+<div class="edit_card z-depth-2">
 
 
     <div class="title-wrapper">
@@ -184,7 +184,22 @@
 			<h4>Edit Utensils</h4>
 			<br>
 
-			<div class="utensils_modal_table"></div>
+			<div class="utensils_modal_table">
+				{% for utensil in recipe.utensils.all %}
+						<label>
+		                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
+		                        <span>{{utensil.name}}  </span>
+		                </label>
+		        {% endfor%}
+		        {% for utensil in utensils.all%}
+		            	<label>
+		                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+		                        <span>{{utensil.name}}  </span>
+		                </label>
+				{% endfor %}
+
+				
+			</div>
 
 		</div>
 		<div class="modal-footer">
@@ -202,12 +217,23 @@
 
 	    </div>
     </div>
-    <div id="method_modal" class="modal">
+    <div id="method_modal" class="modal step_modal">
 		<div class="modal-content">
 			<h4>Edit Method</h4>
 			<br>
+			<div class="recipe_steps">
+		        {% for step in recipe.steps.all %}
+		        	<div class="input-field">
+						<input type="text" name="step_number" value="{{step.stepNumber}}">
+					</div>
+					<div class="input-field">
+						<input type="text" name="step_text" value="{{step.text}}">
+					</div> 
+		        {% endfor %}
 
-		</div>
+	        </div>
+	        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+	    </div>
 		<div class="modal-footer">
 			<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
 		</div>

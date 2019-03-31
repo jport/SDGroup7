@@ -2,6 +2,10 @@
 	height:70%; important!
 }
 
+.step_modal{
+	height:80%; important!
+}
+
 .modal_save_btn{
 	position: relative;
 	bottom:-50px;
