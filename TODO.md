@@ -45,6 +45,16 @@
 ## Edit Recipe Page !!!
 
 
+* <del> html for edit page
+* add rating
+* add difficulty
+* add image
+* ajax call for title
+* ajax call for description
+* ajax call for ingredients
+* ajax call for utensils
+* ajax call for method
+
 ## Search Page
 
 * <del>Add backend functionality for hearts
