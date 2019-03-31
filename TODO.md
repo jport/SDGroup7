@@ -98,6 +98,7 @@
 
 ## Settings - stretch only if done
 * Account/Settings
+* Add images/reviews in finish recipe page and display in search cards
 
 ## Recipe import ??
 
