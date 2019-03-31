@@ -7,14 +7,14 @@ function showmenu(){
     menu_icon.style.display="none";
     menu.style.left='0px';
     menu.style.clipPath='polygon(0 0,100% 0,100% 100%,0% 100%)';
-    counter++;
+    
 }
 
 function hidemenu(){
     menu_icon.style.display="block";
     menu.style.left="-300px";
     menu.style.clipPath="polygon(0 0,0% 0,100% 100%,0% 100%)";
-    counter--;
+
 }
 
 //menu icon clicked to bring up menu
@@ -43,9 +43,7 @@ if(event.target!=menu
     {
         setTimeout(hidemenu,100);
     }
-    if(event.target==body&&counter==1){
-        setTimeout(hidemenu,100);
-    }
+    console.log(event.target)
 });
 
 function set_time(){

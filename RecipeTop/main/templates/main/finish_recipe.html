@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+<!-- {% extends 'main/layout.html' %} -->
 {% load static %}
 
 {% block title %}Cooking {{recipe.title}}{% endblock %}
@@ -8,18 +8,42 @@
 <link rel="stylesheet" href={% static "main/css/mstepper.css" %}>
 {% endblock %}
 {% block content %}
+	<!-- <br>
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
+	<br> -->
 
-
-<div class = "finish_recipe white">
-	<h3>{{recipe.title}}</h3>
-
-</div>
-
+<body>
+			<div class="ending_container">
+				<div class="box_container">
+					<div class="message">
+						<h6>Great job! You completed:</h6>
+						<h6>{{recipe.title}}</h6>
+					</div>
+					<h5 class="feedback_msg"> Rate {{recipe.title}}</h5>
+					<div class="star">
+						<img src="../../static/main/img/star2.svg" class="star3 stars" alt="">
+						<img src="../../static/main/img/star2.svg" class="star2 stars" alt="">
+						<img src="../../static/main/img/star2.svg" class="star1 stars" alt="">
+						<img src="../../static/main/img/star2.svg" class="star2 stars" alt="">
+						<img src="../../static/main/img/star2.svg" class="star3 stars" alt="">
+					</div>
+					<h5 class="feedback_msg">How difficult was this recipe?</h5>
+					<div class="difficulty">
+							<img src="../../static/main/img/bc2.svg" class="star3 stars" alt="">
+							<img src="../../static/main/img/bc2.svg" class="star2 stars" alt="">
+							<img src="../../static/main/img/bc2.svg" class="star1 stars" alt="">
+							<img src="../../static/main/img/bc2.svg" class="star2 stars" alt="">
+							<img src="../../static/main/img/bc2.svg" class="star3 stars" alt="">
+					</div>
+					<div class="bottom_button">
+						<a class="waves-effect waves-light btn-small"><i class="material-icons right">edit</i>Edit</a>
+						<a class="waves-effect waves-light btn-small"><i class="material-icons right">home</i>Home</a>
+					</div>
+				</div>
+			</div>
+		</body>
 {% endblock %}
 
 {%block javascript %}

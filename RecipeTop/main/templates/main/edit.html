@@ -80,8 +80,7 @@
 			<div class="ingredients_table_modal">
 				{% for ing in recipe.recipetoingredient_set.all %}
 	               
-	            
-
+				<option value=""  selected>{{recipe.ingredient.unit}}</option>
 					<div class="input-field">
 						<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
 						<label for="ingredient">Ingredient</label>
