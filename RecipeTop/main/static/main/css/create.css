@@ -9,6 +9,9 @@
   padding: 2px 15px; 
   height: 10px;
 }
+.bigger{
+  zoom:1.5;
+}
 
 
 .step_number{

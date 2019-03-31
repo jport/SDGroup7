@@ -37,10 +37,12 @@
 										<input type="text" name="title" required>
 										<label for="title">Title</label>
 									</div>
+									<br>
                         		</div>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Description -->
@@ -53,10 +55,12 @@
 										<label for="description">Description</label>
 									</div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Image -->
@@ -64,16 +68,19 @@
                      		<div  class="step-title waves-effect waves-dark">Add an image</div>
                      		<div class="step-content">
                         		<div class="row">
+                        			<br>
                         			<!-- Icon image file picker-->
 							    	<div class="file-field input-field">
 							      		<div class="btn">
 							        		<span>Browse Images</span>
 							        		<input type="file" name="recipe_image">
 							      		</div>
+							      		<br>
 							      		<div class="file-path-wrapper">
 							        		<input class="file-path validate" type="text" >
 							        		<label for="recipe_image">Select an image</label>
 							      		</div>
+							      		<br>
 							    	</div>
                         		</div>
                         		<div class="step-actions">
@@ -119,12 +126,14 @@
 											</td>	 
 										</tr>
 									</table>
-									<button onclick="table()" class='waves-effect waves-light btn' type="button">Add another Ingredient</button>
+									<button onclick="table()" class='waves-effect waves-light btn blue-grey' type="button">Add another Ingredient</button>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Utensils -->
@@ -164,10 +173,12 @@
 									    </div>
 							       	</div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Steps -->
@@ -189,13 +200,15 @@
 											</tr>
 										
 										</table>
-									</div>
+									</div>	
 									<button onclick="addSteps()" class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Tags -->
@@ -206,10 +219,12 @@
                            			<!-- Tags -->
 									<div class="chips chips-autocomplete" id="chip"></div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
 
@@ -219,16 +234,21 @@
                      		<div  class="step-title waves-effect waves-dark">Estimated Duration (minutes)</div>
                      		<div class="step-content">
                         		<div class="row">	
+                        			<br>
+                        			<br>
+
 									<div class="time">
-										<p class="range-field">
+										<p class="range-field bigger">
 							      			<input type="range" name="time" min="0" max="120" step="5" required/>
 							      		</p>
 									</div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
 
@@ -236,6 +256,7 @@
                   		<li class="step">
                      		<div  class="step-title waves-effect waves-dark">Rating</div>
                      		<div class="step-content">
+                     			<br>
                         		<div class="row">
                            			<div class="rating" id="rating_container">
 										<table id="rating_table">
@@ -269,10 +290,12 @@
 										</table>
 									</div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>                  		
                   		<!-- Difficulty -->
@@ -280,6 +303,7 @@
                      		<div  class="step-title waves-effect waves-dark">Difficulty</div>
                      		<div class="step-content">
                         		<div class="row">
+                        			<br>
 									<div class="difficulty" id="difficulty_container">
 										<table id="difficulty_table">
 											<tr>
@@ -312,20 +336,23 @@
 										</table>
 									</div>
                         		</div>
+                        		<br>
                         		<div class="step-actions">
                            			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
                         			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                         		</div>
+                        		<br>
                      		</div>
                   		</li>
                   		<!-- Submit -->
 	                  	<li class="step">
 			                    <div class="step-title waves-effect waves-dark">Submit!</div>
 			                    <div class="step-content">
-			                        
+			                        <br>
 			                        <div class="step-actions">
 										<button type="submit" onclick="return saveForm()" class='waves-effect waves-dark btn teal lighten-1'>Save Recipe</button>
 			                        </div>
+			                        <br>
 			                    </div>
 	                  	</li>
 	               </ul>
@@ -360,7 +387,7 @@
 				"{{ing.name}}": null,
 				{% endfor %}
 			},
-			limit:4,
+			limit:3,
 		});
 	}
 

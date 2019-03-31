@@ -32,7 +32,7 @@ $(document).ready(function() {
       },
       offset: {
           x: 30,
-          y: 110
+          y: 130
        },
       repositionOnOpen: false,
       repositionOnContent: false
@@ -52,7 +52,7 @@ $(document).ready(function() {
        },
        offset: {
           x: 30,
-          y: 80
+          y: 120
        },
        repositionOnOpen: false,
        repositionOnContent: false
