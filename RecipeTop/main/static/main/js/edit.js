@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let title_modal = document.getElementById("title_modal");
-    var title_modal_instance = M.Modal.init(title_modal);
+    var title_modal_instance = M.Modal.init(title_modal, opacity=0.9,startingTop='20%');
 
 
     let title_edits= document.getElementById("edit_title");
