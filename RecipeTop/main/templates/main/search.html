@@ -185,6 +185,65 @@
                                 <p class="description">
                                         {{recipe.description}}
                                 </p>
+                                    
+                                <div class="rating_display_container ">
+                                    <h4>Rating: </h4>
+                                    {% if recipe.rating >= 1 %}
+                                        <i class="small material-icons icon-teal-card">star</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-teal-card">star_outline</i>
+                                    {% endif%}
+                                    {% if recipe.rating >= 2 %}
+                                        <i class="small material-icons icon-teal-card">star</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-teal-card">star_outline</i>
+                                    {% endif%}
+                                    {% if recipe.rating >= 3 %}
+                                        <i class="small material-icons icon-teal-card">star</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-teal-card">star_outline</i>
+                                    {% endif%}
+                                    {% if recipe.rating >= 4 %}
+                                        <i class="small material-icons icon-teal-card">star</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-teal-card">star_outline</i>
+                                    {% endif%}
+                                    {% if recipe.rating >= 5 %}
+                                        <i class="small material-icons icon-teal-card">star</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-teal-card">star_outline</i>
+                                    {% endif%}
+                                </div>
+
+                                <div class="rating_display_container ">
+                                    <h4>Difficulty: </h4>
+                                    {% if recipe.difficulty >= 1 %}
+                                        <i class="small material-icons icon-teal-card">cake</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-gray-card">cake</i>
+                                    {% endif%}
+                                    {% if recipe.difficulty >= 2 %}
+                                        <i class="small material-icons icon-teal-card">cake</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-gray-card">cake</i>
+                                    {% endif%}
+                                    {% if recipe.difficulty >= 3 %}
+                                        <i class="small material-icons icon-teal-card">cake</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-gray-card">cake</i>
+                                    {% endif%}
+                                    {% if recipe.difficulty >= 4 %}
+                                        <i class="small material-icons icon-teal-card">cake</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-gray-card">cake</i>
+                                    {% endif%}
+                                    {% if recipe.difficulty >= 5 %}
+                                        <i class="small material-icons icon-teal-card">cake</i>
+                                    {% else %}
+                                        <i class="small material-icons icon-gray-card">cake</i>
+                                    {% endif%}
+                                </div>
+
                                 <h4>Ingredients</h4>
                                 <div class="ingredients_table_card">
                                     {% for ing in recipe.recipetoingredient_set.all %}

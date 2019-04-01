@@ -22,6 +22,12 @@
 
 
 }
+.rating_display_container{
+  display: grid;
+  grid-template-columns:4fr 1fr 1fr 1fr 1fr 1fr;
+  width:45%;
+ 
+}
 .utensils_table_card{
   display: grid;
   grid-template-columns:1fr 1fr 1fr;
@@ -68,6 +74,16 @@
 .container {
   width: 100%;
   height: 100%;
+}
+.icon-teal-card{
+  color:#80cbc4;
+  padding-top: 25px;
+  text-align: center;
+}
+.icon-gray-card{
+  color:#b0bec5;
+  padding-top: 25px;
+  text-align: center;
 }
 .icon-teal{
   color:#80cbc4;
