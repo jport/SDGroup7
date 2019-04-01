@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.urls import reverse
 from django.db.models import Count
 from .models import *
 
@@ -220,6 +221,30 @@ def edit(request, recipe_id=0):
 
     }
     return render(request, 'main/edit.html', context)
+
+def edit_title(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    try:
+        new_title=request.POST['title']
+    except(KeyError):
+        print("there was a key error, no title")
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+    else:
+        recipe.title=new_title
+        recipe.save()
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
+def edit_description(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    try:
+        new_description=request.POST['description']
+    except(KeyError):
+        print("there was a key error, no description")
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+    else:
+        recipe.description=new_description
+        recipe.save()
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
 
 def finish_recipe(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)

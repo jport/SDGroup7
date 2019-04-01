@@ -13,8 +13,8 @@ body {
   margin: 0 auto;
   background: #f5f5f5;
   font-family: "Roboto", sans-serif;
-  width: 60vw;
-  height: 70vh;
+  width: 95vw;
+  height: 55vh;
   border-radius: 10px;
   -webkit-box-shadow: 2px 6px 88px 5px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 6px 88px 5px rgba(0, 0, 0, 0.75);
@@ -28,6 +28,7 @@ body {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
 }
 .Micontainer .title h3 {
   font-weight: 900;
@@ -39,10 +40,9 @@ body {
   justify-content: space-between;
 }
 .Micontainer .users .user {
-  width: 25%;
+  width: 20%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   flex-flow: column;
   padding-right: 1%;
@@ -55,15 +55,16 @@ body {
 .Micontainer .users .user .user_name {
   display: flex;
   justify-content: center;
-  height: 30%;
+  height: 25%;
   width: 100%;
+  padding-bottom: 10px;
 }
 .Micontainer .users .user .prefences {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
-  width: 100%;
-  height: 80%;
+  width: 80%;
+  height: 25%;
   justify-items: center;
   align-items: center;
 }
@@ -71,8 +72,8 @@ body {
   align-self: end;
 }
 .Micontainer .users .user .prefences img {
-  width: 50%;
-  height: 40%;
+  width: 70%;
+  height: 60%;
 }
 .Micontainer .users .user .prefences .img2 {
   align-self: start;

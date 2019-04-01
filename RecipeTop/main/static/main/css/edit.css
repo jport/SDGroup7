@@ -1,7 +1,13 @@
 .ing_modal{
 	height:70%; important!
 }
+.title_modal_css{
+	height:35%; important!
+}
 
+.description_modal_css{
+	height:35%; important!
+}
 .step_modal{
 	height:80%; important!
 }
