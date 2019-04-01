@@ -45,9 +45,9 @@
 * Add field validation for numbers and duration: Miguel
 * <del>Default image: Jason
 * Make steps/ingredients deletable: ???
-* bigger buttons
+* <del> bigger buttons
 * put images on PI
-* replace range button?
+* <del> replace range button?
 
 ## Edit Recipe Page !!!
 
