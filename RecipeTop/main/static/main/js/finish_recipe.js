@@ -76,44 +76,5 @@ const check_stars=(element)=>{
     }
     star_counter=new_counter;
 }
-// const check_cakes=(index,element)=>{
-//     var new_counter=0;
-//     for(let i=0;i<=index;i++){
-//         if(element[i].src.indexOf('1')!=-1){
-//             new_counter++;
-//         }
-//         else{
-//             new_counter--;
-//         }
-//     }
-//     cakes_counter=new_counter;
-// }
-
-// const check_stars=(index,element)=>{
-//     var new_counter=0;
-//     for(let i=0;i<=index;i++){
-//         if(element[i].src.indexOf('1')!=-1){
-//             new_counter++;
-//         }
-//         else{
-//             new_counter--;
-//         }
-//     }
-//     star_counter=new_counter;
-// }
-// const btn_watcher=()=>{
-//     if((cakes_counter===0||cakes_counter<0) || (star_counter===0||star_counter<0)){
-//        for(let index =0;index<btns.length;index++){
-//         if(btns[index].classList.contains('disabled')==false){
-//             btns[index].classList.add('disabled');
-//             }
-//         }
-//     }
-//     else{
-//         for(let index =0;index<btns.length;index++){
-//             btns[index].classList.remove('disabled');
-//         }
-//     }
-// }
 
 
