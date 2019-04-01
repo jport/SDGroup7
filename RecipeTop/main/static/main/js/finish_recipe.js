@@ -4,14 +4,14 @@ let cakes = document.getElementsByClassName('cakes');
 for(let i=0;i<stars.length;i++){
     stars[i].addEventListener('click',function(){
         icon_pic(i,stars);
-        check_stars(i,stars);
+        check_stars(stars);
         btn_watcher();
     });
 }
 for(let i=0;i<cakes.length;i++){
     cakes[i].addEventListener('click',function(){
         icon_pic(i,cakes);
-        check_cakes(i,cakes);
+        check_cakes(cakes);
         btn_watcher();
     });
 }
@@ -40,7 +40,7 @@ var cakes_counter=0;
 var star_counter=0;
 
 const btn_watcher=()=>{
-    if(cakes_counter===0 && star_counter===0||star_counter<0){
+    if((cakes_counter<1) || (star_counter<1)){
        for(let index =0;index<btns.length;index++){
         if(btns[index].classList.contains('disabled')==false){
             btns[index].classList.add('disabled');
@@ -55,31 +55,65 @@ const btn_watcher=()=>{
 }
 
 
+
 //function for checking ratings
-const check_cakes=(index,element)=>{
+const check_cakes=(element)=>{
     var new_counter=0;
-    for(let i=0;i<=index;i++){
+    for(let i=0;i<element.length;i++){
         if(element[i].src.indexOf('1')!=-1){
             new_counter++;
-        }
-        else{
-            new_counter--;
         }
     }
     cakes_counter=new_counter;
 }
 
-const check_stars=(index,element)=>{
+const check_stars=(element)=>{
     var new_counter=0;
-    for(let i=0;i<=index;i++){
+    for(let i=0;i<element.length;i++){
         if(element[i].src.indexOf('1')!=-1){
             new_counter++;
-        }
-        else{
-            new_counter--;
         }
     }
     star_counter=new_counter;
 }
+// const check_cakes=(index,element)=>{
+//     var new_counter=0;
+//     for(let i=0;i<=index;i++){
+//         if(element[i].src.indexOf('1')!=-1){
+//             new_counter++;
+//         }
+//         else{
+//             new_counter--;
+//         }
+//     }
+//     cakes_counter=new_counter;
+// }
+
+// const check_stars=(index,element)=>{
+//     var new_counter=0;
+//     for(let i=0;i<=index;i++){
+//         if(element[i].src.indexOf('1')!=-1){
+//             new_counter++;
+//         }
+//         else{
+//             new_counter--;
+//         }
+//     }
+//     star_counter=new_counter;
+// }
+// const btn_watcher=()=>{
+//     if((cakes_counter===0||cakes_counter<0) || (star_counter===0||star_counter<0)){
+//        for(let index =0;index<btns.length;index++){
+//         if(btns[index].classList.contains('disabled')==false){
+//             btns[index].classList.add('disabled');
+//             }
+//         }
+//     }
+//     else{
+//         for(let index =0;index<btns.length;index++){
+//             btns[index].classList.remove('disabled');
+//         }
+//     }
+// }
 
 
