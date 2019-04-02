@@ -6,6 +6,8 @@
 * <del>HTML Keyboard ? (Potentially OSK instead, don't implement this for now)
 * <del> Space out buttons: Gera
 * <del> Make buttons bigger: Gera
+* References/citations for code used!!
+* No copyright images!
 
 ## Login Page
 
@@ -29,7 +31,7 @@
 * Add cards on the right for suggestions: Miguel
 * Suggestion algorithm (3 or 5): Jason!!!
 * Add floating button: Gera
-* resize suggestions cards
+* resize suggestions cards!!!
 
 ## Create Page
 
