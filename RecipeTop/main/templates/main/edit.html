@@ -81,92 +81,101 @@
 	    </div>
 	    <div id="ingredients_modal" class="modal ing_modal">
 			<div class="modal-content">
-				<h4>Edit Ingredients</h4>
-				<br>
-				<div class="ingredients_table_modal">
-					{% for ing in recipe.recipetoingredient_set.all %}
-		               
-						<div class="input-field">
-							<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
-							<label for="ingredient">Ingredient</label>
-						</div>
-						<div class="input-field">
-							<input type="text" name="quantity" placeholder="Enter your quantity" value="{{ing.quantity}}">
-							<label for="quantity">Quantity</label>
-						</div>
-						<div class="input-field">
-							<select id="ing_select" name="unit" value="{{ing.unit}}">
-								<option value="" disabled selected>Choose the units</option>
-								{% if ing.unit == 1 %}
-									<option value="1" name="" selected>cup(s)</option>
-								{% else %}
-									<option value="1" name="">cup(s)</option>
-								{% endif %}
+				<form action="{% url 'edit_ingredients' recipe.id  %}" method="post">
+					<h4>Edit Ingredients</h4>
+					<br>
+					<div class="ingredients_table_modal" id="edit_ingredients_table">
+						<h6>Ingredient</h6>
+						<h6>Quantity</h6>
+						<h6>Unit</h6>
+						{% for ing in recipe.recipetoingredient_set.all %}
+			               
+							<div class="input-field">
+								<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
+							</div>
+							<div class="input-field">
+								<input type="text" name="quantity"  value="{{ing.quantity}}">
+							</div>
+							<div class="input-field">
+								<select id="ing_select" name="unit" value="{{ing.unit}}">
+									<option value="" disabled selected>Choose the units</option>
+									{% if ing.unit == 1 %}
+										<option value="1" name="" selected>cup(s)</option>
+									{% else %}
+										<option value="1" name="">cup(s)</option>
+									{% endif %}
 
-								{% if ing.unit == 2 %}
-									<option value="2" name="" selected>kg</option>
-								{% else %}
-									<option value="2" name="">kg</option>
-								{% endif %}
+									{% if ing.unit == 2 %}
+										<option value="2" name="" selected>kg</option>
+									{% else %}
+										<option value="2" name="">kg</option>
+									{% endif %}
 
-								{% if ing.unit == 3 %}
-									<option value="3" name="" selected>grams</option>
-								{% else %}
-									<option value="3" name="">grams</option>
-								{% endif %}
+									{% if ing.unit == 3 %}
+										<option value="3" name="" selected>grams</option>
+									{% else %}
+										<option value="3" name="">grams</option>
+									{% endif %}
 
-								{% if ing.unit == 4 %}
-									<option value="4" name="" selected>lbs</option>
-								{% else %}
-									<option value="4" name="">lbs</option>
-								{% endif %}
+									{% if ing.unit == 4 %}
+										<option value="4" name="" selected>lbs</option>
+									{% else %}
+										<option value="4" name="">lbs</option>
+									{% endif %}
 
-								{% if ing.unit == 5 %}
-									<option value="5" name="" selected>ounces</option>
-								{% else %}
-									<option value="5" name="">ounces</option>
-								{% endif %}
+									{% if ing.unit == 5 %}
+										<option value="5" name="" selected>ounces</option>
+									{% else %}
+										<option value="5" name="">ounces</option>
+									{% endif %}
 
-								{% if ing.unit == 6 %}
-									<option value="6" name="" selected>ml</option>
-								{% else %}
-									<option value="6" name="">ml</option>
-								{% endif %}
+									{% if ing.unit == 6 %}
+										<option value="6" name="" selected>ml</option>
+									{% else %}
+										<option value="6" name="">ml</option>
+									{% endif %}
 
-								{% if ing.unit == 7 %}
-									<option value="7" name="" selected>units</option>
-								{% else %}
-									<option value="7" name="" >units</option>
-								{% endif %}
+									{% if ing.unit == 7 %}
+										<option value="7" name="" selected>units</option>
+									{% else %}
+										<option value="7" name="" >units</option>
+									{% endif %}
 
-								{% if ing.unit == 8 %}
-									<option value="8" name="" selected>tbsp</option>
-								{% else %}
-									<option value="8" name="">tbsp</option>
-								{% endif %}
+									{% if ing.unit == 8 %}
+										<option value="8" name="" selected>tbsp</option>
+									{% else %}
+										<option value="8" name="">tbsp</option>
+									{% endif %}
 
-								{% if ing.unit == 9 %}
-									<option value="9" name="" selected>tsp</option>
-								{% else %}
-									<option value="9" name="">tsp</option>
-								{% endif %}
+									{% if ing.unit == 9 %}
+										<option value="9" name="" selected>tsp</option>
+									{% else %}
+										<option value="9" name="">tsp</option>
+									{% endif %}
 
-								{% if ing.unit == 10 %}
-									<option value="10" name="" selected>handfuls</option>
-								{% else %}
-									<option value="10" name="">handfuls</option>
-								{% endif %}
+									{% if ing.unit == 10 %}
+										<option value="10" name="" selected>handfuls</option>
+									{% else %}
+										<option value="10" name="">handfuls</option>
+									{% endif %}
 
-							</select>
-							<label for="unit"> Unit</label>
-						</div>
-					{% endfor %}
+								</select>
+							</div>
 
+							<input type="hidden" name="recipeToIng_IDs" value="{{ing.id}}">
+						{% endfor %}
+
+					</div>
+					<button onclick="addIngredient()" class='waves-effect waves-light btn blue-grey' type="button">Add another Ingredient</button>
+
+					<br>
+					<br>
+					<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark btn teal lighten-1 btn-large'>Save</button>
+					</div>
 				</div>
-				<br>
-
-				<a href="#!" class="modal-close waves-effect waves-green modal_save_btn right btn">Save</a>
-			</div>
+				{% csrf_token %}
+			</form>
 
 				
 
