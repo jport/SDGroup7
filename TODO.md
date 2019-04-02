@@ -58,11 +58,12 @@
 * add rating
 * add difficulty
 * add image
-* ajax call for title
-* ajax call for description
-* ajax call for ingredients
+* <del> backend call for title
+* <del> backend call for description
+* <del>backend call for ingredients
 * ajax call for utensils
 * ajax call for method
+* fix utensils modal
 
 ## Search Page
 
