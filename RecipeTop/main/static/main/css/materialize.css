@@ -5882,7 +5882,7 @@
     border-bottom: 1px solid #ddd;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 2rem;
+    /* padding: 2rem; */
   }
   
   .sidenav .collapsible,
@@ -5924,7 +5924,7 @@
   
   .sidenav .collapsible-body li a,
   .sidenav.fixed .collapsible-body li a {
-    padding: 0 23.5px 0 31px;
+    /* padding: 0 23.5px 0 31px; */
   }
   
   .collapsible.popout {

@@ -43,7 +43,7 @@ if(event.target!=menu
     {
         setTimeout(hidemenu,100);
     }
-    console.log(event.target)
+
 });
 
 function set_time(){
