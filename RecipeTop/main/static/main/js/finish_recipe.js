@@ -19,14 +19,14 @@ for(let i=0;i<cakes.length;i++){
 const icon_pic=(index,element)=>{
     let index_src=element[index].src;
     //if the selected item is a 'chosen' item then clear everything to the right and that one as well
-    if(index_src.indexOf('1')!=-1){
-        let img_src=index_src.replace('1','2');
+    if(index_src.indexOf('chk')!=-1){
+        let img_src=index_src.replace('chk','un');
         for(let i=index;i<element.length;i++)
         element[i].src= img_src;
     }
     else{
         //When nothing is chosen select everything to it's left
-        let img_src =index_src.replace('2','1');
+        let img_src =index_src.replace('un','chk');
         for(let i=0;i<=index;i++){
                 element[i].src=img_src;
         }
@@ -60,7 +60,7 @@ const btn_watcher=()=>{
 const check_cakes=(element)=>{
     var new_counter=0;
     for(let i=0;i<element.length;i++){
-        if(element[i].src.indexOf('1')!=-1){
+        if(element[i].src.indexOf('chk')!=-1){
             new_counter++;
         }
     }
@@ -70,7 +70,7 @@ const check_cakes=(element)=>{
 const check_stars=(element)=>{
     var new_counter=0;
     for(let i=0;i<element.length;i++){
-        if(element[i].src.indexOf('1')!=-1){
+        if(element[i].src.indexOf('chk')!=-1){
             new_counter++;
         }
     }
