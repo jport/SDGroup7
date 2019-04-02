@@ -1,3 +1,5 @@
+let unitOptions = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
+
 document.addEventListener('DOMContentLoaded', function() {
     let title_modal = document.getElementById("title_modal");
     let title_modal_instance = M.Modal.init(title_modal, opacity=0.9,startingTop='40%');
@@ -46,6 +48,57 @@ document.addEventListener('DOMContentLoaded', function() {
     let ingredient_selector_instance = M.FormSelect.init(ingredient_selector);
 });
 
+const addIngredient =()=>{
+	let ingredient_table=document.getElementById("edit_ingredients_table");
+
+	let ingredient=document.createElement("div");
+	ingredient.classList.add("input-field");
+	let ing=document.createElement("input");
+	ing.setAttribute('type','text');
+	ing.setAttribute('name','ingredient');
+	ing.setAttribute('id', "autocomplete-input");
+	ing.setAttribute('placeholder',"Enter your ingredient")
+	ing.classList.add("autocomplete");
+	ingredient.appendChild(ing)
+	ingredient_table.appendChild(ingredient)
+
+	let quantity=document.createElement("div");
+	quantity.classList.add("input-field");
+	let q=document.createElement("input");
+	q.setAttribute("type","text");
+	q.setAttribute("name",'quantity');
+	q.setAttribute("placeholder", "Enter a quantity")
+	quantity.appendChild(q);
+	ingredient_table.appendChild(quantity);
+
+	let unit=document.createElement("div");
+	unit.classList.add("input-field");
+	let u=document.createElement("select");
+	u.setAttribute("id","ing_select");
+	u.setAttribute("name","unit");
+	let default_op=document.createElement("option");
+	default_op.setAttribute("value","");
+	default_op.setAttribute("selected",true);
+	default_op.setAttribute("disabled",true);
+	default_op.innerHTML='Choose the unit';
+	u.appendChild(default_op);
+
+	for(let i = 1;i <= unitOptions.length; i++){
+        let option = document.createElement('option');
+            option.value = i
+            option.innerHTML = unitOptions[i-1];
+        
+
+        u.appendChild(option);
+    }
+
+	unit.appendChild(u);
+	ingredient_table.appendChild(unit);
+
+	let instance = M.FormSelect.init(u);
+
+    loadAutoComplete()
+  }
 
 
 

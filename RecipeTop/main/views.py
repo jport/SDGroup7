@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.urls import reverse
 from django.db.models import Count
 from .models import *
 
@@ -78,8 +79,8 @@ def create(request):
         r.save()
 
         # Create new ingredients only
+
         ingredients = request.POST.getlist('ingredient')
-        print(ingredients)
         quanties = request.POST.getlist('quantity')
         units = request.POST.getlist('unit')
 
@@ -220,6 +221,57 @@ def edit(request, recipe_id=0):
 
     }
     return render(request, 'main/edit.html', context)
+
+def edit_title(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    try:
+        new_title=request.POST['title']
+    except(KeyError):
+        print("there was a key error, no title")
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+    else:
+        recipe.title=new_title
+        recipe.save()
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
+def edit_description(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    try:
+        new_description=request.POST['description']
+    except(KeyError):
+        print("there was a key error, no description")
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+    else:
+        recipe.description=new_description
+        recipe.save()
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
+def edit_ingredients(request, recipe_id=0):
+        recipe=get_object_or_404(Recipe,pk=recipe_id)
+        RtoIs=request.POST.getlist('recipeToIng_IDs')
+        ingredients = request.POST.getlist('ingredient')
+        quanties = request.POST.getlist('quantity')
+        units = request.POST.getlist('unit')
+
+        for i in range(0, len(ingredients)):
+            ing = Ingredient.objects.get_or_create(name__iexact = ingredients[i], defaults={'name':ingredients[i]})[0]
+            if i >=len(RtoIs):
+                print(i, "larger than pks")
+                repToIng = RecipeToIngredient(
+                    recipe = recipe,
+                    ingredient = ing,
+                    quantity = quanties[i],
+                    unit = units[i]
+                )
+            else:
+               repToIng=get_object_or_404(RecipeToIngredient,pk=RtoIs[i]) 
+               repToIng.recipe=recipe
+               repToIng.ingredient=ing
+               repToIng.unit=units[i]
+               repToIng.quantity=quanties[i]
+
+            repToIng.save()
+        return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
 
 def finish_recipe(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)

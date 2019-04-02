@@ -6,6 +6,8 @@
 * <del>HTML Keyboard ? (Potentially OSK instead, don't implement this for now)
 * <del> Space out buttons: Gera
 * <del> Make buttons bigger: Gera
+* References/citations for code used!!
+* No copyright images!
 
 ## Login Page
 
@@ -23,13 +25,14 @@
 * Make close button larger: Miguel
 * Remove close button outline: Miguel
 * <del> Fix color of buttons: Miguel
+* Add profile/user image
 
 ## Home Page
 
 * Add cards on the right for suggestions: Miguel
 * Suggestion algorithm (3 or 5): Jason!!!
 * Add floating button: Gera
-* resize suggestions cards
+* resize suggestions cards!!!
 
 ## Create Page
 
@@ -45,9 +48,9 @@
 * Add field validation for numbers and duration: Miguel
 * <del>Default image: Jason
 * Make steps/ingredients deletable: ???
-* bigger buttons
+* <del> bigger buttons
 * put images on PI
-* replace range button?
+* <del> replace range button?
 
 ## Edit Recipe Page !!!
 
@@ -56,11 +59,12 @@
 * add rating
 * add difficulty
 * add image
-* ajax call for title
-* ajax call for description
-* ajax call for ingredients
+* <del> backend call for title
+* <del> backend call for description
+* <del>backend call for ingredients
 * ajax call for utensils
 * ajax call for method
+* fix utensils modal
 
 ## Search Page
 

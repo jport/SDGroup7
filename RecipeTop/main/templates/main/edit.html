@@ -11,10 +11,6 @@
 
 {% block content %}
 
-
-
-
-
 <div class="edit_background">
 	<br>
 	<br>
@@ -26,224 +22,237 @@
 	<div class="edit_card_action">
         <a href="{% url 'Home' %}" class="btn-floating btn-large waves-effect teal lighten-2 z-depth-3"><i class="material-icons">close</i></a>
     </div>
-<div class="edit_card z-depth-2">
+	<div class="edit_card z-depth-2">
+	    <div class="title-wrapper">
+			<h3 id="edit_title">{{recipe.title}} <i class="small material-icons icon-teal">edit</i></h3>
 
-
-    <div class="title-wrapper">
-		<h3 id="edit_title">{{recipe.title}} <i class="small material-icons icon-teal">edit</i></h3>
-
-		<div id="title_modal" class="modal">
-			<div class="modal-content">
-				<h4>Edit Title</h4>
-				<br>
-				<div class="input-field">
-					<input type="text" name="title" value="{{recipe.title}}">
-					<label for="title">Title</label>
+			<div id="title_modal" class="modal title_modal_css">
+				<form action="{% url 'edit_title' recipe.id  %}" method="post">
+					<div class="modal-content">
+						<h4>Edit Title</h4>
+						<br>
+						
+							
+							<div class="input-field">
+								<input type="text" name="title" value="{{recipe.title}}">
+								<label for="title">Title</label>
+							</div>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class=' modal-close waves-effect waves-dark btn teal lighten-1 btn-large'>Save</button>
+						<br>
 				</div>
+				{% csrf_token %}
+				</form>
+			</div>                          
+		</div>
+	    <p class="description" id="edit_description">
+	            {{recipe.description}} <i class="small material-icons icon-teal">edit</i>
+	    </p>
+	    <div id="description_modal" class="modal description_modal_css">
+	    	<form action="{% url 'edit_description' recipe.id  %}" method="post">
+				<div class="modal-content">
+					<h4>Edit Description</h4>
+					<br>
+					<div class="input-field">
+						<input type="text" name="description" value="{{recipe.description}}">
+						<label for="description">Description</label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark btn teal lighten-1 btn-large'>Save</button>
+
+				</div>
+				{% csrf_token %}
+			</form>
+		</div>
+	    <div id="edit_ingredients">
+	        <h4>Ingredients <i class="small material-icons icon-teal">edit</i></h4>
+	        <div class="ingredients_table_card">
+	            {% for ing in recipe.recipetoingredient_set.all %}
+	                <label>
+	                    <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+	                        <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+	                </label>
+	            {% endfor %}
+	        </div>
+
+	    </div>
+	    <div id="ingredients_modal" class="modal ing_modal">
+			<div class="modal-content">
+				<form action="{% url 'edit_ingredients' recipe.id  %}" method="post">
+					<h4>Edit Ingredients</h4>
+					<br>
+					<div class="ingredients_table_modal" id="edit_ingredients_table">
+						<h6>Ingredient</h6>
+						<h6>Quantity</h6>
+						<h6>Unit</h6>
+						{% for ing in recipe.recipetoingredient_set.all %}
+			               
+							<div class="input-field">
+								<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
+							</div>
+							<div class="input-field">
+								<input type="text" name="quantity"  value="{{ing.quantity}}">
+							</div>
+							<div class="input-field">
+								<select id="ing_select" name="unit" value="{{ing.unit}}">
+									<option value="" disabled selected>Choose the units</option>
+									{% if ing.unit == 1 %}
+										<option value="1" name="" selected>cup(s)</option>
+									{% else %}
+										<option value="1" name="">cup(s)</option>
+									{% endif %}
+
+									{% if ing.unit == 2 %}
+										<option value="2" name="" selected>kg</option>
+									{% else %}
+										<option value="2" name="">kg</option>
+									{% endif %}
+
+									{% if ing.unit == 3 %}
+										<option value="3" name="" selected>grams</option>
+									{% else %}
+										<option value="3" name="">grams</option>
+									{% endif %}
+
+									{% if ing.unit == 4 %}
+										<option value="4" name="" selected>lbs</option>
+									{% else %}
+										<option value="4" name="">lbs</option>
+									{% endif %}
+
+									{% if ing.unit == 5 %}
+										<option value="5" name="" selected>ounces</option>
+									{% else %}
+										<option value="5" name="">ounces</option>
+									{% endif %}
+
+									{% if ing.unit == 6 %}
+										<option value="6" name="" selected>ml</option>
+									{% else %}
+										<option value="6" name="">ml</option>
+									{% endif %}
+
+									{% if ing.unit == 7 %}
+										<option value="7" name="" selected>units</option>
+									{% else %}
+										<option value="7" name="" >units</option>
+									{% endif %}
+
+									{% if ing.unit == 8 %}
+										<option value="8" name="" selected>tbsp</option>
+									{% else %}
+										<option value="8" name="">tbsp</option>
+									{% endif %}
+
+									{% if ing.unit == 9 %}
+										<option value="9" name="" selected>tsp</option>
+									{% else %}
+										<option value="9" name="">tsp</option>
+									{% endif %}
+
+									{% if ing.unit == 10 %}
+										<option value="10" name="" selected>handfuls</option>
+									{% else %}
+										<option value="10" name="">handfuls</option>
+									{% endif %}
+
+								</select>
+							</div>
+
+							<input type="hidden" name="recipeToIng_IDs" value="{{ing.id}}">
+						{% endfor %}
+
+					</div>
+					<button onclick="addIngredient()" class='waves-effect waves-light btn blue-grey' type="button">Add another Ingredient</button>
+
+					<br>
+					<br>
+					<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark btn teal lighten-1 btn-large'>Save</button>
+					</div>
+				</div>
+				{% csrf_token %}
+			</form>
+
+				
+
+		</div>
+	    <br>
+	    <div id="edit_utensils">
+		    <h4>Utensils <i class="small material-icons icon-teal">edit</i></h4>
+		    <div class="utensils_table_card">
+		          {% for utensil in recipe.utensils.all %}
+		                <label>
+		                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+		                        <span>{{utensil.name}}  </span>
+		                </label>
+		            {% endfor %}
+		    </div>
+	    </div>
+	    <div id="utensils_modal" class="modal">
+			<div class="modal-content">
+				<h4>Edit Utensils</h4>
+				<br>
+
+				<div class="utensils_modal_table">
+					{% for utensil in recipe.utensils.all %}
+							<label>
+			                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
+			                        <span>{{utensil.name}}  </span>
+			                </label>
+			        {% endfor%}
+			        {% for utensil in utensils.all%}
+			            	<label>
+			                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+			                        <span>{{utensil.name}}  </span>
+			                </label>
+					{% endfor %}
+
+					
+				</div>
+
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
 			</div>
-		</div>                          
-	</div>
-    <p class="description" id="edit_description">
-            {{recipe.description}} <i class="small material-icons icon-teal">edit</i>
-    </p>
-    <div id="description_modal" class="modal">
-		<div class="modal-content">
-			<h4>Edit Description</h4>
-			<br>
-			<div class="input-field">
-				<input type="text" name="description" value="{{recipe.description}}">
-				<label for="description">Description</label>
-			</div>
 		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-		</div>
-	</div>
-    <div id="edit_ingredients">
-        <h4>Ingredients <i class="small material-icons icon-teal">edit</i></h4>
-        <div class="ingredients_table_card">
-            {% for ing in recipe.recipetoingredient_set.all %}
-                <label>
-                    <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
-                        <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
-                </label>
-            {% endfor %}
-        </div>
-    </div>
-    <div id="ingredients_modal" class="modal ing_modal">
-		<div class="modal-content">
-			<h4>Edit Ingredients</h4>
-			<br>
-			<div class="ingredients_table_modal">
-				{% for ing in recipe.recipetoingredient_set.all %}
-	               
-				<option value=""  selected>{{recipe.ingredient.unit}}</option>
-					<div class="input-field">
-						<input type="text" name="ingredient" placeholder="Enter your ingredient" id="autocomplete-input" class="autocomplete" value="{{ing.ingredient.name}}">
-						<label for="ingredient">Ingredient</label>
-					</div>
-					<div class="input-field">
-						<input type="text" name="quantity" placeholder="Enter your quantity" value="{{ing.quantity}}">
-						<label for="quantity">Quantity</label>
-					</div>
-					<div class="input-field">
-						<select id="ing_select" name="unit" value="{{ing.unit}}">
-							<option value="" disabled selected>Choose the units</option>
-							{% if ing.unit == 1 %}
-								<option value="1" name="" selected>cup(s)</option>
-							{% else %}
-								<option value="1" name="">cup(s)</option>
-							{% endif %}
-
-							{% if ing.unit == 2 %}
-								<option value="2" name="" selected>kg</option>
-							{% else %}
-								<option value="2" name="">kg</option>
-							{% endif %}
-
-							{% if ing.unit == 3 %}
-								<option value="3" name="" selected>grams</option>
-							{% else %}
-								<option value="3" name="">grams</option>
-							{% endif %}
-
-							{% if ing.unit == 4 %}
-								<option value="4" name="" selected>lbs</option>
-							{% else %}
-								<option value="4" name="">lbs</option>
-							{% endif %}
-
-							{% if ing.unit == 5 %}
-								<option value="5" name="" selected>ounces</option>
-							{% else %}
-								<option value="5" name="">ounces</option>
-							{% endif %}
-
-							{% if ing.unit == 6 %}
-								<option value="6" name="" selected>ml</option>
-							{% else %}
-								<option value="6" name="">ml</option>
-							{% endif %}
-
-							{% if ing.unit == 7 %}
-								<option value="7" name="" selected>units</option>
-							{% else %}
-								<option value="7" name="" >units</option>
-							{% endif %}
-
-							{% if ing.unit == 8 %}
-								<option value="8" name="" selected>tbsp</option>
-							{% else %}
-								<option value="8" name="">tbsp</option>
-							{% endif %}
-
-							{% if ing.unit == 9 %}
-								<option value="9" name="" selected>tsp</option>
-							{% else %}
-								<option value="9" name="">tsp</option>
-							{% endif %}
-
-							{% if ing.unit == 10 %}
-								<option value="10" name="" selected>handfuls</option>
-							{% else %}
-								<option value="10" name="">handfuls</option>
-							{% endif %}
-
-						</select>
-						<label for="unit"> Unit</label>
-					</div>
-				{% endfor %}
-
-			</div>
-			<br>
-
-			<a href="#!" class="modal-close waves-effect waves-green modal_save_btn right btn">Save</a>
-		</div>
-
-			
-
-	</div>
-    <br>
-    <div id="edit_utensils">
-	    <h4>Utensils <i class="small material-icons icon-teal">edit</i></h4>
-	    <div class="utensils_table_card">
-	          {% for utensil in recipe.utensils.all %}
-	                <label>
-	                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-	                        <span>{{utensil.name}}  </span>
-	                </label>
-	            {% endfor %}
-	    </div>
-    </div>
-    <div id="utensils_modal" class="modal">
-		<div class="modal-content">
-			<h4>Edit Utensils</h4>
-			<br>
-
-			<div class="utensils_modal_table">
-				{% for utensil in recipe.utensils.all %}
-						<label>
-		                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
-		                        <span>{{utensil.name}}  </span>
-		                </label>
-		        {% endfor%}
-		        {% for utensil in utensils.all%}
-		            	<label>
-		                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-		                        <span>{{utensil.name}}  </span>
-		                </label>
-				{% endfor %}
-
-				
-			</div>
-
-		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-		</div>
-	</div>
-    <div id="edit_steps">
-	    <h4>Method <i class="small material-icons icon-teal">edit</i></h4>
-	    <div class="recipe_steps">
-	        {% for step in recipe.steps.all %}
-	                <span >{{step.stepNumber}}.</span>
-	                <span>{{step.text}}  </span>
-	               
-	        {% endfor %}
-
-	    </div>
-    </div>
-    <div id="method_modal" class="modal step_modal">
-		<div class="modal-content">
-			<h4>Edit Method</h4>
-			<br>
-			<div class="recipe_steps">
+	    <div id="edit_steps">
+		    <h4>Method <i class="small material-icons icon-teal">edit</i></h4>
+		    <div class="recipe_steps">
 		        {% for step in recipe.steps.all %}
-		        	<div class="input-field">
-						<input type="text" name="step_number" value="{{step.stepNumber}}">
-					</div>
-					<div class="input-field">
-						<input type="text" name="step_text" value="{{step.text}}">
-					</div> 
+		                <span >{{step.stepNumber}}.</span>
+		                <span>{{step.text}}  </span>
+		               
 		        {% endfor %}
 
-	        </div>
-	        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+		    </div>
 	    </div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
+	    <div id="method_modal" class="modal step_modal">
+			<div class="modal-content">
+				<h4>Edit Method</h4>
+				<br>
+				<div class="recipe_steps">
+			        {% for step in recipe.steps.all %}
+			        	<div class="input-field">
+							<input type="text" name="step_number" value="{{step.stepNumber}}">
+						</div>
+						<div class="input-field">
+							<input type="text" name="step_text" value="{{step.text}}">
+						</div> 
+			        {% endfor %}
+
+		        </div>
+		        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+		    </div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
+			</div>
 		</div>
 	</div>
-    
-
-</div>
-</div>
-    
-                
-   
+</div> 
 {% endblock %}
 
 {% block javascript %}
@@ -265,10 +274,6 @@
 		loadAutoComplete();
 	});
 </script>
-
-
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src={% static "main/js/gallery/materialize.min.js" %}></script>

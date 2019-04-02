@@ -13,6 +13,9 @@ urlpatterns = [
     path('follow_steps/<int:recipe_id>', views.follow_steps, name='follow_steps'),
     path('finish_recipe/<int:recipe_id>', views.finish_recipe, name='finish_recipe'),
     path('edit/<int:recipe_id>',views.edit, name='edit'),
+    path('edit_title/<int:recipe_id>',views.edit_title, name='edit_title'),
+    path('edit_description/<int:recipe_id>',views.edit_description, name='edit_description'),
+    path('edit_ingredients/<int:recipe_id>',views.edit_ingredients, name='edit_ingredients'),
 
 
 ]
