@@ -25,6 +25,7 @@
 * Make close button larger: Miguel
 * Remove close button outline: Miguel
 * <del> Fix color of buttons: Miguel
+* Add profile/user image
 
 ## Home Page
 
