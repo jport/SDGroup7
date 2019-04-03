@@ -63,16 +63,17 @@
 * <del> backend call for title
 * <del> backend call for description
 * <del>backend call for ingredients
-* ajax call for utensils
+* <del> call for utensils
 * ajax call for method
-* fix utensils modal
+* <del> fix utensils modal
+* make ingredients deletable?
 
 ## Search Page
 
 * <del>Add backend functionality for hearts
 * <del>Clean up cards
 * <del>Add pop up cards before executing
-* Add shadow/border to card titles
+* <del> Add shadow/border to card titles
 * <del> Implement search text, tags, rating, difficulty, time front end: Gera
 * Implement search text, tags, rating, difficulty, time back end: Jason
 * <del> Add content to cards: Gera
@@ -100,7 +101,7 @@
 
 ## Other
 * Add more recipes: Gera
-* Remove copyright images: Gera
+* <del> Remove copyright images: Gera
 
 ## Settings - stretch only if done
 * Account/Settings
