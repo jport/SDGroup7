@@ -257,6 +257,10 @@
 {% block javascript %}
 <script src={% static "main/js/hearted.js" %}></script>
 <script>
+	$(document).ready(function(){
+    	$('select').formSelect();
+  	});
+  	
 	function loadAutoComplete()
 	{
 		$('input.autocomplete').autocomplete({
