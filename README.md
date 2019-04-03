@@ -71,7 +71,7 @@ python3 manage.py runserver
 
 ## Dumping data
 
-./manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin > data.json
+python3 manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin > data.json
 
 ## Github Intructions
 
