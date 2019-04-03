@@ -34,6 +34,7 @@
 * Add floating button: Gera
 * resize suggestions cards!!!
 * Add content to cards on home
+* SEARCH BAR??
 
 ## Create Page
 
