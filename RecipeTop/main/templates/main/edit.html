@@ -241,25 +241,28 @@
 		    </div>
 	    </div>
 	    <div id="method_modal" class="modal step_modal">
-			<div class="modal-content">
-				<h4>Edit Method</h4>
-				<br>
-				<div class="recipe_steps">
-			        {% for step in recipe.steps.all %}
-			        	<div class="input-field">
-							<input type="text" name="step_number" value="{{step.stepNumber}}">
-						</div>
-						<div class="input-field">
-							<input type="text" name="step_text" value="{{step.text}}">
-						</div> 
-			        {% endfor %}
+	    	<form action="{% url 'edit_method' recipe.id  %}" method="post">
+				<div class="modal-content">
+					<h4>Edit Method</h4>
+					<br>
+					<div class="recipe_steps_modal">
+				        {% for step in recipe.steps.all %}
+				        	<span class="step_number">{{step.stepNumber}}</span>
+							<div class="input-field">
+								<input type="text" name="step_text" value="{{step.text}}">
+							</div> 
+							<span></span>
+							<a class="btn-floating btn-large waves-effect waves-light blue-grey "><i class="material-icons ">delete</i></a>
+				        {% endfor %}
 
-		        </div>
-		        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
-		    </div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-			</div>
+			        </div>
+			        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+			    </div>
+				<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark teal lighten-1 btn-large'>Save</button>
+				</div>
+			{% csrf_token %}
+			</form>
 		</div>
 	</div>
 </div> 

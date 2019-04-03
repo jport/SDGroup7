@@ -1,18 +1,25 @@
 .ing_modal{
-	height:90%; important!
+	height:90%; 
 }
 .title_modal_css{
-	height:35%; important!
+	height:35%; 
 }
 
 .description_modal_css{
-	height:35%; important!
+	height:35%; 
+}
+.step_number{
+	color:teal;
+	vertical-align: center;
+	padding-top: 27px;
+
 }
 .utensils_modal_css{
-	max-height:90%; important!
+	max-height:90%; 
 }
 .step_modal{
-	height:80%; important!
+	height: 80%; 
+	width: 80%;
 }
 
 .modal_save_btn{
@@ -66,6 +73,11 @@
 .recipe_steps{
   display: grid;
   grid-template-columns:1fr 30fr;
+}
+
+.recipe_steps_modal{
+  display: grid;
+  grid-template-columns:1fr 30fr 1fr 2fr;
 }
 
 .ingredients_table_card{

@@ -284,8 +284,14 @@ def edit_utensils(request, recipe_id=0):
     recipe.save()
     return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
 
+def edit_method(request, recipe_id=0):
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    
+    return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
 
 def finish_recipe(request, recipe_id=0):
+
     recipe=get_object_or_404(Recipe,pk=recipe_id)
     #steps = get_object_or_404(RecipeStep,pk=recipe_id)
 
