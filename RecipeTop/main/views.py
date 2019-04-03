@@ -217,7 +217,7 @@ def edit(request, recipe_id=0):
         'recipe':recipe,
         'user': User.objects.get(pk=request.session["userId"]),
         'ingredients':Ingredient.objects.all(),
-        'utensils': Utensil.objects.all()
+        'utensils': Utensil.objects.exclude(recipe=recipe)
 
     }
     return render(request, 'main/edit.html', context)
@@ -272,6 +272,18 @@ def edit_ingredients(request, recipe_id=0):
 
             repToIng.save()
         return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
+def edit_utensils(request, recipe_id=0):
+    # Create new utensils
+    utensils = request.POST.getlist('utensils')
+    recipe=get_object_or_404(Recipe,pk=recipe_id)
+    recipe.utensils.clear()
+    for i in range(0, len(utensils)):
+        uten = Utensil.objects.get_or_create(name__iexact = utensils[i], defaults={'name':utensils[i]})[0]
+        recipe.utensils.add(uten)
+    recipe.save()
+    return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
+
 
 def finish_recipe(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)

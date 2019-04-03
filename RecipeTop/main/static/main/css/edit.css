@@ -8,6 +8,9 @@
 .description_modal_css{
 	height:35%; important!
 }
+.utensils_modal_css{
+	max-height:90%; important!
+}
 .step_modal{
 	height:80%; important!
 }
@@ -33,13 +36,15 @@
 	background-color: #ffffff;
 	margin:auto;
 	height:90%;
-
-
-	
+}
+.new_utensil_field{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 .utensils_modal_table{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+	zoom:1.3;
 }
 .ingredients_table_modal{
 	display: grid;

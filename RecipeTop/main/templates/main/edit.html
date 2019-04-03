@@ -183,40 +183,51 @@
 	    <div id="edit_utensils">
 		    <h4>Utensils <i class="small material-icons icon-teal">edit</i></h4>
 		    <div class="utensils_table_card">
-		          {% for utensil in recipe.utensils.all %}
+		        {% for utensil in recipe.utensils.all %}
 		                <label>
 		                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-		                        <span>{{utensil.name}}  </span>
+		                    <span>{{utensil.name}}  </span>
 		                </label>
-		            {% endfor %}
+		        {% endfor %}
 		    </div>
 	    </div>
-	    <div id="utensils_modal" class="modal">
-			<div class="modal-content">
-				<h4>Edit Utensils</h4>
-				<br>
+	    <div id="utensils_modal" class="modal utensils_modal_css">
+	    	<form action="{% url 'edit_utensils' recipe.id  %}" method="post">
+				<div class="modal-content">
+					<h4>Edit Utensils</h4>
+					<br>
+					<div class="utensils_modal_table" id="edit_table_of_utensils">
+						{% for utensil in recipe.utensils.all %}
+								<label>
+				                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
+				                    <span>{{utensil.name}}  </span>
+				                </label>
+				        {% endfor%}
+				        {% for utensil in utensils.all%}
+				            	<label>
+				                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+				                    <span>{{utensil.name}}  </span>
+				                </label>
+						{% endfor %}
+					</div>
+					<br>
+					<br>
+					<div class="new_utensil_field">
+						<div class="input-field">
+					          <input id="new_utensil" type="text">
+					          <label for="new_utensil">Add a New Utensil</label>
+					    </div>
+					    <button onclick="addUtensil()" class='waves-effect waves-light btn-large blue-grey' type="button">Add</button>
 
-				<div class="utensils_modal_table">
-					{% for utensil in recipe.utensils.all %}
-							<label>
-			                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
-			                        <span>{{utensil.name}}  </span>
-			                </label>
-			        {% endfor%}
-			        {% for utensil in utensils.all%}
-			            	<label>
-			                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-			                        <span>{{utensil.name}}  </span>
-			                </label>
-					{% endfor %}
+				    </div>
 
-					
 				</div>
-
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-			</div>
+				<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark teal lighten-1 btn-large'>Save</button>
+				</div>
+			{% csrf_token %}
+			</form>
+			<br>
 		</div>
 	    <div id="edit_steps">
 		    <h4>Method <i class="small material-icons icon-teal">edit</i></h4>
