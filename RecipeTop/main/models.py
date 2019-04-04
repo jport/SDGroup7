@@ -1,5 +1,5 @@
 from django.db import models
-units = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "units", "tbsp", "tsp", "handfuls"];
+units = ["cup(s)", "kg", "grams", "lbs", "ounces", "ml", "", "tbsp", "tsp", "handfuls"];
 # Create your models here.
 
 class Recipe(models.Model):

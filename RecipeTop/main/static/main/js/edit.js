@@ -102,3 +102,36 @@ const addIngredient =()=>{
 
 
 
+//let list_of_utensils = []
+
+
+const addUtensil=()=>{
+	let table_of_utensils =document.getElementById('edit_table_of_utensils');
+    utensil_field = document.getElementById('new_utensil');
+    //list_of_utensils.push(utensil_field.value);
+
+
+    table_of_utensils.appendChild(createNewUtensil(utensil_field.value));
+
+    utensil_field.value = "";
+}
+
+function createNewUtensil(value)
+{
+    let col = document.createElement("td");
+    let label = document.createElement("label");
+    let input = document.createElement("input");
+    let span = document.createElement("span");
+
+    input.type = "checkbox";
+    input.value = value;
+    input.name = "utensils";
+    input.checked = true;
+    span.innerHTML = value;
+
+    col.appendChild(label);
+    label.appendChild(input);
+    label.appendChild(span);
+
+    return col;
+}

@@ -7,7 +7,7 @@
 * <del> Space out buttons: Gera
 * <del> Make buttons bigger: Gera
 * References/citations for code used!!
-* No copyright images!
+* <del> No copyright images!
 
 ## Login Page
 
@@ -33,6 +33,8 @@
 * Suggestion algorithm (3 or 5): Jason!!!
 * Add floating button: Gera
 * resize suggestions cards!!!
+* Add content to cards on home
+* SEARCH BAR??
 
 ## Create Page
 
@@ -62,21 +64,23 @@
 * <del> backend call for title
 * <del> backend call for description
 * <del>backend call for ingredients
-* ajax call for utensils
+* <del> call for utensils
 * ajax call for method
-* fix utensils modal
+* <del> fix utensils modal
+* make ingredients deletable?
 
 ## Search Page
 
 * <del>Add backend functionality for hearts
 * <del>Clean up cards
 * <del>Add pop up cards before executing
-* Add shadow/border to card titles
+* <del> Add shadow/border to card titles
 * <del> Implement search text, tags, rating, difficulty, time front end: Gera
 * Implement search text, tags, rating, difficulty, time back end: Jason
-* Add content to cards: Gera
+* <del> Add content to cards: Gera
 * <del>Clean up heart vs non hearted rendering: Gera
 * <del> Edit button
+* Add tags to cards
 
 ## <del>Follow - Gather
 
@@ -98,7 +102,7 @@
 
 ## Other
 * Add more recipes: Gera
-* Remove copyright images: Gera
+* <del> Remove copyright images: Gera
 
 ## Settings - stretch only if done
 * Account/Settings
@@ -111,13 +115,13 @@
 
 * Assemble Scale case
 * 2nd Case
-* 2nd PCB
+* <del> 2nd PCB
 * <del> Test PCB1
-* Arduino Code 
+* <del> Arduino Code 
 * Code for auto-reset/ low power!! : gera and Jason?
-* CAD Cutting Board
-* Assemble Cart
-* Paste 2nd Foil and test
+* <del> CAD Cutting Board
+* <del> Assemble Cart
+* <del>Paste 2nd Foil and test
 * Mount PI, power button
 * Wall warts into strip
 * Paint?
@@ -131,7 +135,7 @@
 * Prepare and practice demo
 
 ## Committee!!
-* Ask gita
-* Arup sign
-* Jason's advisor
+* <del> Ask gita
+* <del> Arup sign
+* <del> Jason's advisor
 * Repractice presentation

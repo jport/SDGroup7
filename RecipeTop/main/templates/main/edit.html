@@ -6,7 +6,6 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/edit.css" %}>
-<link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -184,40 +183,51 @@
 	    <div id="edit_utensils">
 		    <h4>Utensils <i class="small material-icons icon-teal">edit</i></h4>
 		    <div class="utensils_table_card">
-		          {% for utensil in recipe.utensils.all %}
+		        {% for utensil in recipe.utensils.all %}
 		                <label>
 		                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-		                        <span>{{utensil.name}}  </span>
+		                    <span>{{utensil.name}}  </span>
 		                </label>
-		            {% endfor %}
+		        {% endfor %}
 		    </div>
 	    </div>
-	    <div id="utensils_modal" class="modal">
-			<div class="modal-content">
-				<h4>Edit Utensils</h4>
-				<br>
+	    <div id="utensils_modal" class="modal utensils_modal_css">
+	    	<form action="{% url 'edit_utensils' recipe.id  %}" method="post">
+				<div class="modal-content">
+					<h4>Edit Utensils</h4>
+					<br>
+					<div class="utensils_modal_table" id="edit_table_of_utensils">
+						{% for utensil in recipe.utensils.all %}
+								<label>
+				                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
+				                    <span>{{utensil.name}}  </span>
+				                </label>
+				        {% endfor%}
+				        {% for utensil in utensils.all%}
+				            	<label>
+				                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+				                    <span>{{utensil.name}}  </span>
+				                </label>
+						{% endfor %}
+					</div>
+					<br>
+					<br>
+					<div class="new_utensil_field">
+						<div class="input-field">
+					          <input id="new_utensil" type="text">
+					          <label for="new_utensil">Add a New Utensil</label>
+					    </div>
+					    <button onclick="addUtensil()" class='waves-effect waves-light btn-large blue-grey' type="button">Add</button>
 
-				<div class="utensils_modal_table">
-					{% for utensil in recipe.utensils.all %}
-							<label>
-			                    <input type="checkbox" checked="checked" value="{{utensil.name}}" name="utensils"/>
-			                        <span>{{utensil.name}}  </span>
-			                </label>
-			        {% endfor%}
-			        {% for utensil in utensils.all%}
-			            	<label>
-			                    <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
-			                        <span>{{utensil.name}}  </span>
-			                </label>
-					{% endfor %}
+				    </div>
 
-					
 				</div>
-
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-			</div>
+				<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark teal lighten-1 btn-large'>Save</button>
+				</div>
+			{% csrf_token %}
+			</form>
+			<br>
 		</div>
 	    <div id="edit_steps">
 		    <h4>Method <i class="small material-icons icon-teal">edit</i></h4>
@@ -231,25 +241,28 @@
 		    </div>
 	    </div>
 	    <div id="method_modal" class="modal step_modal">
-			<div class="modal-content">
-				<h4>Edit Method</h4>
-				<br>
-				<div class="recipe_steps">
-			        {% for step in recipe.steps.all %}
-			        	<div class="input-field">
-							<input type="text" name="step_number" value="{{step.stepNumber}}">
-						</div>
-						<div class="input-field">
-							<input type="text" name="step_text" value="{{step.text}}">
-						</div> 
-			        {% endfor %}
+	    	<form action="{% url 'edit_method' recipe.id  %}" method="post">
+				<div class="modal-content">
+					<h4>Edit Method</h4>
+					<br>
+					<div class="recipe_steps_modal">
+				        {% for step in recipe.steps.all %}
+				        	<span class="step_number">{{step.stepNumber}}</span>
+							<div class="input-field">
+								<input type="text" name="step_text" value="{{step.text}}">
+							</div> 
+							<span></span>
+							<a class="btn-floating btn-large waves-effect waves-light blue-grey "><i class="material-icons ">delete</i></a>
+				        {% endfor %}
 
-		        </div>
-		        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
-		    </div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn">Save</a>
-			</div>
+			        </div>
+			        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+			    </div>
+				<div class="modal-footer">
+					<button type="submit" class=' modal-close waves-effect waves-dark teal lighten-1 btn-large'>Save</button>
+				</div>
+			{% csrf_token %}
+			</form>
 		</div>
 	</div>
 </div> 
@@ -258,6 +271,10 @@
 {% block javascript %}
 <script src={% static "main/js/hearted.js" %}></script>
 <script>
+	$(document).ready(function(){
+    	$('select').formSelect();
+  	});
+  	
 	function loadAutoComplete()
 	{
 		$('input.autocomplete').autocomplete({
@@ -275,13 +292,6 @@
 	});
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src={% static "main/js/gallery/materialize.min.js" %}></script>
-<script src={% static "main/js/gallery/masonry.pkgd.min.js" %}></script>
-<script src={% static "main/js/gallery/galleryExpand.js" %}></script>
-<script src={% static "main/js/gallery/init.js" %}></script>
-<script src={% static "main/js/gallery/color-thief.min.js" %}></script>
-<script src={% static "main/js/gallery/imagesloaded.pkgd.min.js" %}></script>
 <script src={% static "main/js/edit.js" %}></script>
 
 
