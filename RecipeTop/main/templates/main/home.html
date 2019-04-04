@@ -6,8 +6,8 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
-<link rel="stylesheet" href={% static "main/css/cards.css" %}>
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
+<link rel="stylesheet" href={% static "main/css/cards.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -50,17 +50,17 @@
                                 <a class="gallery-cover gray">
                                     <img class="responsive-img" src="{{recipe.image.url}}" alt="placeholder">
                                 </a>
+                                <div class="prop2"><i class="material-icons hearted float_heart pink-text" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
                                 <!-- gallery header -->
                                 <div class="gallery-header">
                                         <div class="ingredient_title">
-                                             <span class= "title">{{recipe.title}}</span>
+                                             <span class= "title card_title">{{recipe.title}}</span>
                                         </div>
                                         <br>
                                         <div class="ingredient_props">
-                                                <div class="prop1"><i class="material-icons">library_books</i></div>
-                                                <div class="prop2"><i class="material-icons">schedule</i></div>
-                                                <div class="prop1"><i class="material-icons">local_dining</i></div>
-                                                <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
+                                                <div class="prop1"><i class="material-icons serving_size">library_books</i><span>serving size</span></div>
+                                                <div class="prop2"><i class="material-icons cook_time">schedule</i><span>cook time</span></div>
+                                                <div class="prop1"><i class="material-icons utensils">local_dining</i><span># utensils:</span></div>
                                         </div>
                                 </div>
                                 <!-- gallery body -->

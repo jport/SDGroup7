@@ -1,6 +1,6 @@
 .ingredient_props {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
 }
@@ -9,6 +9,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.float_heart {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  z-index: 5;
+  color: pink;
+  font-size: 45px;
+  vertical-align: bottom;
+}
+
+.ingredient_props span {
+  vertical-align: top;
+  margin-left: 2px;
+}
+
+.serving_size {
+  color: #ff6f00;
+}
+
+.cook_time {
+  color: #ff6f00;
+}
+
+.utensils {
+  color: #ff6f00;
 }
 
 /*# sourceMappingURL=cards.css.map */
