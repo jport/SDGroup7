@@ -13,17 +13,20 @@
 
 .float_heart {
   position: absolute;
-  top: 2%;
-  right: 2%;
+  top: 5%;
+  right: 4%;
   z-index: 5;
-  color: pink;
   font-size: 45px;
-  vertical-align: bottom;
 }
 
 .ingredient_props span {
-  vertical-align: top;
+  vertical-align: center;
   margin-left: 2px;
+  font-size: 9px;
+}
+
+.ingredient_props i {
+  vertical-align: top;
 }
 
 .serving_size {

@@ -23,10 +23,20 @@
 
 }
 .rating_display_container{
+  /* make it center */
+  margin:0 auto;
   display: grid;
   grid-template-columns:4fr 1fr 1fr 1fr 1fr 1fr;
   width:45%;
  
+}
+
+.description{
+  text-align: center;
+  margin:0 auto;
+}
+.title-wrapper{
+  
 }
 .utensils_table_card{
   display: grid;
@@ -129,6 +139,7 @@
 .content-wrapper {
   padding-top: 40px;
 }
+
 
 .ingredient_title {
   display: flex;

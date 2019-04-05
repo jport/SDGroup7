@@ -7,6 +7,7 @@
 {% block stylesheet %}
 <link rel="stylesheet" href={% static "main/css/search.css" %}>
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
+<link rel="stylesheet" href={% static "main/css/cards.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -146,7 +147,7 @@
     </nav>
 
 </div>
-
+<!-- cards -->
 <div class="cards-section">
     <div id="portfolio" class="section gray">
         <div class="container">
@@ -162,6 +163,7 @@
                         <!-- <div class="circle">circle</div> -->
                         {% endif %}
                     </a>
+                    <div class="prop2"><i class="material-icons hearted float_heart pink-text" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
                     <!-- card title -->
                     <div class="gallery-header">
                        <div class="ingredient_title">
@@ -169,10 +171,9 @@
                        </div>
                        <br>
                        <div class="ingredient_props">
-                            <div class="prop1"><i class="material-icons">library_books</i></div>
-                            <div class="prop2"><i class="material-icons">schedule</i></div>
-                            <div class="prop1"><i class="material-icons">local_dining</i></div>
-                            <div class="prop2"><i class="material-icons hearted" id="hearted_{{recipe.id}}_prop">{% check_hearted recipe.id %}</i></div>
+                            <div class="prop1"><i class="material-icons">library_books</i><span>serving size</span></div>
+                            <div class="prop2"><i class="material-icons">schedule</i><span>cook time</span></div>
+                            <div class="prop1"><i class="material-icons">local_dining</i><span>utensil</span></div>
                        </div>
                     </div>
                     <!-- inside the card stuff -->
@@ -185,7 +186,7 @@
                                         {{recipe.description}}
                                 </p> 
                                 <div class="rating_display_container ">
-                                    <h4>Rating: </h4>
+                                    <h4 class="rating">Rating: </h4>
                                     {% if recipe.rating >= 1 %}
                                         <i class="small material-icons icon-teal-card">star</i>
                                     {% else %}
@@ -247,7 +248,7 @@
                                     {% for ing in recipe.recipetoingredient_set.all %}
                                         <label>
                                             <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
-                                                <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+                                                <span><span style="color:teal">{{ing.quantity}}</span> {{ing.get_unit}} {{ing.ingredient.name}}  </span>
                                         </label>
                                     {% endfor %}
                                 </div>
