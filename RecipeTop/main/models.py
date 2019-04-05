@@ -81,34 +81,34 @@ class User(models.Model):
         return self.userName + " " + str(self.age) + " " + str(self.likedRecipes)
     def check_cheese(self):
         if self.cheese:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
     def check_steak(self):
         if self.steak:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
     def check_fastfood(self):
         if self.fastfood:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
     def check_cupcake(self):
         if self.cupcake:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
     def check_broccoli(self):
         if self.broccoli:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
     def check_apple(self):
         if self.apple:
-            return "1"
+            return "chk"
         else:
-            return "2"
+            return "un"
  
 
 

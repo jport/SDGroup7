@@ -71,11 +71,11 @@ for(let i =0;i<choices_img.length;i++){
 
 const icon_pic=(index)=>{
   let img_src =choices_img[index].src;
-  if(img_src.indexOf('2')!=-1){
-    img_src=img_src.replace('2','1');
+  if(img_src.indexOf('un')!=-1){
+    img_src=img_src.replace('un','chk');
   }
   else{
-    img_src=img_src.replace('1','2');
+    img_src=img_src.replace('chk','un');
   }
   choices_img[index].src=img_src;
   
