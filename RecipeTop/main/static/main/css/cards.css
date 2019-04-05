@@ -13,8 +13,8 @@
 
 .float_heart {
   position: absolute;
-  top: 5%;
-  right: 4%;
+  top: 4px;
+  right: 15px;
   z-index: 5;
   font-size: 45px;
 }
