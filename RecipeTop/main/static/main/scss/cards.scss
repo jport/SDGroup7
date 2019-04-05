@@ -1,44 +1,93 @@
-
-//icons on card
-.ingredient_props{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    justify-items: center;
-    align-items: center;
+.ingredient_props {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   justify-items: center;
+   align-items: center;
  }
-
+ 
  .ingredient_title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .float_heart{
-     position: absolute;
-     top:5%;
-     right:4%;
-     z-index: 5;
-     font-size: 45px;
-   //   vertical-align: bottom;
-  }
-
-
-  .ingredient_props span{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .float_heart {
+   position: absolute;
+   top: 5%;
+   right: 4%;
+   z-index: 5;
+   font-size: 45px;
+ }
+ 
+ .ingredient_props span {
    vertical-align: center;
-   margin-left:2px;
-   font-size:9px;
-  }
-  .ingredient_props i{
+   margin-left: 2px;
+   font-size: 9px;
+ }
+ 
+ .ingredient_props i {
    vertical-align: top;
-
-  }
-
-.serving_size{
-   color:#ff6f00;
-}
-.cook_time{
-   color:#ff6f00;
-}
-.utensils{
-   color:#ff6f00;
-}
+ }
+ 
+ .rating_display_container {
+   /* make it center */
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
+   width: 45%;
+ }
+ 
+ .serving_size {
+   color: #ff6f00;
+ }
+ 
+ .cook_time {
+   color: #ff6f00;
+ }
+ 
+ .utensils {
+   color: #ff6f00;
+ }
+ 
+ .icon-gray-card {
+   color: #b0bec5;
+   padding-top: 25px;
+   text-align: center;
+ }
+ 
+ .icon-teal-card {
+   color: #80cbc4;
+   padding-top: 25px;
+   text-align: center;
+ }
+ 
+ .icon-teal {
+   color: #80cbc4;
+ }
+ 
+ .recipe_steps {
+   display: grid;
+   grid-template-columns: 1fr 30fr;
+ }
+ 
+ .description {
+   text-align: center;
+   margin: 0 auto;
+ }
+ 
+ .utensils_table_card {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+ }
+ 
+ .ingredients_table {
+   width: 100%;
+ }
+ 
+ .ingredients_table_card {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+ }
+ 
+ /*# sourceMappingURL=cards.css.map */
+ 
