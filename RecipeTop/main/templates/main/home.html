@@ -5,6 +5,7 @@
 {% block title %}Home{% endblock %}
 
 {% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/cards.css" %}>
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
@@ -61,13 +62,104 @@
                                     <div class="title-wrapper">
                                         <h3>{{recipe.title}}</h3>
                                     </div>
-                                    <p class="description">
-                                        {{recipe.description}}
-                                    </p>
+                                    <div class="content-wrapper">
+                                            <p class="description">
+                                                    {{recipe.description}}
+                                            </p> 
+                                            <div class="rating_display_container ">
+                                                <h4 class="rating">Rating: </h4>
+                                                {% if recipe.rating >= 1 %}
+                                                    <i class="small material-icons icon-teal-card">star</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-teal-card">star_outline</i>
+                                                {% endif%}
+                                                {% if recipe.rating >= 2 %}
+                                                    <i class="small material-icons icon-teal-card">star</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-teal-card">star_outline</i>
+                                                {% endif%}
+                                                {% if recipe.rating >= 3 %}
+                                                    <i class="small material-icons icon-teal-card">star</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-teal-card">star_outline</i>
+                                                {% endif%}
+                                                {% if recipe.rating >= 4 %}
+                                                    <i class="small material-icons icon-teal-card">star</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-teal-card">star_outline</i>
+                                                {% endif%}
+                                                {% if recipe.rating >= 5 %}
+                                                    <i class="small material-icons icon-teal-card">star</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-teal-card">star_outline</i>
+                                                {% endif%}
+                                            </div>
+            
+                                            <div class="rating_display_container ">
+                                                <h4>Difficulty: </h4>
+                                                {% if recipe.difficulty >= 1 %}
+                                                    <i class="small material-icons icon-teal-card">cake</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-gray-card">cake</i>
+                                                {% endif%}
+                                                {% if recipe.difficulty >= 2 %}
+                                                    <i class="small material-icons icon-teal-card">cake</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-gray-card">cake</i>
+                                                {% endif%}
+                                                {% if recipe.difficulty >= 3 %}
+                                                    <i class="small material-icons icon-teal-card">cake</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-gray-card">cake</i>
+                                                {% endif%}
+                                                {% if recipe.difficulty >= 4 %}
+                                                    <i class="small material-icons icon-teal-card">cake</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-gray-card">cake</i>
+                                                {% endif%}
+                                                {% if recipe.difficulty >= 5 %}
+                                                    <i class="small material-icons icon-teal-card">cake</i>
+                                                {% else %}
+                                                    <i class="small material-icons icon-gray-card">cake</i>
+                                                {% endif%}
+                                            </div>
+            
+                                            <h4>Ingredients</h4>
+                                            <div class="ingredients_table_card">
+                                                {% for ing in recipe.recipetoingredient_set.all %}
+                                                    <label>
+                                                        <input type="checkbox" value="{{ing.ingredient.name}}" name="ingredients"/>
+                                                            <span><span style="color:teal">{{ing.quantity}}</span> {{ing.get_unit}} {{ing.ingredient.name}}  </span>
+                                                    </label>
+                                                {% endfor %}
+                                            </div>
+                                            <br>
+                                            <h4>Utensils</h4>
+                                            <div class="utensils_table_card">
+                                                  {% for utensil in recipe.utensils.all %}
+                                                        <label>
+                                                            <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
+                                                                <span>{{utensil.name}}  </span>
+                                                        </label>
+                                                    {% endfor %}
+                                            </div>
+            
+                                            <h4>Method</h4>
+                                            <div class="recipe_steps">
+                                                {% for step in recipe.steps.all %}
+                                                        <span >{{step.stepNumber}}.</span>
+                                                        <span>{{step.text}}  </span>
+                                                       
+                                                {% endfor %}
+            
+                                            </div>
+            
+                                        </div>
                                     </div>
                                     <div class="gallery-action">
-                                        <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
-                                        <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">check</i></a>
+                                            <a class="btn-floating btn-large waves-effect pink"><i class="material-icons hearted" id="hearted_{{recipe.id}}">{% check_hearted recipe.id %}</i></a>
+                                            <a href="{% url 'edit' recipe.id %}" class="btn-floating btn-large waves-effect teal lighten-2"><i class="material-icons">edit</i></a>
+                                            <a href="{% url 'follow_steps' recipe.id %}" class= "btn-floating btn-large waves-effect green"><i class="material-icons">local_dining</i></a>
                                     </div>
                                 </div>
                         </div>

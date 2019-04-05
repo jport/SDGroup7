@@ -2,12 +2,9 @@
   margin: 0;
   padding: 0px;
 }
-
 /*# sourceMappingURL=search.css.map */
 .ingredients_table{
   width: 100%;
-
-
 }
 #difficulty_table{
   line-height: 15px;
@@ -18,25 +15,9 @@
 #rating_container{
   line-height: 10px;
   padding: 0px 0px; 
-
-
-
-}
-.rating_display_container{
-  /* make it center */
-  margin:0 auto;
-  display: grid;
-  grid-template-columns:4fr 1fr 1fr 1fr 1fr 1fr;
-  width:45%;
- 
-}
-
-.description{
-  text-align: center;
-  margin:0 auto;
 }
 .title-wrapper{
-  
+  margin: 0 auto;
 }
 .utensils_table_card{
   display: grid;
