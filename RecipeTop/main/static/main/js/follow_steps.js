@@ -8,19 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-let timerJbox = null
-let preheat_jbox = null
-let scale_jbox = null
-let tare = 0.0
-let curValue = 0.0
+let timerJbox = null;
+let preheat_jbox = null;
+let scale_jbox = null;
+let tare = 0.0;
+let curValue = 0.0;
+let units_factor=1.0;
+let unit_text=" grams";
 
 let chatSocket = new WebSocket('ws://' + window.location.host + '/ws/scale/');
 
 $(document).ready(function() {
 
+  let display_scale=document.getElementById("scale_display_content");
+
    timer1Jbox = new jBox('Modal', {
       attach: $('#timer-1-drag-anywhere'),
-      width: 220,
+      width: 250,
       title: 'Timer 1',
       overlay: false,
       createOnInit: true,
@@ -40,7 +44,7 @@ $(document).ready(function() {
 
    timer2Jbox = new jBox('Modal', {
        attach: $('#timer-2-drag-anywhere'),
-       width: 220,
+       width: 250,
        title: 'Timer 2',
        overlay: false,
        createOnInit: true,
@@ -60,11 +64,11 @@ $(document).ready(function() {
 
    scale_jbox = new jBox('Modal', {
        attach: $('#scale-drag-anywhere'),
-       width: 220,
+       width: 250,
        title: 'Start weighing...',
        overlay: false,
        createOnInit: true,
-       content: 'Turn on scale',
+       content: $('#scale_modal_content'),
        draggable: true,
        position: {
           x: 'left',
@@ -98,7 +102,8 @@ $(document).ready(function() {
       let message = data['message'];
 
       curValue = parseFloat(message) - tare;
-      scale_jbox.content.html(curValue + " grams");
+      let display_scale= document.getElementById("scale_display_content");
+      display_scale.innerHTML  = (curValue*units_factor + unit_text);
    };
 
    // Check for errors
@@ -117,8 +122,8 @@ $(document).ready(function() {
 
 
 function restart_timer1(){
-  document.getElementById("demo1").innerHTML = '<p class="range-field"><input type="range" id="timer1" min="0" max="60" /></p>';
-  document.getElementById("timer_button_holder1").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer1">Start Timer</button>'
+  document.getElementById("demo1").innerHTML = '<p class="range-field bigger_button"><input type="range" id="timer1" min="0" max="60" /></p>';
+  document.getElementById("timer_button_holder1").innerHTML  ='<button class="btn-large waves-effect waves-light" type="button" name="action" id="start_timer1">Start Timer</button>'
   stop_timer1 = true;
   let timer_button1 = document.getElementById("start_timer1");
   timer_button1.addEventListener("click", event_handler1, 1000);
@@ -131,8 +136,8 @@ function restart_timer1(){
 }
 
 function restart_timer2(){
-  document.getElementById("demo2").innerHTML = '<p class="range-field"><input type="range" id="timer2" min="0" max="60" /></p>';
-  document.getElementById("timer_button_holder2").innerHTML  ='<button class="btn waves-effect waves-light" type="button" name="action" id="start_timer2">Start Timer</button>'
+  document.getElementById("demo2").innerHTML = '<p class="range-field bigger_button"><input type="range" id="timer2" min="0" max="60" /></p>';
+  document.getElementById("timer_button_holder2").innerHTML  ='<button class="btn-large waves-effect waves-light" type="button" name="action" id="start_timer2">Start Timer</button>'
   stop_timer2 = true;
   let timer_button2 = document.getElementById("start_timer2");
   timer_button2.addEventListener("click", event_handler2, 1000);
@@ -149,7 +154,7 @@ function restart_timer2(){
 
 function event_handler1() {
     stop_timer1 = false;
-   document.getElementById("timer_button_holder1").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer1"> Stop Timer </button>'
+   document.getElementById("timer_button_holder1").innerHTML  = '<button class="btn-large waves-effect waves-light" type="button" name="action" id="end_timer1"> Stop Timer </button>'
    let end_timer_button1 = document.getElementById("end_timer1");
    end_timer_button1.addEventListener("click", restart_timer1);
    let range_val = document.getElementById("timer1").value;
@@ -167,7 +172,7 @@ function event_handler1() {
             
          }
          if (!stop_timer1){
-          document.getElementById("demo1").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          document.getElementById("demo1").innerHTML =days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
          }
          
          if (distance < 0) {
@@ -182,7 +187,7 @@ function event_handler1() {
 
    function event_handler2() {
     stop_timer2 = false;
-   document.getElementById("timer_button_holder2").innerHTML  = '<button class="btn waves-effect waves-light" type="button" name="action" id="end_timer2"> Stop Timer </button>'
+   document.getElementById("timer_button_holder2").innerHTML  = '<button class="btn-large waves-effect waves-light" type="button" name="action" id="end_timer2"> Stop Timer </button>'
    let end_timer_button2 = document.getElementById("end_timer2");
    end_timer_button2.addEventListener("click", restart_timer2);
    let range_val = document.getElementById("timer2").value;
@@ -213,11 +218,26 @@ function event_handler1() {
    );
   }
 
+  function tareFunc(){
+    tare += curValue; 
+    display_scale.innerHTML =curValue*units_factor + unit_text;
+  }
+
+  function changeUnits(){
+    if(unit_text==" grams"){
+      unit_text=" ounces";
+      units_factor=0.035274;
+
+    }
+    else{
+      unit_text=" grams";
+      units_factor=1.0;
+    }
+    display_scale.innerHTML =curValue*units_factor + unit_text;
+  }
+
 });
 
 
-function tareFunc(){
-  tare += curValue;
-  scale_jbox.content.html(curValue + " grams");
-}
+
 

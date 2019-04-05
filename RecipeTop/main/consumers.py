@@ -2,6 +2,7 @@ from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from main.models import ScaleFlag
 import json
+import sys
 
 class ScaleConsumer(WebsocketConsumer):
     def connect(self):
@@ -34,6 +35,9 @@ class ScaleConsumer(WebsocketConsumer):
 
     # Receive message from websocket
     def receive(self, text_data):
+        if sys.version_info[1] < 6:
+            text_data = text_data.decode('utf-8')
+
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
 

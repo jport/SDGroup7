@@ -33,7 +33,7 @@
                         		<div class="row">
                            			<ul>
 		    						{% for ing in recipe.recipetoingredient_set.all %}
-							    		<li>
+							    		<li class="bigger">
 							    			<label>
 							        			<input type="checkbox" value="{{ing.ingredient.name}}" name="ingredient" />
 							       				 <span>{{ing.quantity}} {{ing.get_unit}} {{ing.ingredient.name}}  </span>
@@ -44,7 +44,7 @@
 								    </ul>
                         		</div>
                         		<div class="step-actions">
-                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
+                           			<button class="waves-effect waves-dark btn-large teal lighten-1 next-step">CONTINUE</button>
                         		</div>
                      		</div>
                   		</li>
@@ -55,10 +55,12 @@
 	                        		<div class="row">
 	                           			{{step.text}}
 	                        		</div>
+	                        		<br>
 	                        		<div class="step-actions">
-	                           			<button class="waves-effect waves-dark btn teal lighten-1 next-step">CONTINUE</button>
-	                        			<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+	                           			<button class="waves-effect waves-dark btn-large teal lighten-1 next-step">CONTINUE</button>
+	                        			<button class="waves-effect waves-dark btn-flat btn-large previous-step">BACK</button>
 	                        		</div>
+	                        		<br>
 
 	                     		</div>
 	                  		</li>
@@ -81,7 +83,7 @@
          </div>
 
 		
-	    <div class="fixed-action-btn bigger">
+	    <div class="fixed-action-btn bigger_button">
   			<a class="btn-floating btn-large teal darken-3">
     			<i class="large material-icons">cake</i>
   			</a>
@@ -94,11 +96,11 @@
 	    				<div  id="timer1_modal_content">
 	    					<br>
         					<div id="demo1">          
-          						<p class="range-field bigger">
+          						<p class="range-field bigger_button">
                 					<input type="range" id="timer1" min="0" max="60" />	
             					</p>
         					</div>
-        					
+        					<br>
         					<div id="timer_button_holder1">
         						<button class="btn waves-effect waves-light btn-large" type="button" name="action" id="start_timer1"> Start Timer </button>
         					</div>
@@ -111,11 +113,11 @@
 	    				<div  id="timer2_modal_content">
 	    					<br>
 	    					<div id="demo2">        
-	          					<p class="range-field bigger">
+	          					<p class="range-field bigger_button">
 	                					<input type="range" id="timer2" min="0" max="60" />	
 	            				</p>
             				</div>
-        					
+        					<br>
         					<div id="timer_button_holder2">
         						<button class="btn waves-effect waves-light btn-large" type="button" name="action" id="start_timer2"> Start Timer </button>
         					</div>
@@ -125,6 +127,15 @@
 	    				<a class="btn-floating teal">
 	    					<i class="material-icons" id="scale-drag-anywhere">fitness_center</i>
 	    				</a>
+	    				<div id="scale_modal_content">
+	    					<span id="scale_display_content">
+	    						Turn on scale
+	    					</span>
+	    					<br>
+	    					<br>
+	    					<button class="btn waves-effect waves-light btn-large" type="button" name="action" id="tare_button">Tare</button>
+	    					<button class="btn waves-effect waves-light btn-large" type="button" name="action" id="tare_button">Units</button>
+	    				</div>
 	    			</li>
 	  			</ul>
   			</div>
