@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import Count
 from .models import *
+from django.utils import timezone
 
 # Create your views here.
 
@@ -201,7 +202,17 @@ def hearted(request):
 
 def follow_steps(request, recipe_id=0):
     recipe=get_object_or_404(Recipe,pk=recipe_id)
+    user = User.objects.get(pk=request.session["userId"])
     #steps = get_object_or_404(RecipeStep,pk=recipe_id)
+
+    oldObjects = History.objects.filter(recipe=recipe, user=user, timeOfEnd__isnull=True)
+    if oldObjects.count() > 0:
+        hist = oldObjects[0]
+        hist.timeOfStart = timezone.now()
+        hist.save()
+    else:
+        hist = History(recipe=recipe, user=user, timeOfStart=timezone.now())
+        hist.save()
 
     context = {
         'recipe':recipe
