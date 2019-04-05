@@ -65,20 +65,36 @@ const addAnimate=(index)=>{
 let choices_img =document.getElementsByClassName('choices_img');
 for(let i =0;i<choices_img.length;i++){
   choices_img[i].addEventListener("click",function(){
-    icon_pic(i);
+    icon_pic(i,icons[i]);
   });
 }
 
-const icon_pic=(index)=>{
+const icon_pic=(index,element)=>{
   let img_src =choices_img[index].src;
   if(img_src.indexOf('un')!=-1){
     img_src=img_src.replace('un','chk');
+    element.value="true";
   }
   else{
     img_src=img_src.replace('chk','un');
+    element.value="false";
   }
   choices_img[index].src=img_src;
   
 }
+
+let cheese = document.getElementById('cheese');
+let steak = document.getElementById('steak');
+let fast_food = document.getElementById('fast-food');
+let cupcake = document.getElementById('cupcake');
+let brocoli = document.getElementById('brocoli');
+let apple = document.getElementById('apple');
+
+let icons =[cheese,steak,fast_food,cupcake,brocoli,apple];
+
+
+
+
+
 
 

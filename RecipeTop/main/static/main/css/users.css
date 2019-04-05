@@ -13,12 +13,12 @@ body {
   margin: 0 auto;
   background: #f5f5f5;
   font-family: "Roboto", sans-serif;
-  width: 80vw;
+  width: 60vw;
   height: 70vh;
   border-radius: 10px;
-  -webkit-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.75);
-  box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 3px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 3px 15px 0px rgba(0, 0, 0, 0.75);
 }
 .Micontainer .title {
   display: flex;
@@ -28,7 +28,6 @@ body {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 .Micontainer .title h3 {
   font-weight: 900;
@@ -40,20 +39,21 @@ body {
   justify-content: space-between;
 }
 .Micontainer .users .user {
-  width: 20%;
+  width: 25%;
   height: 100%;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   flex-flow: column;
   padding-right: 1%;
   padding-left: 1%;
   box-sizing: border-box;
-  border:1px solid gold;
-  margin-right:2%;
-  margin-left:2%;
+  border: 1px solid gold;
+  margin-right: 2%;
+  margin-left: 2%;
   border-radius: 15px;
-  -webkit-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 3px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 15px 0px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 3px 15px 0px rgba(238, 210, 53, 0.815);
 }
 .Micontainer .users .user:hover {
@@ -62,16 +62,15 @@ body {
 .Micontainer .users .user .user_name {
   display: flex;
   justify-content: center;
-  height: 25%;
+  height: 30%;
   width: 100%;
-  padding-bottom: 10px;
 }
 .Micontainer .users .user .prefences {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
-  width: 80%;
-  height: 25%;
+  width: 100%;
+  height: 80%;
   justify-items: center;
   align-items: center;
 }
@@ -79,8 +78,8 @@ body {
   align-self: end;
 }
 .Micontainer .users .user .prefences img {
-  width: 70%;
-  height: 60%;
+  width: 50%;
+  height: 40%;
 }
 .Micontainer .users .user .prefences .img2 {
   align-self: start;
@@ -173,6 +172,10 @@ body {
   justify-content: center;
   height: 20vh;
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=users.css.map */
