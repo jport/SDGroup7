@@ -21,7 +21,7 @@ const icon_pic=(index,element)=>{
     //if the selected item is a 'chosen' item then clear everything to the right and that one as well
     if(index_src.indexOf('chk')!=-1){
         let img_src=index_src.replace('chk','un');
-        for(let i=index;i<element.length;i++)
+        for(let i=index+1;i<element.length;i++)
         element[i].src= img_src;
     }
     else{
