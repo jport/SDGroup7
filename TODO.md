@@ -81,6 +81,7 @@
 * <del>Clean up heart vs non hearted rendering: Gera
 * <del> Edit button
 * Add tags to cards
+* Make cards not open if heart is pressed!!
 
 ## <del>Follow - Gather
 
