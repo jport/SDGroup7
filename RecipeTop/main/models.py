@@ -6,9 +6,9 @@ class Recipe(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     estDuration = models.IntegerField(default=0)
-    avgDuration = models.IntegerField(default=0)
-    difficulty = models.IntegerField(default=0)
-    rating = models.IntegerField(default=0)
+    avgDuration = models.FloatField(default=0)
+    difficulty = models.FloatField(default=0)
+    rating = models.FloatField(default=0)
 
     ingredients = models.ManyToManyField('Ingredient', through='RecipeToIngredient', through_fields=('recipe', 'ingredient'))
     utensils = models.ManyToManyField('Utensil')

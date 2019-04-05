@@ -239,5 +239,3 @@ function event_handler1() {
 });
 
 
-
-

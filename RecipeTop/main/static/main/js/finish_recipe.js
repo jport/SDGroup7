@@ -77,4 +77,50 @@ const check_stars=(element)=>{
     star_counter=new_counter;
 }
 
+function editClick(){
+    let jsonPayload = {
+        RecipeID: recipe_id,
+        Rating: star_counter,
+        Diff: cakes_counter
+    }
 
+    let payloadString = JSON.stringify(jsonPayload)
+    $.ajax({
+        type: 'POST',
+        url: '/API/finishRecipe',
+        data: payloadString,
+        success: function(data){
+            if(data.error)
+                alert(error);
+
+            window.location.href = "/edit/" + recipe_id
+        },
+        error: function(error){
+            alert("Error: " + error)
+        }
+    });
+}
+
+function homeClick(){
+  let jsonPayload = {
+        RecipeID: recipe_id,
+        Rating: star_counter,
+        Diff: cakes_counter
+    }
+
+    let payloadString = JSON.stringify(jsonPayload)
+    $.ajax({
+        type: 'POST',
+        url: '/API/finishRecipe',
+        data: payloadString,
+        success: function(data){
+            if(data.error)
+                alert(data.error);
+            else
+                window.location.href = "/home"
+        },
+        error: function(error){
+            alert("Error: " + error)
+        }
+    });
+}
