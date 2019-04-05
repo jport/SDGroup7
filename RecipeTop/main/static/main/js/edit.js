@@ -135,3 +135,63 @@ function createNewUtensil(value)
 
     return col;
 }
+
+let steps = $('.recipe_steps_modal')
+/*
+<span class="step_number">{{step.stepNumber}}</span>
+<div class="input-field">
+	<input type="text" name="step_text" value="{{step.text}}">
+</div> 
+<span></span>
+<a class="btn-floating btn-large waves-effect waves-light blue-grey "><i class="material-icons ">delete</i></a>
+*/
+function addStep()
+{
+	let stepNumber = (steps.children().length/4)+1;
+	let span = document.createElement('span');
+	span.className = "step_number";
+	span.innerHTML = stepNumber;
+
+	let div = document.createElement('div');
+	div.className = "input-field"
+
+	let input = document.createElement('input');
+	input.type = "text"
+	input.name = "step_text"
+	div.appendChild(input);
+
+	let stupidSpan = document.createElement('span');
+	let a = document.createElement('a');
+	a.className = "btn-floating btn-large waves-effect waves-light blue-grey"
+
+	let iElem = document.createElement('i');
+	iElem.className = "material-icons"
+	iElem.innerHTML = "delete";
+	iElem.onclick = function(){deleteStep(iElem)};
+
+	a.appendChild(iElem);
+
+	steps.append(span);
+	steps.append(div);
+	steps.append(stupidSpan);
+	steps.append(a);	
+}
+
+function deleteStep(btn)
+{
+	let a = btn.parentElement;
+	let stupidSpan = a.previousElementSibling;
+	let div = stupidSpan.previousElementSibling;
+	let span = div.previousElementSibling;
+
+	let parent = a.parentElement;
+	parent.removeChild(span);
+	parent.removeChild(div);
+	parent.removeChild(stupidSpan);
+	parent.removeChild(a);
+
+	for(let i = 0; i < steps.children().length; i += 4)
+	{
+		steps.children()[i].innerHTML = (i/4)+1;
+	}
+}

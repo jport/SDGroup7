@@ -252,11 +252,11 @@
 								<input type="text" name="step_text" value="{{step.text}}">
 							</div> 
 							<span></span>
-							<a class="btn-floating btn-large waves-effect waves-light blue-grey "><i class="material-icons ">delete</i></a>
+							<a class="btn-floating btn-large waves-effect waves-light blue-grey "><i class="material-icons " onclick="deleteStep(this)">delete</i></a>
 				        {% endfor %}
 
 			        </div>
-			        <button class='waves-effect waves-light btn blue-grey' type="button">Add step</button>
+			        <button class='waves-effect waves-light btn blue-grey' type="button" onclick="addStep()">Add step</button>
 			    </div>
 				<div class="modal-footer">
 					<button type="submit" class=' modal-close waves-effect waves-dark teal lighten-1 btn-large'>Save</button>

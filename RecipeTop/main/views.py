@@ -296,8 +296,19 @@ def edit_utensils(request, recipe_id=0):
     return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
 
 def edit_method(request, recipe_id=0):
-    recipe=get_object_or_404(Recipe,pk=recipe_id)
-    
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    recipe.steps.all().delete()
+    steps = request.POST.getlist('step_text')
+
+    for i in range(0, len(steps)):
+        step = RecipeStep(
+            recipe = recipe,
+            stepNumber = i+1,
+            text = steps[i]
+        )
+
+        step.save()
+
     return HttpResponseRedirect(reverse('edit', args=(recipe.id,)))
 
 
