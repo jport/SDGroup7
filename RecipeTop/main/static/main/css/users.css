@@ -178,6 +178,11 @@ body {
   width: 100%;
 }
 
+.add_usr{
+  height:5vh;
+  width:200px;
+}
+
 .add_btn{
   display: flex;
   justify-content: center;
