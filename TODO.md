@@ -8,6 +8,7 @@
 * <del> Make buttons bigger: Gera
 * References/citations for code used!!
 * <del> No copyright images!
+* make image files smaller
 
 ## Login Page
 
@@ -20,21 +21,21 @@
 
 ## Layout/Menu/NavBar
 
-* Add home button: Miguel
+* <del> Add home button: Miguel
 * Search bar/icon: Miguel
 * Make close button larger: Miguel
-* Remove close button outline: Miguel
+* <del> Remove close button outline: Miguel
 * <del> Fix color of buttons: Miguel
 * Add profile/user image
 
 ## Home Page
 
-* Add cards on the right for suggestions: Miguel
+* <del> Add cards on the right for suggestions: Miguel
 * Suggestion algorithm (3 or 5): Jason!!!
 * Add floating button: Gera
-* resize suggestions cards!!!
-* Add content to cards on home
-* SEARCH BAR??
+* <del> resize suggestions cards!!!
+* <del> Add content to cards on home
+* <del> SEARCH BAR??
 
 ## Create Page
 
@@ -65,7 +66,7 @@
 * <del> backend call for description
 * <del>backend call for ingredients
 * <del> call for utensils
-* ajax call for method
+* <del> ajax call for method
 * <del> fix utensils modal
 * make ingredients deletable?
 
@@ -76,7 +77,7 @@
 * <del>Add pop up cards before executing
 * <del> Add shadow/border to card titles
 * <del> Implement search text, tags, rating, difficulty, time front end: Gera
-* Implement search text, tags, rating, difficulty, time back end: Jason
+* <del> Implement search text, tags, rating, difficulty, time back end: Jason
 * <del> Add content to cards: Gera
 * <del>Clean up heart vs non hearted rendering: Gera
 * <del> Edit button
@@ -87,22 +88,21 @@
 
 ## Follow - Execute
 * <del> Turn preheat popup to another timer: Gera
-* Add fishing/rating page (see next section): Jason+Geta
+* <del> Add fishing/rating page (see next section): Jason+Geta
 * <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
 * Add Tare button and units change: ???
 * <del> Bigger buttons
-* Move buttons to left
 
 ## Finish Recipe
-* Front end: Gera
-* Back end: Jason
+* <del> Front end: Gera
+* <del> Back end: Jason
 
 ## Database
 * Add default image
 
 ## Other
-* Add more recipes: Gera
+* <del> Add more recipes: Gera
 * <del> Remove copyright images: Gera
 
 ## Settings - stretch only if done
