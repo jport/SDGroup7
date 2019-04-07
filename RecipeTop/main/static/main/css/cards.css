@@ -35,7 +35,9 @@
   display: grid;
   grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
   width: 45%;
+  font-family: 'Lobster', cursive;
 }
+
 
 .serving_size {
   color: #ff6f00;
@@ -73,6 +75,7 @@
 .description {
   text-align: center;
   margin: 0 auto;
+  font-style: italic;
 }
 
 .utensils_table_card {
@@ -89,6 +92,13 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.recipe_title{
+  font-family: 'Lobster', cursive;
+}
+
+.gallery-body h4{
+  font-family: 'Lobster', cursive;
+}
 /*# sourceMappingURL=cards.css.map */
 
 /*# sourceMappingURL=cards.css.map */
