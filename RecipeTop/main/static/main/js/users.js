@@ -80,7 +80,6 @@ const icon_pic=(index,element)=>{
     element.value="false";
   }
   choices_img[index].src=img_src;
-  
 }
 
 let cheese = document.getElementById('cheese');
