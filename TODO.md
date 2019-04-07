@@ -8,6 +8,7 @@
 * <del> Make buttons bigger: Gera
 * References/citations for code used!!
 * <del> No copyright images!
+* make image files smaller
 
 ## Login Page
 
