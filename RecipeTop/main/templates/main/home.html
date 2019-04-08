@@ -5,9 +5,9 @@
 {% block title %}Home{% endblock %}
 
 {% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 <link rel="stylesheet" href={% static "main/css/cards.css" %}>
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
-<link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
 {% endblock %}
 
@@ -54,13 +54,13 @@
                                     <!-- gallery header -->
                                     <div class="gallery-header">
                                             <div class="ingredient_title">
-                                                 <span class= "title">{{recipe.title}}</span>
+                                                 <span class="recipe_title title">{{recipe.title}}</span>
                                             </div>
                                     </div>
                                     <!-- gallery body -->
                                     <div class="gallery-body">
                                     <div class="title-wrapper">
-                                        <h3>{{recipe.title}}</h3>
+                                        <h3 class="recipe_title" >{{recipe.title}}</h3>
                                     </div>
                                     <div class="content-wrapper">
                                             <p class="description">
