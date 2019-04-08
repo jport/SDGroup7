@@ -29,11 +29,42 @@ def users(request):
     if request.method == 'POST':
         name = request.POST['name']
         age = request.POST['age']
+        cheese=request.POST['cheese']
+        steak=request.POST['steak']
+        fast_food=request.POST['fast_food']
+        cupcake=request.POST['cupcake']
+        brocoli=request.POST['brocoli']
+        apple=request.POST['apple']
+
+        if cheese=="true":
+            cheese=True
+        else:
+            cheese=False
+        if steak=="true":
+            steak=True
+        else:
+            steak=False
+        if fast_food=="true":
+            fast_food=True
+        else:
+            fast_food=False
+        if cupcake=="true":
+            cupcake=True
+        else:
+            cupcake=False
+        if brocoli=="true":
+            brocoli=True
+        else:
+            brocoli=False
+        if apple=="true":
+            apple=True
+        else:
+            apple=False
 
         if User.objects.all().filter(userName=name).count() != 0:
             err = "Sorry User is taken"
         else:
-            newUser = User(userName=name, age=age)
+            newUser = User(userName=name, age=age,cheese=cheese, fastfood=fast_food, steak=steak,cupcake=cupcake,broccoli=brocoli, apple=apple)
             newUser.save()
 
     context = {
@@ -54,6 +85,7 @@ def create(request):
                 rating = request.POST['rating'],
                 estDuration = request.POST['time'],
                 difficulty = request.POST['difficulty']
+
                 
                 #image = request.FILES['recipe_image']
 
