@@ -217,11 +217,15 @@ function event_handler1() {
       }
    );
   }
-
+  let tare_but = document.getElementById("tare_button");
+  tare_but.addEventListener("click", tareFunc);
   function tareFunc(){
     tare += curValue; 
     display_scale.innerHTML =curValue*units_factor + unit_text;
   }
+
+  let units_but = document.getElementById("units_button");
+  units_but.addEventListener("click", changeUnits);
 
   function changeUnits(){
     if(unit_text==" grams"){
