@@ -241,7 +241,8 @@ double get_data()
   //int mass = round((-0.09*round(double(reading)/10)+5370));
   //int mass =round(-0.00402*double(reading) -1876);
   //int mass =round(-0.00377*double(reading) +1580);
-  double mass = -0.00378*double(reading)+1669.1;
+  //double mass = -0.00378*double(reading)+1669.1;
+  double mass = -0.004043*double(reading)-2080.3;
   Serial.println(mass);  
   return mass;
 }

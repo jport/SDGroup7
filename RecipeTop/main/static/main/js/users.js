@@ -84,7 +84,7 @@ const icon_pic=(index,element)=>{
 
 let cheese = document.getElementById('cheese');
 let steak = document.getElementById('steak');
-let fast_food = document.getElementById('fast-food');
+let fast_food = document.getElementById('fast_food');
 let cupcake = document.getElementById('cupcake');
 let brocoli = document.getElementById('brocoli');
 let apple = document.getElementById('apple');
