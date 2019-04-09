@@ -34,8 +34,9 @@ let menu = document.getElementById('MainMenu');
 let logo = document.getElementById('logo');
 let uls = document.getElementById('uls');
 let body = document.getElementById('body');
+let icon =document.getElementById('icon');
 if(event.target!=menu
-    && event.target!=logo && event.target!=uls 
+    && event.target!=logo && event.target!=uls && event.target!=icon  && event.target!=icon.childNodes
     && event.target.parentNode!=uls
     && event.target.parentNode.parentNode!=uls
     && event.target.parentNode.parentNode.parentNode!=uls
@@ -61,7 +62,7 @@ function set_time(){
 }
 
 //call time function every 1 second
-setInterval(() => {set_time();}, 1000);
+setInterval(() => {set_time();}, 10);
 
 
 
@@ -79,7 +80,81 @@ document.addEventListener('DOMContentLoaded', function() {
     //Modal initializer
     let modals = document.querySelectorAll('.modal');
     let modals_instances= M.Modal.init(modals);
+
+    icon_checker(choices_img,icons_input);
 });
+
+//individual icons
+let cheese = document.getElementById('cheese');
+let steak = document.getElementById('steak');
+let fast_food = document.getElementById('fast-food');
+let cupcake = document.getElementById('cupcake');
+let brocoli = document.getElementById('brocoli');
+let apple = document.getElementById('apple');
+//icons
+let choices_img =document.getElementsByClassName('prefences_img');
+//
+let icons_input =[cheese,steak,fast_food,cupcake,brocoli,apple];
+
+for(let i =0;i<choices_img.length;i++){
+  choices_img[i].addEventListener("click",function(){
+    icon_pic1(i,icons_input[i]);
+  });
+}
+
+
+const icon_pic1=(index,element)=>{
+    let img_src =choices_img[index].src;
+    if(img_src.indexOf('un')!=-1){
+      img_src=img_src.replace('un','chk');
+      element.value="true";
+    }
+    else{
+      img_src=img_src.replace('chk','un');
+      element.value="false";
+    }
+    choices_img[index].src=img_src;
+  }
+
+  const icon_checker=(element1,element2)=>{
+      size = element1.length;
+    for(let i=0;i<size;i++){
+        if(element1[i].src.indexOf('chk')!=-1){
+            element2[i].value="true";
+        }
+        else{
+            element2[i].value="false";
+        }
+      }
+  }
+
+
+  function editClick(){
+    let jsonPayload = {
+        RecipeID: recipe_id,
+        Rating: star_counter,
+        Diff: cakes_counter
+    }
+
+    let payloadString = JSON.stringify(jsonPayload)
+    $.ajax({
+        type: 'POST',
+        url: '/API/finishRecipe',
+        data: payloadString,
+        success: function(data){
+            if(data.error)
+                alert(error);
+
+            window.location.href = "/edit/" + recipe_id
+        },
+        error: function(error){
+            alert("Error: " + error)
+        }
+    });
+}
+
+
+
 
 
 
