@@ -157,14 +157,26 @@ body {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
   grid-template-rows: 100px 100px;
+  grid-row-gap: 8%;
   justify-items: center;
   align-items: center;
   width: 100%;
-  height: 30vh;
+  height: 35vh;
+  padding-top: 2%;
 }
 .choices_container img {
-  width: 70%;
-  height: 60%;
+  width: 50%;
+  height: 35%;
+}
+.img_cont{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
+  justify-content: center;
+}
+.img_cont span{
+  align-self: center;
 }
 .choices_container img:hover {
   cursor: pointer;
@@ -179,7 +191,7 @@ body {
 }
 
 .add_usr{
-  height:5vh;
+  height:7vh;
   width:200px;
 }
 
@@ -191,6 +203,10 @@ body {
 
 .hidden {
   display: none;
+}
+#jf{
+  width: 38%;
+  height: 35%;
 }
 
 /*# sourceMappingURL=users.css.map */
