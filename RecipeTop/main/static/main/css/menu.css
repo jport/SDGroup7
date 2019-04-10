@@ -220,8 +220,38 @@ section {
   box-shadow: 0px;
 }
 
+.account i{
+  vertical-align: bottom;
+  font-size: 27px;
+  margin-left:5%;
+}
+
 .collapsible-body {
   padding: none !important;
+}
+
+.preferences{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.icons{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.icons img{
+  width: 40%;
+  /* height: 100%;  */
+  margin-bottom: 5%;
+}
+.hidden{
+  display:none;
 }
 
 /*# sourceMappingURL=menu.css.map */

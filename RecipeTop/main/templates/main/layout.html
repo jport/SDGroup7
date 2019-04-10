@@ -8,6 +8,8 @@
     <title>{% block title %}Default Title{% endblock %}</title>
     <!-- import icons -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sansita:700,800,900" rel="stylesheet">
     <!-- matereliaze css -->
     <link rel="stylesheet" href={% static "main/css/materialize.css" %}>
     <link rel="stylesheet" href={% static "main/css/menu.css" %}>
@@ -38,29 +40,24 @@
                 <a href={% url 'Home' %} class="link-home">
                 <div class="collapsible-header teal lighten-3"><i class="material-icons">home</i>Home</div>
                 </a>
-                
             </li>
             <li>
                 <div class="collapsible-header teal lighten-2">
                     <i class="material-icons">assignment</i>Recipes
                 </div>
                 
-                <div class="collapsible-body teal lighten-3">
+                <div class="collapsible-body teal lighten-3 account">
                         <a href={% url 'create' %} class="waves-effect active blue-grey darken-1 link-teal-lightest">Create<i class=" waves-effect material-icons icon-teal-lightest">create</i></a>
                         <a href={% url 'search' %} class="waves-effect active blue-grey darken-1 link-teal-lightest">Search<i class="material-icons icon-teal-lightest">search</i></a>
                         <a href={% url 'hearted' %} class="waves-effect active blue-grey darken-1 link-teal-lightest">Hearted<i class="material-icons icon-teal-lightest">favorite</i></a>
                 </div>
             </li>
-
             <li>
                 <div class="collapsible-header teal lighten-1 "><i class="material-icons">account_circle</i>Account</div>
-                <div class="collapsible-body teal lighten-2">
-                        <!-- <a href="" class="waves-effect active blue-grey darken-1 link-teal-dark">Account<i class="material-icons icon-teal-dark">account_circle</i></a>
-                        <a href="" class="waves-effect active blue-grey darken-1 link-teal-dark">Settings<i class="material-icons icon-teal-dark">settings</i></a> -->
-                        <!-- <a href={% url 'search' %} class="waves-effect active blue-grey darken-1 link-teal-lightest">Search<i class="material-icons icon-teal-lightest">search</i></a>
-                        <a href="" class="waves-effect active blue-grey darken-1 link-teal-lightest">Hearted<i class="material-icons icon-teal-lightest">favorite</i></a> -->
+                <div class="collapsible-body teal lighten-2 account">
                         <a href='#modal1'class="waves-effect active blue-grey darken-1 link-teal-lightest modal-trigger">User<i class="material-icons icon-teal-lightest">account_circle</i></a>
-                        <a href='#modal2'class="waves-effect active blue-grey darken-1 link-teal-lightest modal-trigger">Search<i class="material-icons icon-teal-lightest">settings</i></a>
+                        <a href='#modal2'class="waves-effect active blue-grey darken-1 link-teal-lightest modal-trigger">settings<i class="material-icons icon-teal-lightest">settings</i></a>
+                        <a href='../users'class="waves-effect active blue-grey darken-1 link-teal-lightest modal-trigger">Log out<i class="material-icons icon-teal-lightest">exit_to_app</i></a>
                 </div>
             </li>
         </ul>
@@ -69,9 +66,26 @@
         </div>
     </div>
     <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>preferences</h4>
-            <p>user selection</p>
+        <div class="modal-content .mdal1">
+            <div class="preferences">
+                    <h4>{{user.userName}}'s Preferences</h4>
+            </div>
+            <div class="icons" id="icon">
+                    <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
+                    <img class="prefences_img img1"src="../../static/main/img/steak-{{user.check_steak}}.svg">
+                    <img class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
+                    <img class="prefences_img img2"src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
+                    <img class="prefences_img img2"src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
+                    <img class="prefences_img img2"src="../../static/main/img/apple-{{user.check_apple}}.svg">
+            </div>
+            <div class="hidden">
+                    <input type="text" id="cheese" >
+                    <input type="text" id="steak" >
+                    <input type="text" id="fast-food" >
+                    <input type="text" id="cupcake" >
+                    <input type="text" id="brocoli" > 
+                    <input type="text" id="apple" >
+            </div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
@@ -85,7 +99,7 @@
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
-        </div>
+    </div>
                 
 
     
