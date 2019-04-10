@@ -71,12 +71,36 @@
                     <h4>{{user.userName}}'s Preferences</h4>
             </div>
             <div class="icons" id="icon">
-                    <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
-                    <img class="prefences_img img1"src="../../static/main/img/steak-{{user.check_steak}}.svg">
-                    <img class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
-                    <img class="prefences_img img2"src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
-                    <img class="prefences_img img2"src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
-                    <img class="prefences_img img2"src="../../static/main/img/apple-{{user.check_apple}}.svg">
+                    <!-- 
+                    
+                    
+                    
+                    
+                    -->
+                    <div class="img_cont">
+                            <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
+                            <span>Dairy</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="prefences_img img1"src="../../static/main/img/steak-{{user.check_steak}}.svg">
+                            <span>Meat</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
+                            <span>Junk-food</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="prefences_img img2"src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
+                            <span>Sweets</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="prefences_img img2"src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
+                            <span>Vegetarian</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="prefences_img img2"src="../../static/main/img/apple-{{user.check_apple}}.svg"> 
+                            <span>Fruits</span>
+                    </div>
             </div>
             <div class="hidden">
                     <input type="text" id="cheese" >
@@ -87,8 +111,8 @@
                     <input type="text" id="apple" >
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <div class="modal-footer" id="prf-btn">
+            <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Agree</a>
         </div>
     </div>
     <div id="modal2" class="modal">
