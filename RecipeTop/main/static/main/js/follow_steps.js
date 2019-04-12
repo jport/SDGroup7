@@ -221,7 +221,7 @@ function event_handler1() {
   tare_but.addEventListener("click", tareFunc);
   function tareFunc(){
     tare += curValue; 
-    display_scale.innerHTML =curValue*units_factor + unit_text;
+    display_scale.innerHTML = (curValue*units_factor).toFixed(1) + unit_text;
   }
 
   let units_but = document.getElementById("units_button");
@@ -237,7 +237,7 @@ function event_handler1() {
       unit_text=" grams";
       units_factor=1.0;
     }
-    display_scale.innerHTML =curValue*units_factor + unit_text;
+    display_scale.innerHTML = (curValue*units_factor).toFixed(1) + unit_text;
   }
 
 });
