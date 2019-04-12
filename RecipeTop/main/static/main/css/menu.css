@@ -266,6 +266,24 @@ section {
 #prf-btn{
   text-align: center !important;
 }
+.thm_colors{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  height:25vh;
+  width:100%;
+}
+.color_option{
+  height:100%;
+  width:80%;
+}
+.color_option:hover{
+ cursor: pointer;
+}
+.selected{
+  border:10px solid gold;
+}
 /* #jf{
   width: 38%;
   height: 35%;

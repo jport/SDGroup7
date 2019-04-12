@@ -27,7 +27,7 @@ close_button.addEventListener('click',function(){
     setTimeout(hidemenu,100);
 });
 
-
+var target;
 //close on click outside menu bar
 window.addEventListener('mousedown',function(event){
 let menu = document.getElementById('MainMenu');
@@ -35,8 +35,9 @@ let logo = document.getElementById('logo');
 let uls = document.getElementById('uls');
 let body = document.getElementById('body');
 let icon =document.getElementById('icon');
+let prf_btn = document.getElementById('prf-btn');
 if(event.target!=menu
-    && event.target!=logo && event.target!=uls && event.target!=icon  && event.target!=icon.childNodes
+    && event.target!=logo && event.target!=uls && event.target.parentNode.parentNode!=icon && event.target.parentNode!=prf_btn
     && event.target.parentNode!=uls
     && event.target.parentNode.parentNode!=uls
     && event.target.parentNode.parentNode.parentNode!=uls
@@ -44,7 +45,6 @@ if(event.target!=menu
     {
         setTimeout(hidemenu,100);
     }
-
 });
 
 function set_time(){
@@ -93,7 +93,6 @@ let brocoli = document.getElementById('brocoli');
 let apple = document.getElementById('apple');
 //icons
 let choices_img =document.getElementsByClassName('prefences_img');
-//
 let icons_input =[cheese,steak,fast_food,cupcake,brocoli,apple];
 
 for(let i =0;i<choices_img.length;i++){
@@ -127,6 +126,33 @@ const icon_pic1=(index,element)=>{
         }
       }
   }
+//end of icon stuff
+
+//color stuff
+
+window.localStorage.setItem('color','teal');
+let color_choices =document.getElementsByClassName('color_option');
+for(let i=0;i<color_choices.length;i++){
+    color_choices[i].addEventListener('click',function(){
+        color_selector(i);
+    });
+}
+
+const color_selector=(index)=>{
+    for(let i=0;i<color_choices.length;i++){
+        if(color_choices[i].classList.contains('selected')){
+            color_choices[i].classList.remove('selected');
+        }
+    }
+
+    if(color_choices[index].classList.contains('selected')){
+        color_choices[index].classList.remove('selected');
+    }
+    else {
+        color_choices[index].classList.add('selected');
+    }
+}
+
 
 
   function editClick(){
