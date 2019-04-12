@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Preferences{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href={% static "main/css/user_prf.css" %}>
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<div class="prefences_cont">
+        <div class="pref">
+        <div class="preferences">
+                <h4>{{user.userName}}'s Preferences</h4>
+        </div>
+        <div class="icons" id="icon">
+                <!--
+                -->
+                <div class="img_cont">
+                        <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
+                        <span>Dairy</span>
+                </div>
+                <div class="img_cont">
+                        <img class="prefences_img img1"src="../../static/main/img/steak-{{user.check_steak}}.svg">
+                        <span>Meat</span>
+                </div>
+                <div class="img_cont">
+                        <img class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
+                        <span>Junk-food</span>
+                </div>
+                <div class="img_cont">
+                        <img class="prefences_img img2"src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
+                        <span>Sweets</span>
+                </div>
+                <div class="img_cont">
+                        <img class="prefences_img img2"src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
+                        <span>Vegetarian</span>
+                </div>
+                <div class="img_cont">
+                        <img class="prefences_img img2"src="../../static/main/img/apple-{{user.check_apple}}.svg"> 
+                        <span>Fruits</span>
+                </div>
+        </div>
+        <div class="hidden">
+                <input type="text" id="cheese" >
+                <input type="text" id="steak" >
+                <input type="text" id="fast-food" >
+                <input type="text" id="cupcake" >
+                <input type="text" id="brocoli" > 
+                <input type="text" id="apple" >
+        </div>
+    </div>
+</div>
+   
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

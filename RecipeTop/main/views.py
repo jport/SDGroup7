@@ -17,6 +17,17 @@ KEYWORD_RATING = 1
 def index(request):
     return render(request, 'main/index.html')
 
+def user_preferences(request):
+    # Set session user id
+    currentId = request.session["userId"]
+
+    context = {
+        'recipes': Recipe.objects.all(),
+        'user': User.objects.get(pk=request.session["userId"])
+    }
+
+    return render(request, 'main/user_preferences.html',context)
+    
 def home(request, userId=-1):
     # Set session user id
     if userId != -1:
