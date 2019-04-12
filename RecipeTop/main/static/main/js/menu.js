@@ -129,32 +129,45 @@ const icon_pic1=(index,element)=>{
 //end of icon stuff
 
 //color stuff
-
-window.localStorage.setItem('color','teal');
+let color_array=['teal','orange','purple'];
+let selected_color;
+let current_color=window.localStorage.getItem('color');
+let color_items=document.getElementsByClassName('color_items');
+ 
 let color_choices =document.getElementsByClassName('color_option');
 for(let i=0;i<color_choices.length;i++){
     color_choices[i].addEventListener('click',function(){
         color_selector(i);
     });
 }
-
+//color div selected
 const color_selector=(index)=>{
     for(let i=0;i<color_choices.length;i++){
         if(color_choices[i].classList.contains('selected')){
             color_choices[i].classList.remove('selected');
         }
     }
-
     if(color_choices[index].classList.contains('selected')){
         color_choices[index].classList.remove('selected');
+        selected_color=color_array[index];
+        window.localStorage.setItem('color',selected_color);
     }
     else {
         color_choices[index].classList.add('selected');
+        selected_color=color_array[index];
+        window.localStorage.setItem('color',selected_color);
+    }
+}
+
+const color_changer=(color)=>{
+    for(let i=0;i<color_choices.length;i++){
+        // color_choices.classList
     }
 }
 
 
 
+//
   function editClick(){
     let jsonPayload = {
         RecipeID: recipe_id,
