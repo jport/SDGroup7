@@ -130,18 +130,21 @@ const icon_pic1=(index,element)=>{
 
 //color stuff
 let color_array=['teal','orange','purple'];
-let selected_color;
-let current_color=window.localStorage.getItem('color');
+// let color_links_array=[''];
 let color_items=document.getElementsByClassName('color_items');
+let color_links=document.getElementsByClassName('color_links');
+
  
 let color_choices =document.getElementsByClassName('color_option');
 for(let i=0;i<color_choices.length;i++){
     color_choices[i].addEventListener('click',function(){
         color_selector(i);
+        color_changer();
     });
 }
 //color div selected
 const color_selector=(index)=>{
+    let selected_color;
     for(let i=0;i<color_choices.length;i++){
         if(color_choices[i].classList.contains('selected')){
             color_choices[i].classList.remove('selected');
@@ -159,11 +162,20 @@ const color_selector=(index)=>{
     }
 }
 
-const color_changer=(color)=>{
-    for(let i=0;i<color_choices.length;i++){
-        // color_choices.classList
+const color_changer=()=>{
+    let color=window.localStorage.getItem('color');
+    for(let i=0;i<color_items.length;i++){
+        color_items[i].classList.remove('teal');
+        color_items[i].classList.remove('orange');
+        color_items[i].classList.remove('purple');
+        color_items[i].classList.add(color);
     }
+
+
 }
+
+color_changer();
+
 
 
 
