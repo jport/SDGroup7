@@ -48,6 +48,7 @@ class Command(BaseCommand):
 
             elif state == READING:
                 # Read from scale
+                curConnection.settimeout(5.0)
                 data = curConnection.recv(BUFFER_SIZE)
 
                 if not data:
