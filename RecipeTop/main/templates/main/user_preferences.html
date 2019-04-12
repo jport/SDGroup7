@@ -8,21 +8,14 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
+<div class="top_br">
+</div>
 <div class="prefences_cont">
         <div class="pref">
         <div class="preferences">
                 <h4>{{user.userName}}'s Preferences</h4>
         </div>
         <div class="icons" id="icon">
-                <!--
-                -->
                 <div class="img_cont">
                         <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
                         <span>Dairy</span>
@@ -48,13 +41,19 @@
                         <span>Fruits</span>
                 </div>
         </div>
+        <div class="prf_btn">
+                        <input type="submit" value="Change" class="btn teal">
+        </div>
         <div class="hidden">
-                <input type="text" id="cheese" >
-                <input type="text" id="steak" >
-                <input type="text" id="fast-food" >
-                <input type="text" id="cupcake" >
-                <input type="text" id="brocoli" > 
-                <input type="text" id="apple" >
+                <form action="{% url 'user_preferences' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="text" id="cheese" >
+                        <input type="text" id="steak" >
+                        <input type="text" id="fast-food" >
+                        <input type="text" id="cupcake" >
+                        <input type="text" id="brocoli" > 
+                        <input type="text" id="apple" >
+                </form>
         </div>
     </div>
 </div>

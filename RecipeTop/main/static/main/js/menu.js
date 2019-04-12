@@ -164,6 +164,9 @@ const color_selector=(index)=>{
 
 const color_changer=()=>{
     let color=window.localStorage.getItem('color');
+    if(color===undefined){
+        color="teal";
+    }
     for(let i=0;i<color_items.length;i++){
         color_items[i].classList.remove('teal');
         color_items[i].classList.remove('orange');
