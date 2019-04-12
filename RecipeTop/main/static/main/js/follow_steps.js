@@ -103,7 +103,7 @@ $(document).ready(function() {
 
       curValue = parseFloat(message) - tare;
       let display_scale= document.getElementById("scale_display_content");
-      display_scale.innerHTML  = (curValue*units_factor + unit_text);
+      display_scale.innerHTML  = (curValue*units_factor).toFixed(1) + unit_text);
    };
 
    // Check for errors

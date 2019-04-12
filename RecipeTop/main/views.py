@@ -1,9 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
-from django.db.models import Count
+from django.db.models import Count, F, FloatField
 from .models import *
 from django.utils import timezone
+import random
+
+# Weights:
+HEARTED_WEIGHT = 5
+RATING_WEIGHT = 1
+DIFFICULTY_WEIGHT = 2
+KEYWORD_RATING = 1
 
 # Create your views here.
 
@@ -15,11 +22,30 @@ def home(request, userId=-1):
     if userId != -1:
         request.session["userId"] = userId
 
+    currentId = request.session["userId"]
+
+    heartedRecipes = Recipe.objects.filter(user__id=currentId).annotate(weighting=
+        HEARTED_WEIGHT +
+        F('rating')*RATING_WEIGHT +
+        (5-F('difficulty')+1)*DIFFICULTY_WEIGHT +
+        Count('keywords', output_field=FloatField())*KEYWORD_RATING)
+
+    regulrRecipes = Recipe.objects.exclude(user__id=currentId).annotate(weighting=
+        F('rating')*RATING_WEIGHT +
+        (5-F('difficulty')+1)*DIFFICULTY_WEIGHT +
+        Count('keywords', output_field=FloatField())*KEYWORD_RATING)
+
+    recipes = heartedRecipes | regulrRecipes
+    recipes = recipes.order_by('weighting').reverse()
+    recipes = recipes.filter(weighting__gt=17)
+    #recipes = random.shuffle(recipes)
+    #print(recipes.count())
+    recipes = recipes.order_by('?')
+
     context = {
         'recipes': Recipe.objects.all(),
-        'suggestions': Recipe.objects.all()[:3],
-        'user': User.objects.get(pk=request.session["userId"]),
-
+        'suggestions': recipes[:3],
+        'user': User.objects.get(pk=request.session["userId"])
     }
     
     return render(request, 'main/home.html',context)

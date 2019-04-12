@@ -41,7 +41,7 @@ void loop()
   {
     double myData = get_data();
     //delay(1000);
-    cipsend(myData);
+    //cipsend(myData);
     if(!cipsend(myData))
       STATE = FSM_IDLE;
     //STATE = 100;
@@ -242,7 +242,14 @@ double get_data()
   //int mass =round(-0.00402*double(reading) -1876);
   //int mass =round(-0.00377*double(reading) +1580);
   //double mass = -0.00378*double(reading)+1669.1;
-  double mass = -0.004043*double(reading)-2080.3;
+  //double mass = -0.004043*double(reading)-2080.3;
+  //double mass = -0.00530*double(reading)-7917;
+  //double mass= -0.00621*double(reading) -8968;
+  
+  //double mass = round(-0.003800*double(reading)+1741); //not in case cur cal
+  //double mass = round(-0.00445*double(reading)-4200);
+  //double mass = round(-0.004200000*double(reading)-3415);
+  double mass = round(-0.004025*double(reading)-1993); //with nubs
   Serial.println(mass);  
   return mass;
 }
