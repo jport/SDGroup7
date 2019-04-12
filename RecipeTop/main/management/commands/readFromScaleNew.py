@@ -49,7 +49,11 @@ class Command(BaseCommand):
             elif state == READING:
                 # Read from scale
                 curConnection.settimeout(5.0)
-                data = curConnection.recv(BUFFER_SIZE)
+                data = None
+                try:
+                    data = curConnection.recv(BUFFER_SIZE)
+                except:
+                    pass
 
                 if not data:
                     # Set state to DESTORY
