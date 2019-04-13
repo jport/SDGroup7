@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="top"></div>
-
+<!-- Users -->
 <div class="Micontainer">
     <div class="title">
         <h3>Who's cooking?</h3>
@@ -41,35 +41,6 @@
     <div id="continue">
         <h4 id="msg">Continue </h4>
     </div>
-     
-
-  
-    
-    <!-- <div class="message">
-        <h1>Who's cooking?</h1>
-    </div>
-    <div class="forms">
-        {% for user in users %}
-            <div class="person1 person" id={{user.id}}>
-                <div class="picture girl"></div>
-                <h1>{{user.userName}}</h1>
-            </div>
-        {% endfor %}
-    </div>
-
-    <div class="create">
-        <form action="{% url 'users' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" placeholder="name" name="name" required>
-            <input type="text" placeholder="age" name="age" required>
-            <input type="submit" value="Register" class="btn btn-secondary btn-block">
-        </form>
-    </div>
-    {% if error %}
-    <h1 id="error">{{error}}</h1>
-    {% endif %}
-
-    <h4>{{example}}</h4> -->
 </div>
    <!-- Modal Trigger -->
    <div class="add_user">

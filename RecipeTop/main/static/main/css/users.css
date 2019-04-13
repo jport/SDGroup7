@@ -110,15 +110,22 @@ body {
 .Micontainer #continue #msg {
   font-weight: 700;
   line-height: 0px;
-  font-size: 28px;
+  /* font-size: 28px; */
   padding: 5px 5px;
+  padding-left:20px;
+  padding-right:20px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
 }
 .Micontainer #continue #msg:hover {
   cursor: pointer;
 }
 
 .animate {
-  filter: drop-shadow(2px 12px 3px rgba(0, 0, 0, 0.3));
+  /* filter: drop-shadow(2px 12px 3px rgba(0, 0, 0, 0.3)); */
+  transform: scale(1.05);
 }
 
 .border {
@@ -131,20 +138,10 @@ body {
 }
 
 .glow {
-  animation: glowing 5000ms infinite;
+  font-weight: 900;
+  color:#212121;
 }
-@keyframes glowing {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    color: black;
-  }
-}
+
 
 .pref_title {
   margin: 0 auto;
