@@ -21,8 +21,8 @@
 
 .ingredient_props span {
   vertical-align: center;
-  margin-left: 2px;
-  font-size: 9px;
+  /* margin-left: 2px; */
+  font-size: 18px;
 }
 
 .ingredient_props i {

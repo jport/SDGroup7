@@ -132,17 +132,13 @@ body {
   border: 1px solid gold;
   border-radius: 15px;
 }
-
 .highlight {
   font-weight: 900;
 }
-
 .glow {
   font-weight: 900;
   color:#212121;
 }
-
-
 .pref_title {
   margin: 0 auto;
   display: flex;

@@ -36,6 +36,7 @@ let uls = document.getElementById('uls');
 let body = document.getElementById('body');
 let icon =document.getElementById('icon');
 let prf_btn = document.getElementById('prf-btn');
+
 if(event.target!=menu
     && event.target!=logo && event.target!=uls && event.target.parentNode.parentNode!=icon && event.target.parentNode!=prf_btn
     && event.target.parentNode!=uls
