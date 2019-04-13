@@ -130,6 +130,7 @@ const icon_pic1=(index,element)=>{
 
 //color stuff
 let color_array=['teal','orange','purple'];
+let color_text_array=['teal-text','orange-text','purple-text'];
 // let color_links_array=[''];
 let color_items=document.getElementsByClassName('color_items');
 let color_links=document.getElementsByClassName('color_links');
@@ -145,6 +146,7 @@ for(let i=0;i<color_choices.length;i++){
 //color div selected
 const color_selector=(index)=>{
     let selected_color;
+    let selected_color_text;
     for(let i=0;i<color_choices.length;i++){
         if(color_choices[i].classList.contains('selected')){
             color_choices[i].classList.remove('selected');
@@ -153,19 +155,29 @@ const color_selector=(index)=>{
     if(color_choices[index].classList.contains('selected')){
         color_choices[index].classList.remove('selected');
         selected_color=color_array[index];
+        selected_color_text=color_text_array[index];
         window.localStorage.setItem('color',selected_color);
+        window.localStorage.setItem('color-text',selected_color_text);
     }
     else {
         color_choices[index].classList.add('selected');
         selected_color=color_array[index];
+        selected_color_text=color_text_array[index];
         window.localStorage.setItem('color',selected_color);
+        window.localStorage.setItem('color-text',selected_color_text);
     }
 }
 
 const color_changer=()=>{
-    let color=window.localStorage.getItem('color');
-    if(color===undefined){
-        color="teal";
+    let color;
+    let color_text;
+    if(window.localStorage.length===0){
+         color='teal';
+         color_text='teal-text';
+    }
+    else{
+     color=window.localStorage.getItem('color');
+     color_text=window.localStorage.getItem('color-text');
     }
     for(let i=0;i<color_items.length;i++){
         color_items[i].classList.remove('teal');
@@ -173,8 +185,12 @@ const color_changer=()=>{
         color_items[i].classList.remove('purple');
         color_items[i].classList.add(color);
     }
-
-
+    for(let i=0;i<color_links.length;i++){
+        color_links[i].classList.remove('teal-text');
+        color_links[i].classList.remove('orange-text');
+        color_links[i].classList.remove('purple-text');
+        color_links[i].classList.add(color_text);
+    } 
 }
 
 color_changer();

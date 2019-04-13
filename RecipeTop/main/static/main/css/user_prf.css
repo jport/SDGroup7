@@ -7,7 +7,7 @@
     padding:none;
     width: 100%;
     background-color: #b0bec5;
-    height: 100%;
+    height:100vh;
 }
 
 .preferences{
@@ -17,7 +17,7 @@
   .preferences h4{
     vertical-align: bottom;
     height:25%;
-    padding-top:6%;
+    padding-top:4%;
   }
 .pref{
   margin: 0 auto;
@@ -34,13 +34,15 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 80%;
+    width: 90%;
     height: 70%;
     justify-items: center;
     align-items: center;
     margin-top:5%;
   }
-
+  .icons img:hover{
+      cursor: pointer;
+  }
   .prf_btn{
     display: flex;
     justify-content: center;
