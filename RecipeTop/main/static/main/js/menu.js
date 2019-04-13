@@ -131,9 +131,11 @@ const icon_pic1=(index,element)=>{
 //color stuff
 let color_array=['teal','orange','purple'];
 let color_text_array=['teal-text','orange-text','purple-text'];
-// let color_links_array=[''];
+let logo_style_array=['2.5px solid teal','2.5px solid orange','2.5px solid purple'];
+
 let color_items=document.getElementsByClassName('color_items');
 let color_links=document.getElementsByClassName('color_links');
+let logo=document.getElementById('logo');
 
  
 let color_choices =document.getElementsByClassName('color_option');
@@ -143,10 +145,13 @@ for(let i=0;i<color_choices.length;i++){
         color_changer();
     });
 }
+
+
 //color div selected
 const color_selector=(index)=>{
     let selected_color;
     let selected_color_text;
+    let selected_logo;
     for(let i=0;i<color_choices.length;i++){
         if(color_choices[i].classList.contains('selected')){
             color_choices[i].classList.remove('selected');
@@ -156,15 +161,19 @@ const color_selector=(index)=>{
         color_choices[index].classList.remove('selected');
         selected_color=color_array[index];
         selected_color_text=color_text_array[index];
+        selected_logo=logo_style_array[index];
         window.localStorage.setItem('color',selected_color);
         window.localStorage.setItem('color-text',selected_color_text);
+        window.localStorage.setItem('color-logo',selected_logo);
     }
     else {
         color_choices[index].classList.add('selected');
         selected_color=color_array[index];
         selected_color_text=color_text_array[index];
+        selected_logo=logo_style_array[index];
         window.localStorage.setItem('color',selected_color);
         window.localStorage.setItem('color-text',selected_color_text);
+        window.localStorage.setItem('color-logo',selected_logo);
     }
 }
 
@@ -174,10 +183,12 @@ const color_changer=()=>{
     if(window.localStorage.length===0){
          color='teal';
          color_text='teal-text';
+         logo_color='2.5px solid teal';
     }
     else{
      color=window.localStorage.getItem('color');
      color_text=window.localStorage.getItem('color-text');
+     logo_color=window.localStorage.getItem('logo-color');
     }
     for(let i=0;i<color_items.length;i++){
         color_items[i].classList.remove('teal');
@@ -191,6 +202,7 @@ const color_changer=()=>{
         color_links[i].classList.remove('purple-text');
         color_links[i].classList.add(color_text);
     } 
+    logo.style.border=window.localStorage.getItem('color-logo')
 }
 
 color_changer();
