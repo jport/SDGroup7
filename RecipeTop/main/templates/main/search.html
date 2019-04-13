@@ -167,7 +167,7 @@
                     <!-- card title -->
                     <div class="gallery-header">
                        <div class="ingredient_title">
-                            <span class= "title">{{recipe.title}}</span>
+                            <span class= "recipe_title">{{recipe.title}}</span>
                        </div>
                        <br>
                        <div class="ingredient_props">
@@ -266,7 +266,7 @@
                                         {% endfor %}
                                 </div>
 
-                                <h4>Method</h4>
+                                <h4>Directions</h4>
                                 <div class="recipe_steps">
                                     {% for step in recipe.steps.all %}
                                             <span >{{step.stepNumber}}.</span>
