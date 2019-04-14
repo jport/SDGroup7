@@ -111,7 +111,7 @@
             <!-- Utensils -->
             <h5 class="change_color">Utensils</h5>
             <div class="utensils">
-                {% for utensil in utensils|slice:":10" %}
+                {% for utensil in utensils|slice:":6" %}
                 <label>
                     <input type="checkbox" value="{{utensil.name}}" name="utensils"/>
                     <span>{{utensil.name}}</span>
@@ -122,7 +122,7 @@
             </div>
             <h5 class="change_color">Ingredients</h5>
             <div class="ingredients">
-                {% for ingredient in ingredients|slice:":10" %}
+                {% for ingredient in ingredients|slice:":6" %}
                 <label>
                     <input type="checkbox" value="{{ingredient.name}}" name="ingredients"/>
                     <span>{{ingredient.name}}</span>
@@ -135,15 +135,15 @@
             <!-- Tags -->
             <h5 class="change_color">Tags</h5>
             <div class="tags_container">
-                {% for tag in tags|slice:":10"%}
+                {% for tag in tags|slice:":6"%}
                     <div class="chip change_color">
                         {{tag.name}}
                         <i class="close material-icons">close</i>
                     </div>
                 {% endfor %}
             </div>
-            <button type="submit" class='waves-effect waves-dark btn teal lighten-1 color_items'>Apply Filters</button>
-            <a href={% url 'search' %} class='waves-effect waves-dark btn teal lighten-1 color_items'>Reset Filters</a>
+            <button type="submit" class='waves-effect waves-dark btn-large teal  lighten-1 color_items'>Apply Filters</button>
+            <a href={% url 'search' %} class='waves-effect waves-dark btn-large teal lighten-1 color_items'>Reset Filters</a>
         </form>
         </div>
     </nav>
@@ -304,6 +304,12 @@
 
 
 <script src={% static "main/js/search.js" %}></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+</script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
