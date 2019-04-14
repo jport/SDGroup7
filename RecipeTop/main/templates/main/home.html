@@ -153,6 +153,14 @@
                                                 {% endfor %}
             
                                             </div>
+                                            <h4>Tags</h4>
+                                            <div >
+                                                {% for tag in recipe.keywords.all%}
+                                                    <div class="chip bigger change_color">
+                                                        {{tag.name}}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
             
                                         </div>
                                     </div>
