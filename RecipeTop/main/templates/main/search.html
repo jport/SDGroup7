@@ -41,27 +41,27 @@
                         <tr>
                             <td>
                                 <button type="button" id="10001" class="star_button" >
-                                    <i class="small material-icons teal-text color_links">star_outline</i>
+                                    <i class="small material-icons teal-text color_links text-lighten-3">star_outline</i>
                                 </button>
                             </td>
                             <td>
                                 <button type="button" id="10002" class="star_button">
-                                    <i class="small material-icons icon-teal teal-text color_links"">star_outline</i>
+                                    <i class="small material-icons icon-teal teal-text color_links text-lighten-3">star_outline</i>
                                 </button>
                             </td>
                             <td>
                                 <button type="button" id="10003" class="star_button">
-                                    <i class="small material-icons icon-teal teal-text color_links"">star_outline</i>
+                                    <i class="small material-icons icon-teal teal-text color_links text-lighten-3" >star_outline</i>
                                 </button>
                             </td>
                             <td>
                                 <button type="button" id="10004" class="star_button">
-                                    <i class="small material-icons icon-teal teal-text color_links"">star_outline</i>
+                                    <i class="small material-icons icon-teal teal-text color_links text-lighten-3 ">star_outline</i>
                                 </button>
                             </td>
                             <td>
                                 <button type="button" id="10005" class="star_button">
-                                    <i class="small material-icons icon-teal teal-text color_links">star_outline</i>
+                                    <i class="small material-icons icon-teal teal-text color_links text-lighten-3">star_outline</i>
                                 </button>
                             </td>
                         </tr>
@@ -74,27 +74,27 @@
                     <tr class="difficulty_table">
                         <td >
                             <button type="button" id="1001" class="difficulty_button" >
-                                <i class="small material-icons icon-grey teal-text color_links">cake</i>
+                                <i class="small material-icons icon-grey ">cake</i>
                             </button>
                         </td>
                         <td>
                             <button type="button" id="1002" class="difficulty_button">
-                                <i class="small material-icons icon-grey teal-text color_links">cake</i>
+                                <i class="small material-icons icon-grey ">cake</i>
                             </button>
                         </td>
                         <td>
                             <button type="button" id="1003" class="difficulty_button">
-                                <i class="small material-icons icon-grey teal-text color_links">cake</i>
+                                <i class="small material-icons icon-grey ">cake</i>
                             </button>
                         </td>
                         <td>
                             <button type="button" id="1004" class="difficulty_button">
-                                <i class="small material-icons icon-grey teal-text color_links">cake</i>
+                                <i class="small material-icons icon-grey ">cake</i>
                             </button>
                         </td>
                         <td>
                             <button type="button" id="1005" class="difficulty_button">
-                                <i class="small material-icons icon-grey teal-text color_links">cake</i>
+                                <i class="small material-icons icon-grey ">cake</i>
                             </button>
                         </td>
                     </tr>
@@ -102,7 +102,7 @@
             </div>
             <!-- Time-->
             <h5 class="change_color">Duration (minutes)</h5>
-            <div class="time change-line-height">
+            <div class="time change-line-height bigger">
                 <p class="range-field">
                     <input type="range" name="search_time" min="0" max="120" value="120" step="5" />
                 </p>
@@ -131,10 +131,12 @@
                 {% endfor %}
 
             </div>
+
+            <!-- Tags -->
             <h5 class="change_color">Tags</h5>
             <div class="tags_container">
                 {% for tag in tags|slice:":10"%}
-                    <div class="chip">
+                    <div class="chip change_color">
                         {{tag.name}}
                         <i class="close material-icons">close</i>
                     </div>
@@ -171,9 +173,9 @@
                        </div>
                        <br>
                        <div class="ingredient_props">
-                            <div class="prop1"><i class="material-icons teal-text color_links">star</i><span>{{recipe.rating}}</span></div>
-                            <div class="prop2"><i class="material-icons teal-text color_links">cake</i><span>{{recipe.difficulty}}</span></div>
-                            <div class="prop1"><i class="material-icons teal-text color_links">access_time</i><span>{{recipe.estDuration}} mins</span></div>
+                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating}}</span></div>
+                            <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty}}</span></div>
+                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration}} mins</span></div>
                        </div>
                     </div>
                     <!-- inside the card stuff -->
@@ -188,58 +190,58 @@
                                 <div class="rating_display_container ">
                                     <h4 class="rating">Rating: </h4>
                                     {% if recipe.rating >= 1 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star</i>
                                     {% else %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star_outline</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links ">star_outline</i>
                                     {% endif%}
                                     {% if recipe.rating >= 2 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star</i>
                                     {% else %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star_outline</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star_outline</i>
                                     {% endif%}
                                     {% if recipe.rating >= 3 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star</i>
                                     {% else %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star_outline</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star_outline</i>
                                     {% endif%}
                                     {% if recipe.rating >= 4 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star</i>
                                     {% else %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star_outline</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star_outline</i>
                                     {% endif%}
                                     {% if recipe.rating >= 5 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star</i>
                                     {% else %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">star_outline</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">star_outline</i>
                                     {% endif%}
                                 </div>
 
                                 <div class="rating_display_container ">
                                     <h4>Difficulty: </h4>
                                     {% if recipe.difficulty >= 1 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3  color_links">cake</i>
                                     {% else %}
-                                        <i class="small material-icons icon-gray-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-gray-card">cake</i>
                                     {% endif%}
                                     {% if recipe.difficulty >= 2 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-teal-card teal-text  text-lighten-3 color_links">cake</i>
                                     {% else %}
-                                        <i class="small material-icons icon-gray-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-gray-card ">cake</i>
                                     {% endif%}
                                     {% if recipe.difficulty >= 3 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">cake</i>
                                     {% else %}
-                                        <i class="small material-icons icon-gray-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-gray-card">cake</i>
                                     {% endif%}
                                     {% if recipe.difficulty >= 4 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-teal-card teal-text  text-lighten-3 color_links">cake</i>
                                     {% else %}
-                                        <i class="small material-icons icon-gray-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-gray-card ">cake</i>
                                     {% endif%}
                                     {% if recipe.difficulty >= 5 %}
-                                        <i class="small material-icons icon-teal-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-teal-card teal-text text-lighten-3 color_links">cake</i>
                                     {% else %}
-                                        <i class="small material-icons icon-gray-card teal-text color_links">cake</i>
+                                        <i class="small material-icons icon-gray-card ">cake</i>
                                     {% endif%}
                                 </div>
 
@@ -271,6 +273,14 @@
                                             <span >{{step.stepNumber}}.</span>
                                             <span>{{step.text}}  </span>
                                            
+                                    {% endfor %}
+                                </div>
+                                <h4>Tags</h4>
+                                <div >
+                                    {% for tag in recipe.keywords.all%}
+                                        <div class="chip bigger change_color">
+                                            {{tag.name}}
+                                        </div>
                                     {% endfor %}
                                 </div>
                             </div>

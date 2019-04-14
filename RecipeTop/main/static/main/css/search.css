@@ -46,8 +46,11 @@
 
 }
 .change-line-height{
-  padding-top: 20px;
+  padding-top: 30px;
   line-height: 15px;
+}
+.bigger{
+  zoom:1.5;
 }
 .difficulty{
   width:50%;
