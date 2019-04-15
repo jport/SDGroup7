@@ -48,56 +48,57 @@
   </div>
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
-    <div class="modal-content">
-        <form action="{% url 'users' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" placeholder="name" name="name" required>
-            <input type="text" placeholder="age" name="age" required>
-            <div class="pref_title">
-                <h3 class="pref_title">Preferences</h3>
-            </div>
-            <div class="choices_container">
-                <div class="img_cont">
-                        <img class="choices_img" src="../../static/main/img/cheese-un.svg">
-                        <span>Dairy</span>
+    <form action="{% url 'users' %}" method="POST">
+        {% csrf_token %}
+        <div class="modal-content">
+           
+                <input type="text" placeholder="name" name="name" required>
+                <input type="text" placeholder="age" name="age" required>
+                <div class="pref_title">
+                    <h3 class="pref_title">Preferences</h3>
                 </div>
-                <div class="img_cont">
-                        <img class="choices_img" src="../../static/main/img/steak-un.svg">
-                        <span>Meat</span>
+                <div class="choices_container">
+                    <div class="img_cont">
+                            <img class="choices_img" src="../../static/main/img/cheese-un.svg">
+                            <span>Dairy</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img" src="../../static/main/img/steak-un.svg">
+                            <span>Meat</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img"  id="jf" src="../../static/main/img/fastfood-un.svg">
+                            <span>Junk-food</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img" src="../../static/main/img/cupcake-un.svg">
+                            <span>Sweets</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img" src="../../static/main/img/broccoli-un.svg">
+                            <span>Vegetarian</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img" src="../../static/main/img/apple-un.svg">
+                            <span>Fruits</span>
+                    </div>
                 </div>
-                <div class="img_cont">
-                        <img class="choices_img"  id="jf" src="../../static/main/img/fastfood-un.svg">
-                        <span>Junk-food</span>
+                <div class="hidden">
+                    <input type="text" id="cheese" name="cheese" value="false">
+                    <input type="text" id="steak" name="steak" value="false">
+                    <input type="text" id="fast_food" name="fast_food" value="false">
+                    <input type="text" id="cupcake" name="cupcake" value="false">
+                    <input type="text" id="brocoli" name="brocoli" value="false"> 
+                    <input type="text" id="apple" name="apple" value="false">
                 </div>
-                <div class="img_cont">
-                        <img class="choices_img" src="../../static/main/img/cupcake-un.svg">
-                        <span>Sweets</span>
-                </div>
-                <div class="img_cont">
-                        <img class="choices_img" src="../../static/main/img/broccoli-un.svg">
-                        <span>Vegetarian</span>
-                </div>
-                <div class="img_cont">
-                        <img class="choices_img" src="../../static/main/img/apple-un.svg">
-                        <span>Fruits</span>
-                </div>
-            </div>
-            <div class="add_btn">
-                    <input type="submit" value="Add!" class="btn">
-            </div>
-            <div class="hidden">
-                <input type="text" id="cheese" name="cheese" value="false">
-                <input type="text" id="steak" name="steak" value="false">
-                <input type="text" id="fast_food" name="fast_food" value="false">
-                <input type="text" id="cupcake" name="cupcake" value="false">
-                <input type="text" id="brocoli" name="brocoli" value="false"> 
-                <input type="text" id="apple" name="apple" value="false">
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect btn-flat center teal white-text">Close</a>
-    </div>
+            
+        </div>
+        <div class="modal-footer">
+            <!--a href="#!" class="modal-close waves-effect btn-flat center teal white-text">Close</a-->
+            <button type="submit" class="modal-close waves-effect btn-large teal white-text">Add!</button>
+            <br>
+        </div>
+    </form>
 </div>
 
 <script src={% static "main/js/users.js" %}></script>
