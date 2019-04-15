@@ -10,56 +10,62 @@
 {% block content %}
 <div class="top_br">
 </div>
+
 <div class="prefences_cont">
-        <div class="pref">
-        <div class="preferences">
-                <h4>{{user.userName}}'s Preferences</h4>
+    <form action="{% url 'user_preferences' %}" method="POST">
+        <div class="pref z-depth-2">
+            <div class="preferences">
+                    <h4>{{user.userName}}'s Preferences</h4>
+            </div>
+            <div class="icons" id="icon">
+                    <div class="img_cont">
+                            <img class="choices_img img1" src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
+                            <span>Dairy</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img img1" src="../../static/main/img/steak-{{user.check_steak}}.svg">
+                            <span>Meat</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img img1" src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
+                            <span>Junk-food</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img img2" src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
+                            <span>Sweets</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img img2" src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
+                            <span>Vegetarian</span>
+                    </div>
+                    <div class="img_cont">
+                            <img class="choices_img img2" src="../../static/main/img/apple-{{user.check_apple}}.svg"> 
+                            <span>Fruits</span>
+                    </div>
+            </div>
+            
+            <div class="hidden">
+                    
+                            
+                        <input type="text" id="cheese_in" name="cheese" value="{{user.bool_cheese}}">
+                        <input type="text" id="steak_in" name="steak" value="{{user.bool_steak}}">
+                        <input type="text" id="fast_food_in" name="fast_food" value="{{user.bool_fastfood}}">
+                        <input type="text" id="cupcake_in" name="cupcake" value="{{user.bool_cupcake}}">
+                        <input type="text" id="brocoli_in" name="brocoli" value="{{user.bool_broccoli}}"> 
+                        <input type="text" id="apple_in" name="apple" value="{{user.bool_apple}}">
+                
+            </div>
+            <div class="prf_btn">
+                            <input type="submit" value="Change" id="prf_btn" class="btn-large teal color_items">
+            </div>
         </div>
-        <div class="icons" id="icon">
-                <div class="img_cont">
-                        <img class="prefences_img img1"src="../../static/main/img/cheese-{{user.check_cheese}}.svg">
-                        <span>Dairy</span>
-                </div>
-                <div class="img_cont">
-                        <img class="prefences_img img1"src="../../static/main/img/steak-{{user.check_steak}}.svg">
-                        <span>Meat</span>
-                </div>
-                <div class="img_cont">
-                        <img id="jnk" class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
-                        <span>Junk-food</span>
-                </div>
-                <div class="img_cont">
-                        <img class="prefences_img img2"src="../../static/main/img/cupcake-{{user.check_cupcake}}.svg">
-                        <span>Sweets</span>
-                </div>
-                <div class="img_cont">
-                        <img class="prefences_img img2"src="../../static/main/img/broccoli-{{user.check_broccoli}}.svg">
-                        <span>Vegetarian</span>
-                </div>
-                <div class="img_cont">
-                        <img class="prefences_img img2"src="../../static/main/img/apple-{{user.check_apple}}.svg"> 
-                        <span>Fruits</span>
-                </div>
-        </div>
-        <div class="prf_btn">
-                        <input type="submit" value="Change" id="prf_btn" class="btn-large teal color_items">
-        </div>
-        <div class="hidden">
-                <form action="{% url 'user_preferences' %}" method="POST">
-                        {% csrf_token %}
-                        <input type="text" id="cheese" >
-                        <input type="text" id="steak" >
-                        <input type="text" id="fast-food" >
-                        <input type="text" id="cupcake" >
-                        <input type="text" id="brocoli" > 
-                        <input type="text" id="apple" >
-                </form>
-        </div>
-    </div>
+    {% csrf_token %}
+    </form>
 </div>
    
 {% endblock %}
 
 {% block javascript %}
+<script src={% static "main/js/user_preferences.js" %}></script>
 
 {% endblock %}

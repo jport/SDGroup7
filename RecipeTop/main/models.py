@@ -109,6 +109,38 @@ class User(models.Model):
             return "chk"
         else:
             return "un"
+
+    def bool_cheese(self):
+        if self.cheese:
+            return "true"
+        else:
+            return "false"
+    def bool_steak(self):
+        if self.steak:
+            return "true"
+        else:
+            return "false"
+    def bool_fastfood(self):
+        if self.fastfood:
+            return "true"
+        else:
+            return "false"
+    def bool_cupcake(self):
+        if self.cupcake:
+            return "true"
+        else:
+            return "false"
+
+    def bool_broccoli(self):
+        if self.broccoli:
+            return "true"
+        else:
+            return "false"
+    def bool_apple(self):
+        if self.apple:
+            return "true"
+        else:
+            return "false"
  
 
 

@@ -35,10 +35,9 @@ let logo = document.getElementById('logo');
 let uls = document.getElementById('uls');
 let body = document.getElementById('body');
 let icon =document.getElementById('icon');
-let prf_btn = document.getElementById('prf-btn');
 
 if(event.target!=menu
-    && event.target!=logo && event.target!=uls && event.target.parentNode.parentNode!=icon && event.target.parentNode!=prf_btn
+    && event.target!=logo && event.target!=uls && event.target.parentNode.parentNode!=icon 
     && event.target.parentNode!=uls
     && event.target.parentNode.parentNode!=uls
     && event.target.parentNode.parentNode.parentNode!=uls
@@ -82,52 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let modals = document.querySelectorAll('.modal');
     let modals_instances= M.Modal.init(modals);
 
-    icon_checker(choices_img,icons_input);
 });
 
-//individual icons
-let cheese = document.getElementById('cheese');
-let steak = document.getElementById('steak');
-let fast_food = document.getElementById('fast-food');
-let cupcake = document.getElementById('cupcake');
-let brocoli = document.getElementById('brocoli');
-let apple = document.getElementById('apple');
-//icons
-let choices_img =document.getElementsByClassName('prefences_img');
-let icons_input =[cheese,steak,fast_food,cupcake,brocoli,apple];
 
-for(let i =0;i<choices_img.length;i++){
-  choices_img[i].addEventListener("click",function(){
-    icon_pic1(i,icons_input[i]);
-  });
-}
-
-
-const icon_pic1=(index,element)=>{
-    let img_src =choices_img[index].src;
-    if(img_src.indexOf('un')!=-1){
-      img_src=img_src.replace('un','chk');
-      element.value="true";
-    }
-    else{
-      img_src=img_src.replace('chk','un');
-      element.value="false";
-    }
-    choices_img[index].src=img_src;
-  }
-
-  const icon_checker=(element1,element2)=>{
-      size = element1.length;
-    for(let i=0;i<size;i++){
-        if(element1[i].src.indexOf('chk')!=-1){
-            element2[i].value="true";
-        }
-        else{
-            element2[i].value="false";
-        }
-      }
-  }
-//end of icon stuff
 
 //color stuff
 let color_array=['teal','orange','purple'];

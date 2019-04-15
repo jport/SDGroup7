@@ -18,8 +18,44 @@ def index(request):
     return render(request, 'main/index.html')
 
 def user_preferences(request):
-    # Set session user id
     currentId = request.session["userId"]
+    user=get_object_or_404(User,pk=currentId)
+
+    if request.method == 'POST':
+        cheese=request.POST['cheese']
+        steak=request.POST['steak']
+        fast_food=request.POST['fast_food']
+        cupcake=request.POST['cupcake']
+        brocoli=request.POST['brocoli']
+        apple=request.POST['apple']
+
+        if cheese=="true":
+            user.cheese=True
+        else:
+            user.cheese=False
+        if steak=="true":
+            user.steak=True
+        else:
+            user.steak=False
+        if fast_food=="true":
+            user.fastfood=True
+        else:
+            user.fastfood=False
+        if cupcake=="true":
+            user.cupcake=True
+        else:
+            user.cupcake=False
+        if brocoli=="true":
+            user.broccoli=True
+        else:
+            user.broccoli=False
+        if apple=="true":
+            user.apple=True
+        else:
+            user.apple=False
+        user.save()
+        return HttpResponseRedirect(reverse('Home'))
+
 
     context = {
         'recipes': Recipe.objects.all(),
@@ -103,6 +139,7 @@ def users(request):
         else:
             newUser = User(userName=name, age=age,cheese=cheese, fastfood=fast_food, steak=steak,cupcake=cupcake,broccoli=brocoli, apple=apple)
             newUser.save()
+
 
     context = {
         'users': User.objects.all(),
