@@ -39,7 +39,8 @@ $(document).ready(function() {
           y: 130
        },
       repositionOnOpen: false,
-      repositionOnContent: false
+      repositionOnContent: false,
+      blockScroll: false
    });
 
    timer2Jbox = new jBox('Modal', {
@@ -59,7 +60,8 @@ $(document).ready(function() {
           y: 120
        },
        repositionOnOpen: false,
-       repositionOnContent: false
+       repositionOnContent: false,
+       blockScroll: false
    });
 
    scale_jbox = new jBox('Modal', {
@@ -79,7 +81,8 @@ $(document).ready(function() {
           y: -30
        },
        repositionOnOpen: false,
-       repositionOnContent: false
+       repositionOnContent: false,
+       blockScroll: false
    });
 
    // When Floating button clicked, start scale

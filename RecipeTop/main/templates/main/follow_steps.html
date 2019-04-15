@@ -73,7 +73,7 @@
 			                    <div class="step-content">
 			                        
 			                        <div class="step-actions">
-			                           <button class="waves-effect waves-dark btn teal lighten-1" type="button" onclick="window.location.href='{% url 'finish_recipe' recipe.id %}'">Finish!</button>
+			                           <button class="waves-effect waves-dark btn-large teal lighten-1" type="button" onclick="window.location.href='{% url 'finish_recipe' recipe.id %}'">Finish!</button>
 			                        </div>
 			                    </div>
 	                  		</li>
@@ -147,7 +147,8 @@
 {%block javascript %}
 <script> var recipe_id = ({{recipe.id}}) </script>
 <script src={% static "main/js/follow_steps.js" %}></script>
-<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script>
+<script src={% static "main/js/jBox@v0.6.1/jbox.min.js" %}></script>
+<!--script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script-->
 <script src={% static "main/js/mstepper.min.js" %}></script>
 <script>
    var stepper = document.querySelector('.stepper');
