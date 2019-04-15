@@ -8,31 +8,30 @@
 * <del> Make buttons bigger: Gera
 * References/citations for code used!!
 * <del> No copyright images!
-* make image files smaller
+* <del> make image files smaller
 
 ## Login Page
 
-* Make name clickable: Miguel
-* Add icons?: Miguel
+* <del> Make name clickable: Miguel
+* <del> Add icons?: Miguel
 * <del>Add Logo: Jason
-* less spacing/border around each users card
-* add user -> select preferences
-* make continue a button
+* <del> less spacing/border around each users card
+* <del> add user -> select preferences
+* <del> make continue a button
 
 ## Layout/Menu/NavBar
 
 * <del> Add home button: Miguel
 * Search bar/icon: Miguel
-* Make close button larger: Miguel
+* <del> Make close button larger: Miguel
 * <del> Remove close button outline: Miguel
 * <del> Fix color of buttons: Miguel
-* Add profile/user image
+* <del> Add profile/user image
 
 ## Home Page
 
 * <del> Add cards on the right for suggestions: Miguel
-* Suggestion algorithm (3 or 5): Jason!!!
-* Add floating button: Gera
+* <del> Suggestion algorithm (3 or 5): Jason!!!
 * <del> resize suggestions cards!!!
 * <del> Add content to cards on home
 * <del> SEARCH BAR??
@@ -59,8 +58,6 @@
 
 
 * <del> html for edit page
-* add rating
-* add difficulty
 * add image
 * <del> backend call for title
 * <del> backend call for description
@@ -81,7 +78,7 @@
 * <del> Add content to cards: Gera
 * <del>Clean up heart vs non hearted rendering: Gera
 * <del> Edit button
-* Add tags to cards
+* <del> Add tags to cards
 * Make cards not open if heart is pressed!!
 
 ## <del>Follow - Gather
@@ -91,7 +88,7 @@
 * <del> Add fishing/rating page (see next section): Jason+Geta
 * <del> Fix scale worker: Jason
 * <del> The menu bar at the top is off centered, scrolling is visable through it: Jason
-* Add Tare button and units change: ???
+* <del> Add Tare button and units change: ???
 * <del> Bigger buttons
 
 ## Finish Recipe
@@ -99,14 +96,14 @@
 * <del> Back end: Jason
 
 ## Database
-* Add default image
+* <del> Add default image
 
 ## Other
 * <del> Add more recipes: Gera
 * <del> Remove copyright images: Gera
 
 ## Settings - stretch only if done
-* Account/Settings
+* <del> Account/Settings
 * Add images/reviews in finish recipe page and display in search cards
 
 ## Recipe import ??
@@ -115,24 +112,24 @@
 # Hardware
 
 * Assemble Scale case
-* 2nd Case
+* <del> 2nd Case
 * <del> 2nd PCB
 * <del> Test PCB1
 * <del> Arduino Code 
-* Code for auto-reset/ low power!! : gera and Jason?
+* <del> Code for auto-reset/ low power!! : gera and Jason?
 * <del> CAD Cutting Board
 * <del> Assemble Cart
 * <del>Paste 2nd Foil and test
-* Mount PI, power button
-* Wall warts into strip
+* <del> Mount PI, power button
+* <del> Wall warts into strip
 * Paint?
-* Secure PCB, Battery, Power button
+* <del> Secure PCB, Battery, Power button
 
 #
 # Admin
-* 8 page conference paper
+* <deL> 8 page conference paper
 * Update 120 page paper
-* Update power point slide
+* <deL> Update power point slide
 * Prepare and practice demo
 
 ## Committee!!
