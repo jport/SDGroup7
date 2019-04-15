@@ -18,10 +18,10 @@
 
 .smaller_float_heart{
   position: absolute;
-  top: 2px;
-  right: 3px;
+  top: 1%;
+  right: 2%;
   z-index: 5;
-  font-size: 30px;
+  font-size: 35px;
 
 }
 
