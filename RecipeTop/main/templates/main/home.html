@@ -59,7 +59,7 @@
                                     </div>
                                     <!-- gallery body -->
                                     <div class="gallery-body">
-                                    <div class="title-wrapper">
+                                    <div class="title-wrapper cursive-title">
                                         <h3 class="recipe_title" >{{recipe.title}}</h3>
                                     </div>
                                     <div class="content-wrapper">
@@ -180,8 +180,8 @@
 {% endblock %}
 
 {% block javascript %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.js"></script>
+<script src={% static "main/js/jquery/2.1.1/jquery.min.js" %}></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
 <script src={% static "main/js/home.js" %}></script>
 <script src={% static "main/js/gallery/materialize.min.js" %}></script>
 <script src={% static "main/js/gallery/masonry.pkgd.min.js" %}></script>
