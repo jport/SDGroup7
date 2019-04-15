@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.cursive-title{
+  font-family: 'Lobster', cursive;
+
+}
+
 .float_heart {
   position: absolute;
   top: 5%;
@@ -31,11 +36,10 @@
 
 .rating_display_container {
   /* make it center */
-  margin: 0 auto;
+ /* margin: 0 auto;*/
   display: grid;
   grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
   width: 45%;
-  font-family: 'Lobster', cursive;
 }
 
 
@@ -73,7 +77,7 @@
 }
 
 .description {
-  text-align: center;
+  /*text-align: center;*/
   margin: 0 auto;
   font-style: italic;
 }
@@ -93,14 +97,14 @@
 }
 
 .recipe_title{
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
 }
 
 .gallery-body h4{
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
 }
 .gallery-body h3{
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
 }
 /*# sourceMappingURL=cards.css.map */
 
