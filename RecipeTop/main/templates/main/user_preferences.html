@@ -25,7 +25,7 @@
                         <span>Meat</span>
                 </div>
                 <div class="img_cont">
-                        <img class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
+                        <img id="jnk" class="prefences_img img1"src="../../static/main/img/fastfood-{{user.check_fastfood}}.svg">
                         <span>Junk-food</span>
                 </div>
                 <div class="img_cont">
@@ -42,7 +42,7 @@
                 </div>
         </div>
         <div class="prf_btn">
-                        <input type="submit" value="Change" class="btn teal color_items">
+                        <input type="submit" value="Change" id="prf_btn" class="btn-large teal color_items">
         </div>
         <div class="hidden">
                 <form action="{% url 'user_preferences' %}" method="POST">
