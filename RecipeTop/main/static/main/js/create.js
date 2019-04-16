@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var utensil_modals = document.getElementById("utensil_modal");
     //alert(utensil_modals);
     utensil_modal_instance = M.Modal.init(utensil_modals);
-
+    let chip = document.getElementById('chip');
     let ch = M.Chips.getInstance(chip);
     ch.$input[0].onfocus = function(){
         focusChipInput = true;
@@ -39,20 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let stars = document.getElementsByClassName("star_button");
 
+let rating_container = document.getElementById("rating_container")
 
 var num_stars = 0;
 let star_field = document.createElement('input');
-star_field.required=true;
+star_field.type = "hidden";
+star_field.name = "rating";
+star_field.value=0;
+rating_container.appendChild(star_field);
 for (let i = 0, len = stars.length; i < len; i++) {
     stars[i].onclick = function (){
         
-        let rating_container = document.getElementById("rating_container")
+        
         num_stars = stars[i].id;
         //alert(num_stars.toString());
-        star_field.type = "hidden";
-        star_field.name = "rating";
+        
         star_field.value = num_stars.toString();
-        rating_container.appendChild(star_field);
+        
         for (var j = 1; j <= num_stars; j++){
             let star_icon = document.getElementById(j.toString());
             //alert(star_icon);
@@ -67,17 +70,21 @@ for (let i = 0, len = stars.length; i < len; i++) {
 }
 let cakes = document.getElementsByClassName("difficulty_button");
 var num_cakes = 0;
+let difficulty_container = document.getElementById("difficulty_container")
 let cake_field = document.createElement('input');
+cake_field.type = "hidden";
+cake_field.name = "difficulty";
+cake_field.value=0;
+difficulty_container.appendChild(cake_field);
 for (let i = 0, len = cakes.length; i < len; i++) {
     cakes[i].onclick = function (){
         
-        let difficulty_container = document.getElementById("difficulty_container")
+        
         num_cakes = cakes[i].id-100;
         //alert(num_stars.toString());
-        cake_field.type = "hidden";
-        cake_field.name = "difficulty";
+
         cake_field.value = num_cakes.toString();
-        difficulty_container.appendChild(cake_field);
+        
         for (var l = 101; l <= num_cakes*1 +100; l++){
             let cake_icon = document.getElementById(l.toString());
             //alert(l)
@@ -226,7 +233,7 @@ function createNewUtensil(value)
 }
 
 
-let chip = document.getElementById('chip');
+
 
 function addChips()
 {

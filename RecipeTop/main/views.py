@@ -191,7 +191,7 @@ def create(request):
         quanties = request.POST.getlist('quantity')
         units = request.POST.getlist('unit')
 
-        for i in range(0, len(ingredients)):
+        for i in range(0, min(len(ingredients), len(quanties),len(units))):
             ing = Ingredient.objects.get_or_create(name__iexact = ingredients[i], defaults={'name':ingredients[i]})[0]
             repToIng = RecipeToIngredient(
                 recipe = r,
