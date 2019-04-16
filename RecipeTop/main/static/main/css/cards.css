@@ -115,6 +115,24 @@
 .gallery-body h3{
   /*font-family: 'Lobster', cursive;*/
 }
+.ingredient_props2 span {
+  vertical-align: center;
+  /* margin-left: 2px; */
+  font-size: 16px;
+}
+
+.ingredient_props2 i {
+  vertical-align: top;
+  font-size: 20px;
+}
+
+.ingredient_props2 {
+  display: grid;
+  grid-template-columns: .8fr .8fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+#time{font-size: 12px;}
 /*# sourceMappingURL=cards.css.map */
 
 /*# sourceMappingURL=cards.css.map */
