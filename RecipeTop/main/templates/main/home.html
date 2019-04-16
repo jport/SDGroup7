@@ -14,27 +14,7 @@
 {% block content %}
 <br>
 <br>
-<!-- <div class="container">
-    <div class="carousel">
-    {% for recipe in recipes %}
-        <a href="{% url 'follow_steps' recipe.id %}" class="carousel-item">
-            <div class="Home_container">
-                <div class="photo" style="background-image: url({{recipe.image.url}})">
-                        <div class="min">
-                            <h3>{{recipe.estDuration}}</h3>
-                            <span>mins</span>
-                        </div>
-                        <div class="heart_icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="Title">
-                            <h3>{{recipe.title}}</h3>
-                        </div>
-                </div>
-            </div>
-    {% endfor %}
-    </div>
-</div> -->
+
 <br>
 <br>
 <br>
@@ -60,7 +40,7 @@
                                             <div class="ingredient_props2">
                                                     <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating|floatformat}}</span></div>
                                                     <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty|floatformat}}</span></div>
-                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration|floatformat}}<span id="time">min</span></span></div>
+                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration|floatformat}}<span id="timeC">min</span></span></div>
                                             </div>
                                     </div>
                                     <!-- gallery body -->
