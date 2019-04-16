@@ -24,7 +24,7 @@ $(document).ready(function() {
 
    timer1Jbox = new jBox('Modal', {
       attach: $('#timer-1-drag-anywhere'),
-      width: 250,
+      width: 300,
       title: 'Timer 1',
       overlay: false,
       createOnInit: true,
@@ -45,7 +45,7 @@ $(document).ready(function() {
 
    timer2Jbox = new jBox('Modal', {
        attach: $('#timer-2-drag-anywhere'),
-       width: 250,
+       width: 300,
        title: 'Timer 2',
        overlay: false,
        createOnInit: true,
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
    scale_jbox = new jBox('Modal', {
        attach: $('#scale-drag-anywhere'),
-       width: 250,
+       width: 300,
        title: 'Start weighing...',
        overlay: false,
        createOnInit: true,
@@ -125,7 +125,7 @@ $(document).ready(function() {
 
 
 function restart_timer1(){
-  document.getElementById("demo1").innerHTML = '<p class="range-field bigger_button"><input type="range" id="timer1" min="0" max="60" /></p>';
+  document.getElementById("demo1").innerHTML = '<p class="range-field bigger_button"><input type="range" id="timer1" min="0" max="20" /></p>';
   document.getElementById("timer_button_holder1").innerHTML  ='<button class="btn-large waves-effect waves-light" type="button" name="action" id="start_timer1">Start Timer</button>'
   stop_timer1 = true;
   let timer_button1 = document.getElementById("start_timer1");
