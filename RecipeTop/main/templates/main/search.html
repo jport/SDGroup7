@@ -173,9 +173,9 @@
                        </div>
                        <br>
                        <div class="ingredient_props">
-                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating}}</span></div>
-                            <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty}}</span></div>
-                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration}} mins</span></div>
+                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating|floatformat}}</span></div>
+                            <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty|floatformat}}</span></div>
+                            <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration|floatformat}} mins</span></div>
                        </div>
                     </div>
                     <!-- inside the card stuff -->

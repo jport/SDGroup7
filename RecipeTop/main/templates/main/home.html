@@ -8,7 +8,7 @@
 <link rel="stylesheet" href={% static "main/css/gallery-materialize.min.css" %}>
 <link rel="stylesheet" href={% static "main/css/cards.css" %}>
 <link rel="stylesheet" href={% static "main/css/home.css" %}>
-<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v0.6.1/dist/jBox.all.min.css" rel="stylesheet">
+
 {% endblock %}
 
 {% block content %}
@@ -58,9 +58,9 @@
                                                  <span class="recipe_title title">{{recipe.title}}</span>
                                             </div>
                                             <div class="ingredient_props2">
-                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating}}</span></div>
-                                                    <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty}}</span></div>
-                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration}}<span id="time">min</span></span></div>
+                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">star</i><span>{{recipe.rating|floatformat}}</span></div>
+                                                    <div class="prop2"><i class="material-icons teal-text color_links text-lighten-3">cake</i><span>{{recipe.difficulty|floatformat}}</span></div>
+                                                    <div class="prop1"><i class="material-icons teal-text color_links text-lighten-3">access_time</i><span>{{recipe.estDuration|floatformat}}<span id="time">min</span></span></div>
                                             </div>
                                     </div>
                                     <!-- gallery body -->
